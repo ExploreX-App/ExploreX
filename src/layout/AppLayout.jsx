@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
+import Footer from '../pages/components/Footer/Footer';
+import './AppLayout.Style.css'; 
 
 const AppLayout = () => {
   const [keyword, setKeyword] = useState('');
@@ -14,8 +16,8 @@ const AppLayout = () => {
   };
 
   return (
-    <div>
-      <Navbar expand="lg" variant="dark" bg="black" className="navbar-container">
+    <div className="app-container"> {/* 여기서 app-container 클래스 추가 */}
+      <Navbar expand="lg" variant="light" bg="light" className="navbar-container">
         <Container fluid>
           <Navbar.Brand href="/">
             <img height={30} className="m-1" src="https://static.vecteezy.com/system/resources/previews/017/396/814/original/netflix-mobile-application-logo-free-png.png" alt="logo" />
@@ -33,16 +35,22 @@ const AppLayout = () => {
 
             {/* Login */} 
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/signin">Sign in</Nav.Link>
+              <Nav.Link as={Link} to="/login">Sign in</Nav.Link>
               <NavDropdown title="My Account" id="navbarScrollingDropdown">
-                <NavDropdown.Item as={Link} to="/account">Profile</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/account/settings">Settings</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/profile/settings">Settings</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Outlet /> 
+
+      {/* Content */}
+      <div className="content">
+        <Outlet />
+      </div>
+
+      <Footer />
     </div>
   );
 };
