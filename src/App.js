@@ -5,6 +5,7 @@ import AppLayout from './layout/AppLayout';
 import ActivityDetailPage from './pages/ActivityDetailPage/ActivityDetailPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import ActivityPage from './pages/ActivityPage/ActivityPage';
+import HotelPage from './pages/HotelPage/HotelPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<ActivityPage />} />
           <Route path=':id' element={<ActivityDetailPage />} />
         </Route>
+        <Route path='hotels' element={<HotelPage />} />
       </Route>
 
       <Route path='*' element={<NotFoundPage />} />
