@@ -49,20 +49,12 @@
   "main": "index.js",
   "author": "Amy Ahn, James Jo, Hailey Kim, Suhyun Park, Hyeyeon Kim",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jamescakr/ExploreX.git"
-  },
   "keywords": [
     "travel",
     "guide",
     "web",
     "app"
   ],
-  "bugs": {
-    "url": "https://github.com/jamescakr/ExploreX/issues"
-  },
-  "homepage": "https://github.com/jamescakr/ExploreX#readme",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }

@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Outlet, useNavigate, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import Footer from '../pages/components/Footer/Footer';
 import './AppLayout.Style.css'; 
 
 const AppLayout = () => {
-  const [keyword, setKeyword] = useState('');
-  const navigate = useNavigate();
-
-  const searchByKeyword = (e) => {
-    e.preventDefault();
-    navigate(`/movies?q=${keyword}`);
-    setKeyword('');
-  };
-
   return (
-    <div className="app-container"> {/* 여기서 app-container 클래스 추가 */}
+    <div className="app-container">
       <Navbar expand="lg" variant="light" bg="light" className="navbar-container">
         <Container fluid>
           <Navbar.Brand href="/">
