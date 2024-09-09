@@ -1,11 +1,25 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { useActivitiesQuery } from './hooks/useFetchActivities';
+import HomePage from './pages/HomePage/HomePage';
+import AppLayout from './layout/AppLayout';
+import ActivityDetailPage from './pages/ActivityDetailPage/ActivityDetailPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import ActivityPage from './pages/ActivityPage/ActivityPage';
 
 function App() {
   return (
-    <div>
-      Welcome to React group project!!
-    </div>
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="activities">
+          <Route index element={<ActivityPage />} />
+          <Route path=":id" element={<ActivityDetailPage />} />
+        </Route>
+      </Route>
+
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
 
