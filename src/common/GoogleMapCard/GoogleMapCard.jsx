@@ -1,7 +1,6 @@
 import React from "react";
 import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 import { useAddressQuery } from "../../hooks/useFetchAddress";
-import "./GoogleMapCard.style.css";
 import { Card } from "react-bootstrap";
 
 const GoogleMapCard = ({ lat, lng }) => {
