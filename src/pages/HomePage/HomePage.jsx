@@ -4,6 +4,7 @@ import CardSlide from '../../common/CardSlide/CardSlide'
 import CategorySlide from './components/CategorySlide/CategorySlide'
 import { Container } from 'react-bootstrap'
 import "./Homepage.style.css"
+import VideoBanner from './components/VideoBanner/VideoBanner'
 
 
 //banner
@@ -12,11 +13,14 @@ import "./Homepage.style.css"
 const HomePage = () => {
   return (
     <Container>
-          <div>HomePage
-        <Banner />
+      <div>HomePage
+        <div className='homepage-heading'>
+              <Banner />
+        <VideoBanner />
+        </div>
+ 
         <CategorySlide />
-        <CardSlide />
-
+        <CardSlide/>
           </div>
     </Container>
 
