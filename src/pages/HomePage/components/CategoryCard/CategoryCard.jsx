@@ -2,6 +2,8 @@ import React from 'react'
 import "./CategoryCard.style.css"
 
 const CategoryCard = () => {
+
+  
     return (
       <div className='card'>
                 <div className='category-container'>
