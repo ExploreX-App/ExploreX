@@ -1,10 +1,8 @@
-import React from 'react'
-import Banner from './components/Banner/Banner'
-import CardSlide from '../../common/CardSlide/CardSlide'
-import CategorySlide from './components/CategorySlide/CategorySlide'
-import { Container } from 'react-bootstrap'
-import "./Homepage.style.css"
-
+import React from "react";
+import Banner from "./components/Banner/Banner";
+import { Container } from "react-bootstrap";
+import "./Homepage.style.css";
+import CitySlider from "./components/CitySlider";
 
 //banner
 //
@@ -12,15 +10,14 @@ import "./Homepage.style.css"
 const HomePage = () => {
   return (
     <Container>
-          <div>HomePage
+      <div>
+        HomePage
         <Banner />
-        <CategorySlide />
-        <CardSlide />
-
-          </div>
+        {/* <CategorySlide /> */}
+        <CitySlider />
+      </div>
     </Container>
+  );
+};
 
-  )
-}
-
-export default HomePage
+export default HomePage;
