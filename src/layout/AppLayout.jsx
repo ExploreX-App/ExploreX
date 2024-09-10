@@ -5,7 +5,7 @@ import { Outlet, Link } from 'react-router-dom';
 
 
 import Footer from '../pages/components/Footer/Footer';
-import './AppLayout.Style.css'; 
+import './AppLayout.style.css'; 
 
 
 const AppLayout = () => {
