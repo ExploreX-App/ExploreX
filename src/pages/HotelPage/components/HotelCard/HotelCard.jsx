@@ -7,10 +7,9 @@ const HotelCard = ({ hotel, adultNum }) => {
   const { currency, value } = hotel?.priceBreakdown?.grossPrice;
   const goToDetail = () => {
     navigate(`./${hotel.id}`, {
-      state: { dateFrom: hotel.checkinDate, dateTo: hotel.checkoutDate, adultNum: adultNum },
+      state: { dateFrom: hotel.checkinDate, dateTo: hotel.checkoutDate, adultNum: adultNum, photos: hotel.photoUrls },
     });
   };
-  console.log(hotel);
   return (
     <div
       className="p-3 m-3 w-50 d-flex gap-3"

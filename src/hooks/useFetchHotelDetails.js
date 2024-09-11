@@ -19,13 +19,13 @@ const fetchHotelDetails = async ({ hotelId, dateFrom, dateTo, adultNum }) => {
 };
 
 export const useHotelDetailsQuery = ({
-  keyword,
+  hotelId,
   dateFrom,
   dateTo,
   adultNum,
 }) => {
   return useQuery({
-    queryKey: ["hotels", keyword],
+    queryKey: ["hotel", hotelId],
     queryFn: () => fetchHotelDetails({ hotelId, dateFrom, dateTo, adultNum }),
     select: (result) => result.data,
   });
