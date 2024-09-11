@@ -10,13 +10,13 @@ import './AppLayout.style.css';
 
 const AppLayout = () => {
   return (
-    <div className="app-container">
-      <Navbar expand="lg" variant="light" bg="light" className="navbar-container">
+    <Container className="app-container">
+      <Navbar expand="lg" className="navbar-container">
         <Container fluid>
           <Navbar.Brand href="/">
             <img height={30} className="m-1" src="https://static.vecteezy.com/system/resources/previews/017/396/814/original/netflix-mobile-application-logo-free-png.png" alt="logo" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll" className='navbar-icon' />
           <Navbar.Collapse id="navbarScroll">
             {/* Menu Items */}
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
@@ -48,7 +48,7 @@ const AppLayout = () => {
       <Footer />
 
 
-    </div>
+    </Container>
   );
 };
 

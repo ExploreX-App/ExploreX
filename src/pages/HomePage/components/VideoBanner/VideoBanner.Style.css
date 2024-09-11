@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
 #bg-video{
     object-fit: cover;
     width: 100vw;
@@ -6,4 +8,21 @@
     top: 0;
     left: 0;
     z-index: -1;
+}
+.hero-content{
+    margin-top: 5em;
+    width: 70%;
+    height: 500px;
+}
+.hero-heading div{
+    color: white;
+    font-size: 30px;
+
+}
+
+h1{
+font-family: 'SF Pro Display', sans-serif;
+color: white;
+font-weight: bold;
+font-size: 80px;
 }
