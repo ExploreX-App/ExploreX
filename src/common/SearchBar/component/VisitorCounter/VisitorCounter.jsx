@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./VisitorCounter.style.css"
 
-const VisitorCounter = () => {
+const VisitorCounter = ({ onVisitorInfoChange }) => {
   const [rooms, setRooms] = useState([{ adults: 2, children: 0 }]);
-  const [isExpanded, setIsExpanded] = useState(false); // State to track if the counter container is expanded
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Calculate total travelers (adults + children) and rooms
+  const totalTravelers = rooms.reduce(
+    (total, room) => total + room.adults + room.children,
+    0
+  );
+  const totalRooms = rooms.length;
+
+  // Avoid triggering parent updates unnecessarily by using useEffect
+  useEffect(() => {
+    if (onVisitorInfoChange) {
+      onVisitorInfoChange(totalTravelers, totalRooms);
+    }
+  }, [totalTravelers, totalRooms, onVisitorInfoChange]); // Add dependencies properly to avoid continuous re-renders
 
   // Function to update the number of adults in a room
   const handleAdultChange = (roomIndex, amount) => {
@@ -36,59 +50,41 @@ const VisitorCounter = () => {
     setRooms(newRooms);
   };
 
-  // Calculate total travelers (adults + children) and rooms
-  const totalTravelers = rooms.reduce(
-    (total, room) => total + room.adults + room.children,
-    0
-  );
-
-  const totalRooms = rooms.length;
-
   return (
     <div className="visitor-counter">
-      {/* Input box to display total travelers and rooms, clickable to expand form */}
       <div className="input-box" onClick={() => setIsExpanded(true)}>
         <label>Travellers</label>
         <input
           type="text"
           readOnly
-          value={`${totalTravelers} travellers, ${totalRooms} room${
-            totalRooms > 1 ? 's' : ''
-          }`}
+          value={`${totalTravelers} travellers, ${totalRooms} room${totalRooms > 1 ? 's' : ''}`}
         />
       </div>
 
-      {/* Counter container that shows room details */}
       {isExpanded && (
         <div className="counter-container">
-          {/* Popup card for each room */}
           {rooms.map((room, roomIndex) => (
             <div key={roomIndex} className="room">
               <h4>Room {roomIndex + 1}</h4>
 
-              {/* Adult Counter */}
               <div className="counter">
                 <label>Adults</label>
-                <div className='counterBtn-wrap'>
+                <div className="counterBtn-wrap">
                   <button className="counter-btn" onClick={() => handleAdultChange(roomIndex, -1)}>-</button>
                   <span>{room.adults}</span>
                   <button className="counter-btn" onClick={() => handleAdultChange(roomIndex, 1)}>+</button>
                 </div>
               </div>
 
-              {/* Children Counter */}
               <div className="counter">
-                      <label>Children (Ages 0 to 17)</label>
-                      <div className='counterBtn-wrap'>
-                          <button className="counter-btn" onClick={() => handleChildChange(roomIndex, -1)}>-</button>
-                <span>{room.children}</span>
-                <button className="counter-btn" onClick={() => handleChildChange(roomIndex, 1)}>+</button>
-
-                      </div>
-                
+                <label>Children (Ages 0 to 17)</label>
+                <div className="counterBtn-wrap">
+                  <button className="counter-btn" onClick={() => handleChildChange(roomIndex, -1)}>-</button>
+                  <span>{room.children}</span>
+                  <button className="counter-btn" onClick={() => handleChildChange(roomIndex, 1)}>+</button>
+                </div>
               </div>
 
-              {/* Remove room button for each room if more than 1 */}
               {totalRooms > 1 && (
                 <button onClick={() => removeRoom(roomIndex)} className="remove-room-button">
                   Remove room
@@ -97,15 +93,14 @@ const VisitorCounter = () => {
             </div>
           ))}
 
-          <div className='button-wrap'>
+          <div className="button-wrap">
             <button onClick={addRoom} className="add-room-button">
               Add another room
             </button>
 
-            {/* Done button to collapse the form */}
             <button className="done-button" onClick={() => setIsExpanded(false)}>
               Done
-            </button>    
+            </button>
           </div>
         </div>
       )}

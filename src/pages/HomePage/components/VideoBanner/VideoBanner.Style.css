@@ -11,6 +11,7 @@
 }
 .hero-content{
     margin-top: 5em;
+    margin-bottom: 2em;
     width: 70%;
     height: 500px;
 }
@@ -23,6 +24,21 @@
 h1{
 font-family: 'SF Pro Display', sans-serif;
 color: white;
-font-weight: bold;
-font-size: 80px;
+font-weight: bold !important;
+font-size: 80px !important;
+}
+
+@media (max-width:767px){
+    h1{
+        font-size: 70px !important;
+    }
+}
+@media(max-width:504px){
+    .hero-content{
+        margin-top: 2em;
+        margin-bottom: 4em;
+    }
+        .hero-heading div{
+            font-size: 24px;
+        }
 }

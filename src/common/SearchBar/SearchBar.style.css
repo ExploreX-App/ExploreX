@@ -1,0 +1,15 @@
+
+.hotel-search{
+    display: flex;
+}
+.search-btn{
+    background-color: #318AFF !important;
+    width: 100% !important;
+    height: 46px;
+
+}
+.activity-search{
+    display: flex;
+    justify-content: space-between;
+
+}
