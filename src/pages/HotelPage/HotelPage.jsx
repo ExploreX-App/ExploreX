@@ -18,7 +18,7 @@ const HotelPage = () => {
   return (
     <div>
       {data.map((hotel, index) => (
-        <HotelCard hotel={hotel?.property} key={index} />
+        <HotelCard hotel={hotel?.property} adultNum="2" key={index} />
       ))}
     </div>
   );
