@@ -8,7 +8,7 @@ import "./CardSlide.style.css";
 
 const CardSlide = ({ title, items }) => {
   return (
-    <div>
+    <div className="cardSlide-container">
       <div className="fs-4 fw-bold">{title}</div>
       <Container className="p-0">
         <Carousel
