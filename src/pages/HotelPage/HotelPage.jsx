@@ -1,5 +1,6 @@
 import React from "react";
 import { useHotelsByKeywordQuery } from "../../hooks/useFetchHotelsByKeyword";
+import HotelCard from "./components/HotelCard/HotelCard";
 
 const HotelPage = () => {
   const { data, isLoading, error, isError } = useHotelsByKeywordQuery({
@@ -14,8 +15,13 @@ const HotelPage = () => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  // console.log(data);
-  return <div>Hotels</div>;
+  return (
+    <div>
+      {data.map((hotel, index) => (
+        <HotelCard hotel={hotel?.property} key={index} />
+      ))}
+    </div>
+  );
 };
 
 export default HotelPage;
