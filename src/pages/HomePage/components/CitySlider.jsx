@@ -19,6 +19,10 @@ const CitySlider = () => {
       name: "Cancun",
       img: "https://cdn.prod.website-files.com/645cf73a1399f9f6ed09a0e8/645cf73a1399f93eb009a93c_Hero-Mobile-Cancun.jpg",
     },
+    {
+      name: "Cancun",
+      img: "https://cdn.prod.website-files.com/645cf73a1399f9f6ed09a0e8/645cf73a1399f93eb009a93c_Hero-Mobile-Cancun.jpg",
+    },
   ];
 
   return (
