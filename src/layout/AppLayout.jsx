@@ -1,14 +1,18 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Outlet, Link } from 'react-router-dom';
-
-
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import Footer from '../pages/components/Footer/Footer';
-import './AppLayout.Style.css'; 
-
+import './AppLayout.style.css'; 
 
 const AppLayout = () => {
+  const navigate = useNavigate();
+  const user = localStorage.getItem('user');
+
+  const handleLogout = () => {
+    localStorage.clear('user');
+    navigate('/')
+  }
   return (
     <div className="app-container">
       <Navbar expand="lg" variant="light" bg="light" className="navbar-container">
@@ -29,7 +33,13 @@ const AppLayout = () => {
 
             {/* Login */} 
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/login">Sign in</Nav.Link>
+              {!user ? (
+                <Nav.Link as={Link} to="/login">Sign in</Nav.Link>
+              ):
+              // <Button className='logout-btn'> Logout </Button>
+              <Nav.Link as={Link} onClick={handleLogout}>Sign out</Nav.Link>
+              }
+
               <NavDropdown title="My Account" id="navbarScrollingDropdown">
                 <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/profile/settings">Settings</NavDropdown.Item>
