@@ -14,7 +14,7 @@ const fetchActivities = async ({ keyword }) => {
     const response = await api.get(
       `/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=10`
     );
-    
+
     return response.data;
   } catch (error) {
     console.error("Error fetching activities:", error);

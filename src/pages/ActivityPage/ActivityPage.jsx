@@ -1,7 +1,7 @@
 import { Alert, Col, Container, Row } from "react-bootstrap";
 import { useActivitiesQuery } from "../../hooks/useFetchActivities";
 import { useSearchParams } from "react-router-dom";
-import ActivityCard from "../../common/ActivityCard";
+import ActivityCard from "../HomePage/components/ActivityCard/ActivityCard";
 
 const ActivityPage = () => {
   const [query, setQuery] = useSearchParams();
@@ -9,7 +9,7 @@ const ActivityPage = () => {
   console.log("keyword", keyword);
 
   const { data, isLoading, isError, error } = useActivitiesQuery({
-    keyword: "london",
+    keyword: keyword || "toronto",
   });
   console.log("ddd", data);
 
@@ -18,18 +18,18 @@ const ActivityPage = () => {
   }
 
   if (isError) {
-    return <Alert variant="danger">{error.message}</Alert>;
+    return <Alert variant="danger">{error?.message || "An error occurred"}</Alert>;
   }
 
   return (
     <Container>
       <Row>
-        <Col lg={4} xs={12}></Col>
-        <Col lg={8} xs={12}>
+        <Col lg={2} xs={12}>filter</Col>
+        <Col lg={10} xs={12}>
           <Row>
-            {data?.results?.length > 0 ? (
-              data.results.map((activity, index) => (
-                <Col key={index}>
+            {data?.length > 0 ? (
+              data.map((activity, index) => (
+                <Col lg={6} xs={12} className="mb-4" key={index}>
                   <ActivityCard activity={activity} />
                 </Col>
               ))

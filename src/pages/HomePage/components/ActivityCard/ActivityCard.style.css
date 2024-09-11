@@ -1,0 +1,10 @@
+/* .card-structure {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+.card-border {
+  border: 1px solid rgb(194, 193, 193);
+  border-radius: 1rem;
+}
