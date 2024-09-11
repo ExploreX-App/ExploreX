@@ -1,11 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import { useHotelDetailsQuery } from "../../hooks/useFetchHotelDetails";
 import { useLocation, useParams } from "react-router-dom";
 import HotelDescription from "./components/HotelDescription";
+import HotelDetailHeader from "./components/HotelDetailHeader/HotelDetailHeader";
+import HotelPageLayout from "../HotelPage/Layout/HotelPageLayout";
+import AdvertisingBanner from "./components/AdvertisingBanner";
+import ImportantInformation from "./components/ImportantInformation";
+import FreqeuntAskedQuestions from "./components/FreqeuntAskedQuestions";
+import TermsOfUse from "./components/TermsOfUse";
+import "./HotelDetailPage.style.css";
 
 const HotelDetailPage = () => {
   const location = useLocation();
-  const { dateFrom, dateTo, adultNum, photos } = location.state;
+  const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state;
+  const [keywordQuery, setKeywordQuery] = useState(null)
+
   const { id } = useParams();
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
     hotelId: id,
@@ -22,18 +31,42 @@ const HotelDetailPage = () => {
   return (
     <div>
       <div>
-        {photos?.map((photo, index) => {
-          const adjustedPhoto = photo.replace("square60", "square600");
-          return <img src={adjustedPhoto} key={index} alt="" />;
-        })}
-        {Object.values(data?.rooms).map((room) =>
-          room?.photos?.map((photo, index) => (
-            <img src={photo.url_max300} alt="" key={index} />
-          ))
-        )}
-        <div className="fs-2">{data.hotel_name}</div>
-        <div>Total: {data?.composite_price_breakdown.gross_amount.amount_rounded}</div>
-            <div>Per night: {data?.composite_price_breakdown.gross_amount_per_night.amount_rounded}</div>
+        <HotelPageLayout setKeywordQuery={setKeywordQuery} />
+        <HotelDetailHeader hotel={data} reviewScore={reviewScore} />
+        <div className="photo-gallery">
+          {photos?.map((photo, index) => {
+            const adjustedPhoto = photo.replace("square60", "square600");
+            return (
+              <img
+                src={adjustedPhoto}
+                key={index}
+                alt=""
+                className={`photo-${index}`}
+              />
+            );
+          })}
+          {Object.values(data?.rooms).map((room) =>
+            room?.photos?.map((photo, index) => (
+              <img
+                src={photo.url_max300}
+                alt=""
+                key={index}
+                className={`photo-room-${index}`}
+              />
+            ))
+          )}
+        </div>
+
+        <div>
+          Total: {data?.composite_price_breakdown.gross_amount.amount_rounded}
+        </div>
+        <div>
+          Per night:{" "}
+          {
+            data?.composite_price_breakdown.gross_amount_per_night
+              .amount_rounded
+          }
+        </div>
         <div>Accommodation type: {data?.accommodation_type_name}</div>
         <div>
           Address: {data?.address}, {data?.city}, {data?.country_trans}
@@ -57,7 +90,13 @@ const HotelDetailPage = () => {
           ))}
         </div>
       </div>
-      <div><HotelDescription hotelId={data.hotel_id}/></div>
+      <div>
+        <HotelDescription hotelId={data.hotel_id} />
+      </div>
+      <AdvertisingBanner />
+      <ImportantInformation />
+      <FreqeuntAskedQuestions />
+      <TermsOfUse />
     </div>
   );
 };

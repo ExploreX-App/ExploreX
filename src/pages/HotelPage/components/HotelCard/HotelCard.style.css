@@ -1,0 +1,46 @@
+.hotel-card {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .hotel-card-body {
+    padding: 15px;
+  }
+  
+  .hotel-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .room-info {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .availability-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .hotel-price-review {
+    width: 200px;
+    text-align: right;
+  }
+  
+  .review-score {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  .review-count, .comfort-score {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .hotel-price {
+    font-size: 18px;
+  }

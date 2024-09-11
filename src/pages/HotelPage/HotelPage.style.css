@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  /* 페이지 타이틀 스타일링 */
+  .hotel-page-title h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .hotel-cards-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px; /* 카드들 사이의 세로 간격 */
+    margin-top: 20px;
+  }

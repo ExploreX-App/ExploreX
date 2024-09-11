@@ -1,0 +1,24 @@
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 네 개의 열로 나눔 */
+    grid-gap: 10px; /* 사진들 사이의 간격 */
+    margin-bottom: 20px;
+  }
+  
+  .photo-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  /* 첫 번째 사진을 큰 이미지로 설정 */
+  .photo-0 {
+    grid-column: span 2; /* 첫 번째 사진은 두 개의 열을 차지 */
+    grid-row: span 2; /* 두 개의 행을 차지 */
+    height: 100%;
+  }
+  
+  .photo-1, .photo-2, .photo-3, .photo-room-0 {
+    height: 200px; /* 다른 사진들의 높이는 일정하게 설정 */
+  }
