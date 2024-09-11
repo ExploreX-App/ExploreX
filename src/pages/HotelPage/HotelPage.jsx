@@ -4,7 +4,7 @@ import HotelCard from "./components/HotelCard/HotelCard";
 
 const HotelPage = () => {
   const { data, isLoading, error, isError } = useHotelsByKeywordQuery({
-    keyword: "toronto",
+    keyword: "Vancouver",
     dateFrom: "2024-10-01",
     dateTo: "2024-10-09",
     adultNum: 2,
