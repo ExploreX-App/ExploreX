@@ -10,7 +10,7 @@ export default function VideoBanner() {
       </video>
       <div className="hero-content">
               <h1>Discover Your Next Adventure</h1>
-              <div>– Explore, Dream, Travel.</div>
+              <div className="fw-semibold">Explore, Dream, Travel.</div>
       </div> 
 
       </div>

@@ -46,7 +46,6 @@ const ActivitySearch = () => {
 
   return (
     <div>
-      <Container>
         <Row>
           <Col lg={5} sm={12}>
             {/* Country Selector */}
@@ -79,7 +78,6 @@ const ActivitySearch = () => {
             </Button>
           </Col>
         </Row>
-      </Container>
     </div>
   );
 };

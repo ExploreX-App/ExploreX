@@ -57,7 +57,6 @@ const SearchBar = () => {
         onSelect={(selectedTab) => setActiveTab(selectedTab)}
       >
         <Tab eventKey="hotel" title="Hotel">
-          <Container>
             <Row>
               <HotelSearch 
                 onCountryChange={handleCountryChange} 
@@ -65,17 +64,14 @@ const SearchBar = () => {
                 onSearch={handleSearch} 
               />
             </Row>
-          </Container>
         </Tab>
         <Tab eventKey="activity" title="Activity">
-          <Container>
             <Row>
               <ActivitySearch 
                 onCountryChange={handleCountryChange} 
                 onSearch={handleSearch} 
               />
             </Row>
-          </Container>
         </Tab>
       </Tabs>
     </div>

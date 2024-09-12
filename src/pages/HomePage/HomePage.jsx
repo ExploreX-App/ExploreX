@@ -9,9 +9,6 @@ import ActivityCard from "./components/ActivityCard/ActivityCard";
 import ActivitySlide from "./components/ActivitySlide/ActivitySlide";
 import ActivityTabs from "./ActivityTabs/ActivityTabs";
 
-//banner
-//
-
 const HomePage = () => {
   return (
     <Container>
@@ -20,11 +17,10 @@ const HomePage = () => {
           <VideoBanner />
         </div>
 
-
         <SearchBar />
         <CitySlider />
         {/* <ActivitySlide /> */}
-        <ActivityTabs />
+        {/* <ActivityTabs /> */}
       </div>
     </Container>
   );
