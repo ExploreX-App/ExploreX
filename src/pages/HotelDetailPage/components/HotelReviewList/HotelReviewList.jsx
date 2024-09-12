@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useHotelReviewQuery } from "../../../../hooks/useFetchHotelReviews";
-import HotelReviewCard from "../HotelReviewCard";
+import HotelReviewCard from "./components/HotelReviewCard";
 import { Container } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import { responsive } from "../../../../utils/hotelReviewSlider";
 import "./HotelReviewList.style.css";
+import HotelReviewScore from "./components/HotelReviewScore";
 
 const HotelReviewList = ({ hotelId }) => {
   const [sortOption, setSortOption] = useState("sort_most_relevant");
@@ -21,8 +22,13 @@ const HotelReviewList = ({ hotelId }) => {
   const filteredData = data?.result.filter((data) => data?.pros?.length > 0);
   return (
     <Container>
+      <div className="m-2">
+        <div className="fs-5 fw-bold">Guest reviews</div>
+      </div>
+      <HotelReviewScore hotelId={hotelId} reviewCount={data.count} />
+      <div className="fw-semibold m-2">Guest who stayed here loved</div>
       <Carousel
-        style={{ width: "100%"}}
+        style={{ width: "100%" }}
         partialVisbile={false}
         infinite={true}
         autoPlay={true}

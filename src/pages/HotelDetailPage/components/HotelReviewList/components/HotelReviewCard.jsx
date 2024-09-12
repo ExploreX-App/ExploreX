@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Card, Button, Image } from "react-bootstrap";
-import HotelReviewModal from "./HotelReviewModal";
-import Avatar from "../../../common/Avatar";
+import HotelReviewModal from "../../HotelReviewModal";
+import Avatar from "../../../../../common/Avatar";
+import "./HotelReviewCard.style.css"
 
 const HotelReviewCard = ({ review }) => {
   const [modalShow, setModalShow] = useState(false);
-  console.log(review);
   return (
     <>
-      <Card className="m-3 p-2" style={{ width: "25rem", height: "15rem" }}>
+      <Card className="review-card p-2">
         <Card.Body>
           <div className="d-flex justify-content-between">
             <Avatar imgUrl={review.author.avatar} name={review.author.name} />
