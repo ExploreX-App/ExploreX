@@ -28,29 +28,35 @@ const HotelSearch = ({ keyword, dateFrom, dateTo, adultNum }) => {
       : [new DateObject().add(4, "days"), new DateObject().add(6, "days")]
   );
 
-  const [city, setCity] = useState(
-    keyword || ""
-  );
-  console.log(city)
+  const [city, setCity] = useState(keyword || "");
+  console.log(city);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSearch = () => {
-    const searchData = {
-      keyword: city?.address_components[0]?.short_name,
-      dateFrom: dateValues[0].toString(),
-      dateTo: dateValues[1].toString(),
-      adultNum: totalPpl,
-    };
-    if (!searchData.keyword) {
+    try {
+      keyword = city?.address_components[0]?.short_name
+    } catch {
       setCityError(true);
     }
-    if (searchData.dateFrom === searchData.dateTo) {
+    try {
+      dateFrom = dateValues[0].toString();
+      dateTo = dateValues[1].toString();
+      if (dateFrom === dateTo) {
+        setDateError(true);
+      } else {
+        setDateError(false);
+      }
+    } catch {
       setDateError(true);
-    } else {
-      setDateError(false);
     }
-    console.log(searchData);
-    if (searchData.keyword && dateValues) {
+    if (city && dateValues.length === 2) {
+      const searchData = {
+        keyword,
+        dateFrom,
+        dateTo,
+        adultNum: totalPpl,
+      };
+      console.log(searchData);
       navigate("/hotels", { state: searchData });
     }
   };
@@ -111,7 +117,7 @@ const HotelSearch = ({ keyword, dateFrom, dateTo, adultNum }) => {
             />
             {dateError && (
               <div className="fw-thin" style={{ color: "red" }}>
-                Dates must be different
+                Dates are invalid
               </div>
             )}
           </div>
