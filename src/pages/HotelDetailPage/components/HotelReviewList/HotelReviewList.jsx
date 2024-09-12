@@ -13,6 +13,7 @@ const HotelReviewList = ({ hotelId }) => {
     hotelId,
     sortOption,
   });
+  console.log("리뷰에서 data: ", data)
   if (isLoading) {
     return <h1>Loading...</h1>;
   }

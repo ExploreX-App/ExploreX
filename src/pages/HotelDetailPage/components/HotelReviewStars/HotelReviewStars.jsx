@@ -39,7 +39,9 @@ const HotelReviewStars = ({ reviewScore }) => {
         {getStarIcons(starRating)}
       </span>
       {/* 리뷰 점수 */}
-      <span className="review-score ms-2">{reviewScore.toFixed(1)}</span>
+      {typeof reviewScore === "number" && (
+        <span className="review-score ms-2">{reviewScore.toFixed(1)}</span>
+      )}
     </div>
   );
 };
