@@ -22,3 +22,12 @@
   .photo-1, .photo-2, .photo-3, .photo-room-0 {
     height: 200px; /* 다른 사진들의 높이는 일정하게 설정 */
   }
+
+  .tabs-container {
+    position: sticky; /* 스크롤해도 상단에 고정 */
+    top: 0;           /* 화면 상단에 붙도록 설정 */
+    z-index: 1000;    /* 다른 요소보다 위에 위치하도록 설정 */
+    background-color: white; /* 배경색 설정 */
+    box-shadow: 0 4px 2px -2px gray; /* 고정된 탭에 약간의 그림자 추가 */
+  }
+  
