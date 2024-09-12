@@ -11,7 +11,9 @@
 }
 .activity-card-img img {
   width: 100%;
-  height: auto;
+  height: 180px;
+  object-fit: cover;
+
 }
 .heart-icon {
   position: absolute;
@@ -25,23 +27,63 @@
   font-size: 35px;
 }
 .activity-card-container:hover{
-    border: 1px solid rgba(71, 143, 245, 0.542);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.21);
 }
 .heart-icon:hover{
-    background-color: rgba(0, 0, 0, 0.099);
+      background: rgb(198, 198, 198);
 }
 
 .activity-card-content{
-    padding: 15px;
+    padding: 5px 15px;
     background-color: white;
 }
 
 .activity-card-title{
-    font-size: 18px;
+    font-size: 24px;
         font-weight: bold;
         color: #333;
-        margin: 10px 0;
+        margin: 5px 0;
 }
-.activity-card-description{
 
+.review-hours{
+  display: flex;
+  justify-content: space-between ;
+  margin-bottom: 10px;
+}
+.activitycard-review-wrap{
+  display: flex;
+
+}
+.activitycard-score{
+  background-color: #318AFF;
+  color: white;
+  width: 35px;
+  height: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activitycard-review{
+  font-size: 12px;
+  margin-left: 5px;
+  color: rgb(52, 52, 52);
+}
+.activitycard-hours{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.activity-card-description{
+font-size: 14px;
+color: #464646;
+}
+.activitycard-price{
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: end;
+  
 }

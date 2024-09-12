@@ -1,9 +1,16 @@
 import React from "react";
 import "./NotFoundPage.style.css";
-import AppLayout from "../../layout/AppLayout";
-// import "../../layout/AppLayout.style.css"
+
+import { useNavigate } from "react-router-dom";
+
 
 const NotFoundPage = () => {
+  const navigate = useNavigate()
+
+  const goToHome = () => {
+    navigate ("/")
+  }
+
   return (
     <div className="error-page">
       <img
@@ -18,7 +25,7 @@ const NotFoundPage = () => {
         <div className="error-description">
          The page you're looking for doesn't exist.
         </div>
-        <button>Go Back Home</button>
+        <button className="error-page-btn" onClick={goToHome}>Go Back Home</button>
       </div>
     </div>
   );
