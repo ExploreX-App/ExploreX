@@ -1,0 +1,51 @@
+.error-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.background-img {
+  object-fit: cover;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.361);
+  z-index: 2;
+}
+
+.error-content {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-number {
+  font-size: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: bold;
+  height: 300px;
+}
+.error-description {
+  color: white;
+}
+.error-oops {
+  font-size: 40px;
+  color: white;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: bold;
+}
+
+

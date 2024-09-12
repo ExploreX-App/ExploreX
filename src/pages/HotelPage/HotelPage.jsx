@@ -1,45 +1,33 @@
-import React, {useEffect, useState} from "react";
-import { Button, Container } from "react-bootstrap";
+import React from "react";
 import { useHotelsByKeywordQuery } from "../../hooks/useFetchHotelsByKeyword";
 import HotelCard from "./components/HotelCard/HotelCard";
-import './HotelPage.style.css'
-import HotelPageLayout from "./Layout/HotelPageLayout";
+import { useLocation } from "react-router-dom";
+import SearchBar from "../../common/SearchBar/SearchBar";
 
 const HotelPage = () => {
-  const [keywordQuery, setKeywordQuery] = useState(null)
-  const [page, setPage] = useState(1);
-  const { data, isLoading, isError, error} = useHotelsByKeywordQuery(keywordQuery || null);
-
-  const handleMore = () => {
-    setPage((prev) => prev+1);
-  }
-
-  useEffect(() => {
-    
-  })
-
+  const location = useLocation();
+  const {keyword, dateFrom, dateTo, adultNum} = location.state;
+  const { data, isLoading, error, isError } = useHotelsByKeywordQuery({
+    keyword: keyword.split(",")[0],
+    dateFrom,
+    dateTo,
+    adultNum,
+  });
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  return (
-    <Container className="d-flex flex-column justify-content-center align-items-center container">
-      <div className="hotel-page-title">
-          <h2> Find the perfect hotel in ExploreX</h2>
-      </div>
-      <HotelPageLayout setKeywordQuery={setKeywordQuery} />
-      
-      <div className="hotel-cards-container">
-        {data?.map((hotel, index) => (
-          <HotelCard hotel={hotel?.property}  adultNum={keywordQuery.adultNum} key={index}/>
-        ))}
-      </div>
-
-      <Button onClick={handleMore}>Show More</Button>
-      
-    </Container>
+    return (
+    <div>
+      <div><SearchBar keyword={keyword} dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/></div>
+      {!data && <div className="fs-5 m-3 fw-semibold">{keyword}: No properties found.</div>}
+      {data?.map((hotel, index) => (
+        <HotelCard hotel={hotel?.property} adultNum="2" key={index} />
+      ))}
+    </div>
   );
 };
+
 export default HotelPage;

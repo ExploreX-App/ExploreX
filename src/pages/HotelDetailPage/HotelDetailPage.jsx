@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HotelDescription from "./components/HotelDescription";
 import HotelDetailHeader from "./components/HotelDetailHeader/HotelDetailHeader";
 import HotelPageLayout from "../HotelPage/Layout/HotelPageLayout";
-import AdvertisingBanner from "./components/AdvertisingBanner";
-import ImportantInformation from "./components/ImportantInformation";
-import FreqeuntAskedQuestions from "./components/FreqeuntAskedQuestions";
+
+// 컴포넌트들
+import HotelDescription from "./components/HotelDescription/HotelDescription"
+import ImportantInformation from "./components/HotelImportantInformation/HotelImportantInformation"
+import TermsOfUse from "./components/HotelTermsOfUse/HotelTermsOfUse";
+import FreqeuntAskedQuestions from "./components/HotelFrequentAskedQuestions/FreqeuntAskedQuestions"
+import HotelReview from "./components/HotelReviewList/HotelReviewList";
+import AdvertisingBanner from "./components/HotelAdvertisingBanner/HotelAdvertisingBanner";
+
+
+
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import TermsOfUse from "./components/TermsOfUse";
+
 import "./HotelDetailPage.style.css";
 
 // Mock data
@@ -142,11 +149,11 @@ const HotelDetailPage = () => {
         <HotelDetailHeader hotel={mockData} reviewScore={4.5} />
         <div className="pics-n-map" style={{ display: "flex" }}>
           <div className="photo-gallery">
-            {mockData.photos.map((photo, index) => (
+            {(mockData?.photos || []).map((photo, index) => (
               <img src={photo} key={index} alt={`Hotel photo ${index}`} className={`photo-${index}`} />
             ))}
-            {Object.values(mockData?.rooms).map((room) =>
-              room?.photos?.map((photo, index) => (
+            {Object.values(mockData?.rooms || {}).map((room) =>
+              (room?.photos || []).map((photo, index) => (
                 <img src={photo.url_max300} alt={`Room photo ${index}`} key={index} className={`photo-room-${index}`} />
               ))
             )}
@@ -178,13 +185,13 @@ const HotelDetailPage = () => {
         <div>Review count: {mockData?.review_nr ?? "N/A"}</div>
         <div className="mt-3 mb-3">
           {mockData?.facilities_block?.name} :
-          {mockData?.facilities_block?.facilities?.map((fac, index) => (
+          {(mockData?.facilities_block?.facilities || []).map((fac, index) => (
             <div key={index}>{fac.name}</div>
           ))}
         </div>
         <div className="mb-3">
           Property highlights:
-          {mockData?.property_highlight_strip?.map((hl, index) => (
+          {(mockData?.property_highlight_strip || []).map((hl, index) => (
             <div key={index}>{hl.name}</div>
           ))}
         </div>
@@ -197,7 +204,7 @@ const HotelDetailPage = () => {
 
       {/* 4. Terms of Use */}
       <div id="terms-of-use">
-        terms-of-use
+        <TermsOfUse />
       </div>
 
       {/* 5. Important Information */}
@@ -207,7 +214,9 @@ const HotelDetailPage = () => {
       </div>
 
       {/* 6. Reviews */}
-      <div id="reviews"></div>
+      <div id="reviews">
+        <HotelReview />
+      </div>
 
       <AdvertisingBanner />
     </div>

@@ -15,8 +15,8 @@ const fetchHotelsByKeyword = async ({
     const firstData = destinationData.data[0];
     const response = await hotelApi.get("/searchHotels", {
       params: {
-        dest_id: firstData.dest_id,
-        search_type: firstData.search_type,
+        dest_id: firstData?.dest_id,
+        search_type: firstData?.search_type,
         arrival_date: dateFrom,
         departure_date: dateTo,
         adults: adultNum,
@@ -36,7 +36,7 @@ export const useHotelsByKeywordQuery = (inputData) => {
     queryKey: inputData ? ["hotels", inputData.keyword] : null,
     queryFn: () =>
       fetchHotelsByKeyword(inputData),
-    select: (result) => result.data.hotels,
+    select: (result) => result?.data?.hotels,
     enabled: !!inputData,  // inputData가 있을 때만 실행
     retry: 0,
     staleTime: 10000000000000

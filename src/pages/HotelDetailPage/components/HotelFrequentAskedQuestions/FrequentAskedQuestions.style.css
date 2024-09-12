@@ -1,0 +1,26 @@
+.FnA-container{
+    padding: 12px !important;
+
+}
+
+.FnA-header{
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+
+.FnA-col-1{
+    padding: 0px !important;
+    border-top-left-radius: 7px !important;
+    border-bottom-left-radius: 7px !important;
+    display: flex;
+    overflow: hidden;
+}
+
+.FnA-col-2{
+    /* border: 1px solid #d0e2ff ; */
+    padding: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
