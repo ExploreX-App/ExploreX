@@ -7,9 +7,9 @@ import ActivityCard from "../ActivityCard/ActivityCard";
 import "./ActivitySlide.style.css";
 import { useActivitiesQuery } from "../../../../hooks/useFetchActivities";
 
-const ActivitySlide = ({ keyword }) => {
+const ActivitySlide = ({ items}) => {
   const { data, isLoading, error, isError } = useActivitiesQuery({
-    keyword
+    keyword: "Vancouver",
   });
   console.log(data)
   if (isLoading) {
@@ -54,7 +54,9 @@ const ActivitySlide = ({ keyword }) => {
             },
           }}
         >
-          {(data)?.map((item, index) => (
+          {/* {(data)?.map((item, index) => (
+            <ActivityCard key={index} item={item} /> */}
+                    {items?.map((item, index) => (
             <ActivityCard key={index} item={item} />
           ))}
         </Carousel>
