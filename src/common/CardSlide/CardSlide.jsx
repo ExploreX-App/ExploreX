@@ -12,6 +12,7 @@ const CardSlide = ({ title, items }) => {
       <div className="fs-4 fw-bold">{title}</div>
       <Container className="p-0">
         <Carousel
+          // autoPlay
           infinite={true}
           centerMode={true}
           itemClass={"tour-slider"}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Card.style.css"
 import { useNavigate } from "react-router-dom";
 
 const TourCard = ({item}) => {

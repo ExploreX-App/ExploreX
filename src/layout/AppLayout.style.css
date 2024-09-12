@@ -16,12 +16,6 @@
 }
 
 
-
-  /* .navbar-container {
-    flex-shrink: 0;
-    background: linear-gradient(to bottom, #ffffffc2,#ffffff6a, #ffffff00)
-  } */
-
   .content {
     flex-grow: 1; 
   }

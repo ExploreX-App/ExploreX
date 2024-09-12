@@ -4,9 +4,10 @@ import { Container } from "react-bootstrap";
 import "./Homepage.style.css";
 import CitySlider from "./components/CitySlider";
 import VideoBanner from "./components/VideoBanner/VideoBanner";
-import SearchBar from "./components/SearchBar/SearchBar";
-
-
+import SearchBar from "../../common/SearchBar/SearchBar";
+import ActivityCard from "./components/ActivityCard/ActivityCard";
+import ActivitySlide from "./components/ActivitySlide/ActivitySlide";
+import ActivityTabs from "./ActivityTabs/ActivityTabs";
 
 //banner
 //
@@ -15,14 +16,15 @@ const HomePage = () => {
   return (
     <Container>
       <div>
+        <div className="homepage-heading">
+          <VideoBanner />
+        </div>
 
 
-
-        <div className="homepage-heading"><VideoBanner /></div>
-        {/* <CategorySlide /> */}
-
-               <SearchBar />
-                <CitySlider />
+        <SearchBar />
+        <CitySlider />
+        {/* <ActivitySlide /> */}
+        <ActivityTabs />
       </div>
     </Container>
   );

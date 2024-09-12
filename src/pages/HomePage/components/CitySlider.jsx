@@ -19,6 +19,19 @@ const CitySlider = () => {
       name: "Cancun",
       img: "https://cdn.prod.website-files.com/645cf73a1399f9f6ed09a0e8/645cf73a1399f93eb009a93c_Hero-Mobile-Cancun.jpg",
     },
+     {
+      name: "London",
+      img: "https://i.natgeofe.com/n/4def1048-f5e5-4973-ad3a-e188a97d363f/regents-street-london-england_2x3.jpg",
+    },
+      {
+      name: "Tokyo",
+      img: "https://thumbs.dreamstime.com/b/tokyo-akihabara-night-bright-billboard-signs-v-japan-july-neon-lights-advertisements-building-sides-busy-electronics-hub-81472098.jpg",
+    },
+       {
+      name: "Toronto",
+      img: "https://cdn.prod.website-files.com/60f5c54f037127a76f8f5a59/61a7ed1df97580f936ff5cc3_Toronto_cropped.png", 
+    },
+
   ];
 
   return (

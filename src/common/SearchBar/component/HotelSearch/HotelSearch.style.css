@@ -1,11 +1,46 @@
+/* country search */
+.css-13cymwt-control {
+    height: 48px;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.css-t3ipsp-control {
+    height: 48px;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+
+/* calendar */
+
+.rmdp-container {
+    width: 100%;
+    margin-bottom: 1em;
+
+}
+
+.rmdp-input {
+    width: 100%;
+    height: 48px;
+    padding-left: 12px;
+}
+
+
+/* VisitorCounter */
 .visitor-counter {
-    max-width: 400px;
+
     margin: 0 auto;
 }
-.counter-container{
+
+.counter-container {
     border: 1px solid rgba(0, 0, 0, 0.123);
     padding: 10px;
     border-radius: 10px;
+    position: absolute;
+    background-color: white;
+    z-index: 2;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .input-box {
@@ -17,6 +52,7 @@
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
+
 }
 
 .input-box input {
@@ -40,7 +76,8 @@
     align-items: center;
     margin: 10px 0;
 }
-.counterBtn-wrap{
+
+.counterBtn-wrap {
     width: 100px;
     display: flex;
     justify-content: space-between;
@@ -59,10 +96,11 @@ button:hover {
     background-color: #f0f0f0;
 }
 
-.button-wrap{
+.button-wrap {
     display: flex;
     justify-content: space-between;
 }
+
 .add-room-button,
 .remove-room-button,
 .done-button {
