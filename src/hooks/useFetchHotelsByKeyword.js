@@ -14,8 +14,8 @@ const fetchHotelsByKeyword = async ({
     const firstData = destinationData.data[0];
     const response = await hotelApi.get("/searchHotels", {
       params: {
-        dest_id: firstData.dest_id,
-        search_type: firstData.search_type,
+        dest_id: firstData?.dest_id,
+        search_type: firstData?.search_type,
         arrival_date: dateFrom,
         departure_date: dateTo,
         adults: adultNum,
@@ -40,6 +40,6 @@ export const useHotelsByKeywordQuery = ({
     queryKey: ["hotels", keyword],
     queryFn: () =>
       fetchHotelsByKeyword({ keyword, dateFrom, dateTo, adultNum, page }),
-    select: (result) => result.data.hotels,
+    select: (result) => result?.data?.hotels,
   });
 };
