@@ -2,6 +2,7 @@ import React from "react";
 import { useHotelDetailsQuery } from "../../hooks/useFetchHotelDetails";
 import { useLocation, useParams } from "react-router-dom";
 import HotelDescription from "./components/HotelDescription";
+import HotelReviewList from "./components/HotelReviewList/HotelReviewList";
 
 const HotelDetailPage = () => {
   const location = useLocation();
@@ -58,6 +59,7 @@ const HotelDetailPage = () => {
         </div>
       </div>
       <div><HotelDescription hotelId={data.hotel_id}/></div>
+      <HotelReviewList hotelId={data.hotel_id}/>
     </div>
   );
 };

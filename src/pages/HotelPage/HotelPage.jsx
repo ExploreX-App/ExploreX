@@ -1,13 +1,17 @@
 import React from "react";
 import { useHotelsByKeywordQuery } from "../../hooks/useFetchHotelsByKeyword";
 import HotelCard from "./components/HotelCard/HotelCard";
+import { useLocation } from "react-router-dom";
+import SearchBar from "../../common/SearchBar/SearchBar";
 
 const HotelPage = () => {
+  const location = useLocation();
+  const {keyword, dateFrom, dateTo, adultNum} = location.state;
   const { data, isLoading, error, isError } = useHotelsByKeywordQuery({
-    keyword: "Vancouver",
-    dateFrom: "2024-10-01",
-    dateTo: "2024-10-09",
-    adultNum: 2,
+    keyword: keyword.split(",")[0],
+    dateFrom,
+    dateTo,
+    adultNum,
   });
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -15,9 +19,11 @@ const HotelPage = () => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  return (
+    return (
     <div>
-      {data.map((hotel, index) => (
+      <div><SearchBar keyword={keyword} dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/></div>
+      {!data && <div className="fs-5 m-3 fw-semibold">{keyword}: No properties found.</div>}
+      {data?.map((hotel, index) => (
         <HotelCard hotel={hotel?.property} adultNum="2" key={index} />
       ))}
     </div>
