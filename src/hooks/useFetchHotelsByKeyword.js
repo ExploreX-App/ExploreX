@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import hotelApi from "../api/hotelAPI";
 import { fetchHotelDestination } from "../services/hotelService";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const fetchHotelsByKeyword = async ({
   keyword,
@@ -33,6 +34,10 @@ const fetchHotelsByKeyword = async ({
 };
 
 export const useHotelsByKeywordQuery = (inputData) => {
+  const navigate = useNavigate();
+  if (inputData.keyword === "") {
+    navigate("/")
+  }
   const query = useQuery({
     queryKey: inputData ? ["hotels", inputData.keyword] : null,
     queryFn: () =>

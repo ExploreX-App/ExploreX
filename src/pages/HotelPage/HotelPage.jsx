@@ -6,7 +6,12 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 
 const HotelPage = () => {
   const location = useLocation();
-  const {keyword, dateFrom, dateTo, adultNum} = location.state;
+  const {
+    keyword = "",
+    dateFrom = "",
+    dateTo = "",
+    adultNum = 1,
+  } = location.state || {};
   const { data, isLoading, error, isError } = useHotelsByKeywordQuery({
     keyword: keyword.split(",")[0],
     dateFrom,
@@ -19,11 +24,12 @@ const HotelPage = () => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-    return (
+  return (
     <div>
       <div><SearchBar keyword={keyword} dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/></div>
       {!data && <div className="fs-5 m-3 fw-semibold">{keyword}: No properties found.</div>}
       <div className="d-flex flex-column gap-2">
+
       {data?.map((hotel, index) => (
         <HotelCard hotel={hotel?.property} adultNum="2" key={index} />
       ))}

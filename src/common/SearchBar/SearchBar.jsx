@@ -5,8 +5,8 @@ import "./SearchBar.style.css";
 import HotelSearch from "./component/HotelSearch/HotelSearch";
 import ActivitySearch from "./component/ActivitySearch/ActivitySearch";
 
-const SearchBar = ({ keyword, dateFrom, dateTo, adultNum }) => {
-  const [activeTab, setActiveTab] = useState("hotel");
+const SearchBar = ({ keyword, dateFrom, dateTo, adultNum, tab="hotel" }) => {
+  const [activeTab, setActiveTab] = useState(tab);
   return (
     <div className="search-container">
       <Tabs

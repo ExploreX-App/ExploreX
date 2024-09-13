@@ -6,6 +6,7 @@ import "./ActivitySlide.style.css";
 import ActivityCard from "../ActivityCard/ActivityCard";
 import { useActivitiesQuery } from "../../hooks/useFetchActivities";
 import { responsive } from "../../utils/settings/activitySliderSetting";
+import { activityMockData } from "../../utils/mockData/activityData";
 
 const ActivitySlide = ({ keyword }) => {
   const { data, isLoading, error, isError } = useActivitiesQuery({
@@ -17,7 +18,11 @@ const ActivitySlide = ({ keyword }) => {
   if (isError) {
     <Alert variant="danger">{error.message}</Alert>;
   }
-
+  const mergedData = data?.map((activity, index) => {
+    const randomMockData =
+      activityMockData[Math.floor(Math.random() * activityMockData.length)];
+    return {...activity, ...randomMockData}
+  });
   return (
     <div>
       <div className="activitySlide-container">
@@ -35,7 +40,7 @@ const ActivitySlide = ({ keyword }) => {
             containerClass={"carousel-container"}
             responsive={responsive}
           >
-            {data?.map((item, index) => (
+            {mergedData?.map((item, index) => (
               <ActivityCard key={index} item={item} />
             ))}
           </Carousel>
