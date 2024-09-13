@@ -19,8 +19,7 @@ import HotelInfo from "./components/HotelInfo/HotelInfo";
 
 const HotelDetailPage = () => {
   const location = useLocation();
-  const { dateFrom, dateTo, adultNum, photos, reviewScore } =
-    location.state || {};
+  const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state || {};
   const { id } = useParams();
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
     hotelId: id,
@@ -35,27 +34,21 @@ const HotelDetailPage = () => {
 
   const homeRef = useRef();
   const infoRef = useRef();
-  const facilityRef = useRef();
-  const termsRef = useRef();
-  const importantRef = useRef();
   const reviewRef = useRef();
+  const faqRef = useRef();
 
   const handleSelect = (key) => {
     switch (key) {
       case "info-n-rates":
         infoRef.current.scrollIntoView();
         break;
-      case "facilities-n-service":
-        facilityRef.current.scrollIntoView();
-        break;
-      case "terms-of-use":
-        termsRef.current.scrollIntoView();
-        break;
-      case "important-info":
-        importantRef.current.scrollIntoView();
-        break;
       case "reviews":
         reviewRef.current.scrollIntoView();
+        console.log("reviewRef- cu", reviewRef.current)
+        break;
+      case "faq":
+        faqRef.current.scrollIntoView();
+        console.log("cu", faqRef.current)
         break;
       default:
         homeRef.current.scrollIntoView();
@@ -82,17 +75,11 @@ const HotelDetailPage = () => {
         >
           <Tab eventKey="home" title="Hotel Overview"></Tab>
           <Tab eventKey="info-n-rates" title="Info & rates"></Tab>
-          <Tab
-            eventKey="facilities-n-service"
-            title="Facilities & Service"
-          ></Tab>
-          <Tab eventKey="terms-of-use" title="Terms of Use"></Tab>
-          <Tab eventKey="important-info" title="Important Information"></Tab>
           <Tab eventKey="reviews" title="Customer Reviews"></Tab>
+          <Tab eventKey="faq" title="Frequent Asked Questions"></Tab>
         </Tabs>
       </div>
 
-      {/* Hotel Overview Section */}
       <HotelOverview
         homeRef={homeRef}
         reviewScore={reviewScore}
@@ -100,20 +87,14 @@ const HotelDetailPage = () => {
         photos={photos}
       />
 
-      {/* Info & Rates Section */}
-      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
-
-      {/* Other sections */}
-      <FacilitiesNService facilityRef={facilityRef} />
-      <TermsOfUse termsRef={termsRef} />
-      <div id="important-info" ref={importantRef}>
-        <ImportantInformation />
-        <FreqeuntAskedQuestions />
-      </div>
-      <div id="reviews" >
-        <HotelReview hotelId={data.hotel_id} reviewRef={reviewRef}/>
-      </div>
       <AdvertisingBanner />
+
+      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
+      <TermsOfUse />
+
+      <HotelReview hotelId={data.hotel_id} reviewRef={reviewRef}/>
+
+      <FreqeuntAskedQuestions faqRef={faqRef}/>
     </div>
   );
 };

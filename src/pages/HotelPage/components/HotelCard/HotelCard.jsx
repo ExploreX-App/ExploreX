@@ -15,6 +15,7 @@ const HotelCard = ({ hotel, adultNum }) => {
         dateTo: hotel.checkoutDate,
         adultNum: adultNum,
         photos: hotel.photoUrls,
+        reviewScore: hotel.reviewScore
       },
     });
   };

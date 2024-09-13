@@ -1,8 +1,9 @@
 import { Container, Accordion, Card, Row, Col } from "react-bootstrap";
 import './FrequentAskedQuestions.style.css'
-const FreqeuntAskedQuestions = () => {
+const FreqeuntAskedQuestions = ({faqRef}) => {
     return (
-        <Container className="FnA-container">
+        <Container ref={faqRef} className="FnA-container">
+            <h3 style={{color: "red"}}>Hotel FAQ</h3>
             <Row>
                 {/* Left Column: Title */}
                 <Col className="FnA-col-1" xs={12} md={4} style={{ backgroundColor: "#d0e2ff" }}>

@@ -3,6 +3,7 @@ import MapPreview from "../HotelMap/MapPreview";
 import HotelDescription from "../HotelDescription/HotelDescription";
 import HotelDetailHeader from "./HotelDetailHeader/HotelDetailHeader";
 import { Carousel } from "react-bootstrap";
+import HotelReviewCard from "../HotelReviewList/components/HotelReviewCard";
 
 const HotelDetailOverview = ({ homeRef, reviewScore, data, photos }) => {
   const initialPhotos = photos?.slice(0, 5) || []; // undefined일 경우 빈 배열로 처리
@@ -10,6 +11,7 @@ const HotelDetailOverview = ({ homeRef, reviewScore, data, photos }) => {
   const handleShowMorePhotos = () => {
     setShowAllPhotos(true); // 사진 더보기 눌렀을 때 캐러셀로 변경
   };
+  console.log("reviewScore: ", reviewScore)
   return (
     <div id="home" ref={homeRef}>
       <HotelDetailHeader hotel={data} reviewScore={reviewScore} />
@@ -92,7 +94,11 @@ const HotelDetailOverview = ({ homeRef, reviewScore, data, photos }) => {
           }}
         >
           <MapPreview hotel={data} />
+
         </div>
+          <div className="one-review">
+            {/* <HotelReviewCard review={{ review }}/> */}
+          </div>
       </div>
       <HotelDescription hotelId={data.hotel_id} />
     </div>

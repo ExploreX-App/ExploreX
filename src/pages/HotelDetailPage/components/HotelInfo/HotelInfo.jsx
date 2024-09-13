@@ -1,10 +1,11 @@
 import React from "react";
-import HotelRoomList from "../HotelRoomList";
+import HotelRoomList from "../HotelRoomList/HotelRoomList"
 
 const HotelDetailInfo = ({ data, infoRef, adultNum }) => {
     console.log(data)
   return (
-    <div id="info-n-rates" ref={infoRef}>
+    <div id="info-n-rates" ref={infoRef} style={{paddingTop:"80px"}}>
+      <h3 style={{color: "red"}}>Hotel Information</h3>
       <HotelRoomList
         hotelId={data.hotel_id}
         dateFrom={data.arrival_date}
