@@ -1,10 +1,11 @@
 .activity-card-container {
-  width: 250px;
+  height: 300px;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.094);
   margin: 1em;
+  cursor: pointer;
+  overflow: hidden;
 }
 .activity-card-img {
   position: relative;
@@ -13,7 +14,6 @@
   width: 100%;
   height: 180px;
   object-fit: cover;
-
 }
 .heart-icon {
   position: absolute;
@@ -23,39 +23,41 @@
   border: none;
   border-radius: 50%;
   padding: 8px;
-  cursor: pointer;
+  cursor: pointer !important;
   font-size: 35px;
 }
-.activity-card-container:hover{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.21);
+.activity-card-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.21);
 }
-.heart-icon:hover{
-      background: rgb(198, 198, 198);
-}
-
-.activity-card-content{
-    padding: 5px 15px;
-    background-color: white;
+.heart-icon:hover {
+  background: rgb(198, 198, 198);
 }
 
-.activity-card-title{
-    font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        margin: 5px 0;
+.activity-card-content {
+  padding: 5px 15px;
+  background-color: white;
 }
 
-.review-hours{
+.activity-card-title {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  color: #333;
+  margin: 5px 0;
+}
+
+.review-hours {
   display: flex;
-  justify-content: space-between ;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
-.activitycard-review-wrap{
+.activitycard-review-wrap {
   display: flex;
-
 }
-.activitycard-score{
-  background-color: #318AFF;
+.activitycard-score {
+  background-color: #318aff;
   color: white;
   width: 35px;
   height: 20px;
@@ -66,24 +68,19 @@
   align-items: center;
 }
 
-.activitycard-review{
+.activitycard-review {
   font-size: 12px;
   margin-left: 5px;
   color: rgb(52, 52, 52);
 }
-.activitycard-hours{
+.activitycard-hours {
   font-size: 14px;
   font-weight: 600;
 }
 
-.activity-card-description{
-font-size: 14px;
-color: #464646;
-}
-.activitycard-price{
-  font-size: 24px;
+.activitycard-price {
+  font-size: 22px;
   font-weight: 700;
   display: flex;
   justify-content: end;
-  
 }

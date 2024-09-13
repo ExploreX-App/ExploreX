@@ -1,14 +1,11 @@
 import React from "react";
-import Banner from "./components/Banner/Banner";
 import { Container } from "react-bootstrap";
 import "./Homepage.style.css";
-import CitySlider from "./components/CitySlider";
 import VideoBanner from "./components/VideoBanner/VideoBanner";
 import SearchBar from "../../common/SearchBar/SearchBar";
-
-import ActivitySlide from "./components/ActivitySlide/ActivitySlide";
-
-import ActivitySlider from "./components/ActivitySlide/ActivitySlider";
+import { cities } from "../../utils/mockData/cityData";
+import CitySlide from "../../common/CitySlide/CitySlide"
+import ActivitySlide from "../../common/ActivitySlide/ActivitySlide";
 
 const HomePage = () => {
   return (
@@ -18,10 +15,8 @@ const HomePage = () => {
           <VideoBanner />
         </div>
         <SearchBar />
-        <CitySlider />
-        {/* <ActivitySlide /> */}
-
-        <ActivitySlider />
+        <CitySlide title="Dream Your Next Trip" items={cities} />
+        <ActivitySlide keyword="Vancouver" />
       </div>
     </Container>
   );

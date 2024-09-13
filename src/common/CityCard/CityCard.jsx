@@ -1,6 +1,5 @@
 import React from "react";
-import "./Card.style.css"
-import { useNavigate } from "react-router-dom";
+import "./CityCard.style.css"
 
 const TourCard = ({item}) => {
   return (
@@ -8,11 +7,11 @@ const TourCard = ({item}) => {
       <img
         src={item.img}
         className="card-img"
-        style={{ aspectRatio: "2/3", borderRadius: "10px" }}
+        style={{ aspectRatio: "4/5", borderRadius: "10px" }}
         alt="cadana"
       />
       <div
-        className="position-absolute"
+        className="overlay position-absolute"
         style={{
           bottom: 0,
           left: 0,
@@ -25,7 +24,7 @@ const TourCard = ({item}) => {
       ></div>
       <div
         className="position-absolute bottom-0 m-3 text-white fw-bold"
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 5 }}
       >
         {item.name}
       </div>
