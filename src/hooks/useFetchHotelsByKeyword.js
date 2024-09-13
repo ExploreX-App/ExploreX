@@ -9,7 +9,8 @@ const fetchHotelsByKeyword = async ({
   dateFrom,
   dateTo,
   adultNum,
-  page,
+  page=1,
+  sortBy="popularity"
 }) => {
   try {
     const destinationData = await fetchHotelDestination({ keyword });
@@ -22,9 +23,9 @@ const fetchHotelsByKeyword = async ({
         departure_date: dateTo,
         adults: adultNum,
         page_number: page,
+        sort_by: sortBy
       },
     });
-     console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching hotels with information:", error);
