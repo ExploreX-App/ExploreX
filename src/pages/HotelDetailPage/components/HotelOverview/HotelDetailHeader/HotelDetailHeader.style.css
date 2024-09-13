@@ -1,0 +1,35 @@
+.hotel-info-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* 구분선을 추가 */
+  }
+  
+  .hotel-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+  
+  .rating-icons {
+    font-size: 18px;
+    color: #ffbf00; /* 평점 아이콘 색 (예: 노란색) */
+  }
+  
+  .location-icon {
+    color: #007bff; /* 지도 마커 색 */
+    font-size: 18px;
+  }
+  
+  .address {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .highlight-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .highlight-link:hover {
+    text-decoration: underline;
+  }
