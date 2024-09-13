@@ -35,7 +35,7 @@ const AppLayout = () => {
               <Nav.Link as={Link} to="/about">
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/activities">
+              {/* <Nav.Link as={Link} to="/activities">
                 Activities
               </Nav.Link>
               <Nav.Link as={Link} to="/hotels">
@@ -43,7 +43,7 @@ const AppLayout = () => {
               </Nav.Link>
               <Nav.Link as={Link} to="/flights" disabled>
                 Flights
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
 
             {/* Login */}

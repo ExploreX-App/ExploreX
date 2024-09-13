@@ -1,5 +1,5 @@
 .activity-card-container {
-  height: 300px;
+  height: 280px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.094);
@@ -79,7 +79,7 @@
 }
 
 .activitycard-price {
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 700;
   display: flex;
   justify-content: end;

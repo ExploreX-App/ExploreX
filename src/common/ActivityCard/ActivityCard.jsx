@@ -2,17 +2,17 @@ import React from "react";
 import "./ActivityCard.style.css";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { FaRegClock } from "react-icons/fa6";
 
 const ActivityCard = ({ item }) => {
   const navigate = useNavigate();
   const goToDetails = () => {
-    navigate("/");
-    // navigate("/avtivities/${item.id}")
+    navigate(`/activities/${item.id}`)
   };
   return (
     <div
       className="activity-card-container position-relative"
-      style={{ margin: "10px" }}
+      style={{ margin: "5px" }}
       onClick={goToDetails}
     >
       <div className="activity-card-img">
@@ -24,27 +24,26 @@ const ActivityCard = ({ item }) => {
         <IoIosHeartEmpty className="heart-icon" />
       </div>
       <div className="activity-card-content">
-        <div className="activity-card-title">
-          {item?.name?.slice(0, 30)}
-          {item?.name?.length > 20 ? ".." : ""}
-        </div>
-
-        <div className="review-hours">
-          <div className="activitycard-review-wrap">
-            <div className="activitycard-score">9.8</div>
-            <div className="activitycard-review">43 reviews</div>
+        <div className="d-flex justify-content-between">
+          <div className="activity-card-title">
+            {item?.name?.slice(0, 30)}
+            {item?.name?.length > 20 ? ".." : ""}
           </div>
-          <div className="activitycard-hours">3-4 hours</div>
+          <div className="activitycard-hours d-flex align-items-center justify-content-end">
+            <FaRegClock className="m-1" />
+            <div className="text-nowrap">{item.minimumDuration}</div>
+          </div>
         </div>
 
-        {/* <div className="activity-card-description">
-          {" "}
-          {item?.description
-            ? item.description.slice(0, 50) +
-              (item.description.length > 50 ? "..." : "")
-            : "No Description"}
-        </div> */}
-        <div className="activitycard-price">CA $140</div>
+        <div className="review-hours d-flex align-items-center">
+          <div className="activitycard-review-wrap">
+            <div className="activitycard-score">{item.rating}</div>
+            <div className="activitycard-review text-nowrap">{item.reviews} reviews</div>
+          </div>
+          <div className="d-flex flex-column justify-content-end">
+            <div className="activitycard-price text-nowrap">${item.price.amount}</div>
+          </div>
+        </div>
       </div>
     </div>
   );
