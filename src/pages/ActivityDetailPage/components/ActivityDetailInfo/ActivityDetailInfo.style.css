@@ -1,3 +1,8 @@
 .ActivityDetailInfo {
     margin: 10px !important;
 }
+
+.Activity-detail-info-text {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
