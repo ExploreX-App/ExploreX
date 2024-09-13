@@ -9,6 +9,7 @@
 .card-img{
     object-fit: cover;
     transition: transform 0.3s ease;
+    aspect-ratio: auto 3/4 !important;
 }
 
 .tourcard-wrap:hover{

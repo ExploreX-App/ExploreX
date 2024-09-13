@@ -18,11 +18,11 @@ const TourCard = ({item}) => {
     navigate("/hotels", { state: searchData });
   }
   return (
-    <div className="tourcard-wrap position-relative" style={{ margin: "10px" }} onClick={goToDetails}>
+    <div className="tourcard-wrap position-relative" style={{ margin: "0px" }} onClick={goToDetails}>
       <img
         src={item.img}
         className="card-img"
-        style={{ aspectRatio: "4/5", borderRadius: "10px" }}
+        style={{ borderRadius: "10px", height: "300px" }}
         alt="cadana"
       />
       <div
