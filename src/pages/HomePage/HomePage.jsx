@@ -10,9 +10,6 @@ import ActivitySlide from "./components/ActivitySlide/ActivitySlide";
 
 import ActivitySlider from "./components/ActivitySlide/ActivitySlider";
 
-//banner
-//
-
 const HomePage = () => {
   return (
     <Container>
