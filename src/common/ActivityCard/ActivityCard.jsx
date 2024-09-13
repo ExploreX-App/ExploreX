@@ -4,6 +4,15 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 const ActivityCard = ({ item }) => {
+  const handleSave = () => {
+    let savedActivities =
+      JSON.parse(localStorage.getItem("savedActivities")) || [];
+    if (!savedActivities.includes(item.id)) {
+      savedActivities.push(item.id);
+    }
+    localStorage.setItem("savedActivities", JSON.stringify(savedActivities)); // Save to local storage
+  };
+
   const navigate = useNavigate();
   const goToDetails = () => {
     navigate("/");
@@ -21,7 +30,7 @@ const ActivityCard = ({ item }) => {
           style={{ aspectRatio: "3/3", borderRadius: "0" }}
           alt={item.name || "activity image"}
         />
-        <IoIosHeartEmpty className="heart-icon" />
+        <IoIosHeartEmpty className="heart-icon" onClick={() => handleSave()} />
       </div>
       <div className="activity-card-content">
         <div className="activity-card-title">
