@@ -1,10 +1,10 @@
 import React from "react";
+import "./Card.style.css"
 import { useNavigate } from "react-router-dom";
-import "./Card.style.css";
 
 const TourCard = ({item}) => {
   return (
-    <div className="tourcard-wrap position-relative" style={{ margin: "15px" }}>
+    <div className="tourcard-wrap position-relative" style={{ margin: "10px" }}>
       <img
         src={item.img}
         className="card-img"
