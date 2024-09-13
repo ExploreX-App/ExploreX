@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Suse&display=swap");
+
+.filter-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.filter-container {
+  padding: 20px;
+  background-color: white;
+}
+
+.filter-header {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.price-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.price-box {
+  width: 125px;
+  height: 60px;
+  padding: 5px;
+  font-size: 19px;
+  border: 0.5px solid #979797;
+  border-radius: 10px;
+  padding-left: 12px;
+  padding-top: 20px;
+  font-family: "Suse", sans-serif;
+}
+
+.price-inputs span {
+  margin-top: 2px;
+  margin-left: 3px;
+  font-size: 16px;
+  color: #6d6d6d;
+  font-family: "Suse", sans-serif;
+}
+
+.slider-track {
+  height: 60px;
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  padding-top: 30px;
+}
+
+.slider-track-filled {
+  position: absolute;
+  height: 3px;
+  background: #69adff;
+}
+
+.slider-thumb {
+  height: 30px;
+  width: 30px;
+  background-color: #318aff;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: none; 
+  transition: box-shadow 0.3s ease-in-out; 
+}
+
+.slider-thumb:active,
+.slider-thumb:focus {
+  box-shadow: 0 0px 1px 15px rgba(123, 196, 255, 0.3); 
+}
+
+.price-box-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.min-label,
+.max-label {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 12px;
+  color: grey;
+  pointer-events: none; 
+  z-index: 1;
+}

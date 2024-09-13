@@ -12,7 +12,7 @@ const fetchActivities = async ({ keyword }) => {
       throw new Error("Invalid latitude or longitude");
     }
     const response = await api.get(
-      `/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=10`
+      `/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=10&limit=10`
     );
 
     return response.data;

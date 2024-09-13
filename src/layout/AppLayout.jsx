@@ -48,21 +48,6 @@ const AppLayout = () => {
               </Nav.Link>
             </Nav>
 
-            {/* temporary search bar */}
-            <Form className="d-flex" onSubmit={searchByKeyword}>
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                value={keyword}
-                onChange={(event) => setKeyword(event.target.value)}
-              />
-              <Button variant="outline-danger" type="submit">
-                Search
-              </Button>
-            </Form>
-
             {/* Login */}
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/login">
