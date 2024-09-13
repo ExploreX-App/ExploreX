@@ -4,6 +4,7 @@ import StarRating from '../../../../common/StarRating';
 import './ActivityTabsSection.style.css';
 import { FaCaretDown, FaCaretUp, FaLink } from 'react-icons/fa';
 import ActivityDetailInfo from '../ActivityDetailInfo/ActivityDetailInfo.jsx';
+import Reviews from '../Reviews/Reviews.jsx';
 
 const ActivityTabsSection = ({ data, description, price }) => {
   const [showMore, setShowMore] = useState(true);
@@ -52,12 +53,13 @@ const ActivityTabsSection = ({ data, description, price }) => {
           </div>
         </Tab>
 
-        <Tab eventKey='amenities' title='Information'>
+        <Tab eventKey='information' title='Information'>
           <ActivityDetailInfo />
         </Tab>
 
-        <Tab eventKey='prices' title='Reviews'>
-          <p>Prices for the stay: ${price}</p>
+        <Tab eventKey='reviews' title='Reviews'>
+          <br />
+          <Reviews />
         </Tab>
 
         <Tab eventKey='policies' title='Policies'>
