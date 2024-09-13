@@ -1,5 +1,5 @@
 import { Button, Card, Container } from "react-bootstrap";
-import bannerLogo1 from "../../../../assets/bannerLogo1.png";
+import bannerLogo1 from "../../assets/bannerLogo1.png";
 
 const AdvertisingBanner = () => {
     return (
@@ -21,3 +21,5 @@ const AdvertisingBanner = () => {
 }
 
 export default AdvertisingBanner;
+
+

@@ -17,14 +17,14 @@ const AppLayout = () => {
     <Container className="app-container">
       <Navbar expand="lg" className="navbar-container">
         <Container fluid>
-          <Navbar.Brand href="/">
+          {/* <Navbar.Brand href="/" >
             <img
               height={30}
               className="m-1"
               src="https://static.vecteezy.com/system/resources/previews/017/396/814/original/netflix-mobile-application-logo-free-png.png"
               alt="logo"
             />
-          </Navbar.Brand>
+          </Navbar.Brand> */}
           <Navbar.Toggle aria-controls="navbarScroll" className="navbar-icon" />
           <Navbar.Collapse id="navbarScroll">
             {/* Menu Items */}

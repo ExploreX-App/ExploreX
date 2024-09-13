@@ -2,20 +2,22 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container } from "react-bootstrap";
-import { responsive } from "../Constants/responsive";
-import TourCard from "../Card/Card";
-import "./CardSlide.style.css";
+import TourCard from "../CityCard/CityCard";
+import "./CitySlide.style.css";
+import { responsive } from "../../utils/settings/citySliderSetting";
 
-const CardSlide = ({ title, items }) => {
+const CitySlide = ({ title, items }) => {
   return (
     <div className="cardSlide-container">
       <div className="fs-4 fw-bold">{title}</div>
       <Container className="p-0">
         <Carousel
-          // autoPlay
+          style={{ width: "100%" }}
+          partialVisbile={false}
           infinite={true}
-          centerMode={true}
-          itemClass={"tour-slider"}
+          autoPlay={true}
+          autoPlaySpeed={5000}
+          itemClass={"carousel-item-padding-0-px"}
           containerClass={"carousel-container"}
           responsive={responsive}
         >
@@ -28,4 +30,4 @@ const CardSlide = ({ title, items }) => {
   );
 };
 
-export default CardSlide;
+export default CitySlide;

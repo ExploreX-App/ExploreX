@@ -11,7 +11,7 @@ const HotelDescription = ({ hotelId }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  return <div>{data.map((desc, index) => <p>{desc.description}</p>)}</div>;
+  return <div>{data?.map((desc, index) => <p>{desc.description}</p>)}</div>;
 };
 
 export default HotelDescription;

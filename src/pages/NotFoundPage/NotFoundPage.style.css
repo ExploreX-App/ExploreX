@@ -48,4 +48,15 @@
   font-weight: bold;
 }
 
-
+.error-page-btn{
+  margin-top: 1em;
+  width: 180px;
+  height: 45px;
+  border: none;
+  background-color: #318AFF;
+  color: white;
+  border-radius: 30px;
+}
+.error-page-btn:hover{
+  background-color: rgb(109, 179, 241);
+}

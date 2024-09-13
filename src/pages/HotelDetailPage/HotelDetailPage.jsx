@@ -11,11 +11,12 @@ import { Modal, Carousel } from "react-bootstrap";
 // 컴포넌트들
 import HotelDescription from "./components/HotelDescription/HotelDescription";
 import ImportantInformation from "./components/HotelImportantInformation/HotelImportantInformation";
+import FacilitiesNService from "./components/HotelFacilitiesNService/HotelFacilitiesNService"
 import TermsOfUse from "./components/HotelTermsOfUse/HotelTermsOfUse";
 import FreqeuntAskedQuestions from "./components/HotelFrequentAskedQuestions/FreqeuntAskedQuestions";
 import HotelReview from "./components/HotelReviewList/HotelReviewList";
-import AdvertisingBanner from "./components/HotelAdvertisingBanner/HotelAdvertisingBanner";
-
+import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
+// import HotelRoomList from "./components/HotelRoomList/HotelRoomList"
 import MapPreview from "./components/HotelMap/MapPreview";
 
 
@@ -23,6 +24,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
 import "./HotelDetailPage.style.css";
+import HotelRoomList from "./components/HotelRoomList";
 
 const scrollToElement = (elementId, offset = 0) => {
   const element = document.getElementById(elementId);
@@ -36,9 +38,11 @@ const scrollToElement = (elementId, offset = 0) => {
 const HotelDetailPage = () => {
   const location = useLocation();
   const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state || {};
+  console.log("photos가 왜 하나만 들어와?", photos)
   const [keywordQuery, setKeywordQuery] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
+  console.log("iiiid", id)
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
     hotelId: id,
     dateFrom,
@@ -157,6 +161,7 @@ const HotelDetailPage = () => {
         </Tabs>
       </div>
 
+
       {/* Hotel Overview Section */}
       <div id="home">
         <HotelDetailHeader hotel={data} reviewScore={reviewScore} />
@@ -216,10 +221,13 @@ const HotelDetailPage = () => {
           <MapPreview hotel={data} hotels={hotelsData} />
           </div>
         </div>
+        <HotelDescription hotelId={data.hotel_id}/>
       </div>
 
       {/* Info & Rates Section */}
       <div id="info-n-rates">
+      <HotelRoomList hotelId={data.hotel_id}  dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/>
+
         <div>Total: {data?.composite_price_breakdown?.gross_amount?.amount_rounded}</div>
         <div>Per night: {data?.composite_price_breakdown?.gross_amount_per_night?.amount_rounded}</div>
         <div>Accommodation type: {data?.accommodation_type_name}</div>
@@ -243,7 +251,7 @@ const HotelDetailPage = () => {
       </div>
 
       {/* Other sections */}
-      <div id="facilities-n-service">facilities-n-service</div>
+      <div id="facilities-n-service"><FacilitiesNService /></div>
       <div id="terms-of-use"><TermsOfUse /></div>
       <div id="important-info"><ImportantInformation /><FreqeuntAskedQuestions /></div>
       <div id="reviews"><HotelReview hotelId={data.hotel_id} /></div>
