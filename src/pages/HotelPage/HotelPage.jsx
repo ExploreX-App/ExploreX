@@ -26,7 +26,7 @@ const HotelPage = () => {
   }
   return (
     <div>
-      <div><SearchBar keyword={keyword} dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/></div>
+      <div className="search-bar"><SearchBar keyword={keyword} dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/></div>
       {!data && <div className="fs-5 m-3 fw-semibold">{keyword}: No properties found.</div>}
       <div className="d-flex flex-column gap-2">
 

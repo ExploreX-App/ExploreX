@@ -5,6 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { FaRegClock } from "react-icons/fa6";
 
 const ActivityCard = ({ item }) => {
+  const handleSave = () => {
+    let savedActivities =
+      JSON.parse(localStorage.getItem("savedActivities")) || [];
+    if (!savedActivities.includes(item.id)) {
+      savedActivities.push(item.id);
+    }
+    localStorage.setItem("savedActivities", JSON.stringify(savedActivities)); // Save to local storage
+  };
+
   const navigate = useNavigate();
   const goToDetails = () => {
     navigate(`/activities/${item.id}`)
@@ -21,7 +30,7 @@ const ActivityCard = ({ item }) => {
           style={{ aspectRatio: "3/3", borderRadius: "0" }}
           alt={item.name || "activity image"}
         />
-        <IoIosHeartEmpty className="heart-icon" />
+        <IoIosHeartEmpty className="heart-icon" onClick={() => handleSave()} />
       </div>
       <div className="activity-card-content">
         <div className="d-flex justify-content-between">

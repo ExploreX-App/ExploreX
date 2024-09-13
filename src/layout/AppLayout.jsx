@@ -28,7 +28,7 @@ const AppLayout = () => {
           <Navbar.Toggle aria-controls="navbarScroll" className="navbar-icon" />
           <Navbar.Collapse id="navbarScroll">
             {/* Menu Items */}
-            <Nav className="me-auto my-2 my-lg-0 gap-3" navbarScroll>
+            <Nav className="me-auto my-2 my-lg-0 gap-3 px-4" navbarScroll>
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
@@ -47,7 +47,7 @@ const AppLayout = () => {
             </Nav>
 
             {/* Login */}
-            <Nav className="ms-auto gap-3">
+            <Nav className="ms-auto gap-3 px-4">
               {!user ? (
                 <Nav.Link as={Link} to="/login">
                   Sign in
