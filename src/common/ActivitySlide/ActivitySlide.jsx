@@ -24,20 +24,22 @@ const ActivitySlide = ({ keyword }) => {
         <div className="fs-4 fw-bold">Ways to tour {keyword}</div>
       </div>
       <Container className="p-0">
-        <Carousel
-          style={{ width: "100%" }}
-          partialVisbile={false}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={3000}
-          itemClass={"carousel-item-padding-0-px"}
-          containerClass={"carousel-container"}
-          responsive={responsive}
-        >
-          {data?.map((item, index) => (
-            <ActivityCard key={index} item={item} />
-          ))}
-        </Carousel>
+        {data && (
+          <Carousel
+            style={{ width: "100%" }}
+            partialVisbile={false}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            itemClass={"carousel-item-padding-0-px"}
+            containerClass={"carousel-container"}
+            responsive={responsive}
+          >
+            {data?.map((item, index) => (
+              <ActivityCard key={index} item={item} />
+            ))}
+          </Carousel>
+        )}
       </Container>
     </div>
   );
