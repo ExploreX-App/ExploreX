@@ -9,6 +9,7 @@ import ActivityTabsSection from './components/TabsSection/ActivityTabsSection';
 import ActivityDetailContent from './ActivityDetailContent';
 import FAQSection from './components/FAQSection/FAQSection';
 import PoliciesAndFeesSection from './components/PoliciesAndFeesSection/PoliciesAndFeesSection';
+import ActivityPromotion from './components/Promotion/ActivityPromotion.jsx';
 
 const ActivityDetailPage = () => {
   const { id } = useParams();
@@ -58,9 +59,11 @@ const ActivityDetailPage = () => {
         </Col>
       </Row>
 
-      {/* Activity Recommendation Carousel */}
+      {/* Activity Promotion */}
       <Row className='mt-4'>
-        <Col></Col>
+        <Col>
+          <ActivityPromotion />
+        </Col>
       </Row>
 
       {/* FAQ Section */}

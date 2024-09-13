@@ -52,11 +52,11 @@ const ActivityTabsSection = ({ data, description, price }) => {
           </div>
         </Tab>
 
-        <Tab eventKey='amenities' title='Amenities'>
+        <Tab eventKey='amenities' title='Information'>
           <ActivityDetailInfo />
         </Tab>
 
-        <Tab eventKey='prices' title='Prices'>
+        <Tab eventKey='prices' title='Reviews'>
           <p>Prices for the stay: ${price}</p>
         </Tab>
 
