@@ -1,9 +1,24 @@
 import React from "react";
 import "./CityCard.style.css"
+import { useNavigate } from "react-router-dom";
+import { DateObject } from "react-multi-date-picker";
 
 const TourCard = ({item}) => {
+  const navigate = useNavigate()
+  const goToDetails = () => {
+    const dateFrom = new DateObject().add(1, "days").toString().replaceAll("/", "-")
+    const dateTo = new DateObject().add(2, "days").toString().replaceAll("/", "-")
+    const searchData = {
+      keyword:item.name,
+      dateFrom,
+      dateTo,
+      adultNum: 2,
+    };
+    console.log(searchData)
+    navigate("/hotels", { state: searchData });
+  }
   return (
-    <div className="tourcard-wrap position-relative" style={{ margin: "10px" }}>
+    <div className="tourcard-wrap position-relative" style={{ margin: "10px" }} onClick={goToDetails}>
       <img
         src={item.img}
         className="card-img"

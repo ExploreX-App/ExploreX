@@ -1,12 +1,19 @@
 import React from "react";
 import "./ActivityCard.style.css";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const ActivityCard = ({ item }) => {
+  const navigate = useNavigate();
+  const goToDetails = () => {
+    navigate("/");
+    // navigate("/avtivities/${item.id}")
+  };
   return (
     <div
       className="activity-card-container position-relative"
       style={{ margin: "10px" }}
+      onClick={goToDetails}
     >
       <div className="activity-card-img">
         <img
