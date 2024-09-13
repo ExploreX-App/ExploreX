@@ -41,5 +41,6 @@ export const useHotelsByKeywordQuery = ({
     queryFn: () =>
       fetchHotelsByKeyword({ keyword, dateFrom, dateTo, adultNum, page }),
     select: (result) => result?.data?.hotels,
+    cacheTime: 1000 * 60 * 10 * 3
   });
 };

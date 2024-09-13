@@ -3,7 +3,7 @@ import { useHotelReviewQuery } from "../../../../hooks/useFetchHotelReviews";
 import HotelReviewCard from "./components/HotelReviewCard";
 import { Container } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
-import { responsive } from "../../../../utils/hotelReviewSlider";
+import { responsive } from "../../../../utils/settings/hotelReviewSliderSetting";
 import "./HotelReviewList.style.css";
 import HotelReviewScore from "./components/HotelReviewScore";
 
