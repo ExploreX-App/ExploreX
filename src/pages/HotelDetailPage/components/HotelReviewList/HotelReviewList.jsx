@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHotelReviewQuery } from "../../../../hooks/useFetchHotelReviews";
 import HotelReviewCard from "./components/HotelReviewCard";
 import { Container } from "react-bootstrap";
@@ -13,17 +13,24 @@ const HotelReviewList = ({ hotelId, reviewRef }) => {
     hotelId,
     sortOption,
   });
-  console.log("리뷰에서 data: ", data)
+
+  const filteredData = data?.result.filter((data) => data?.pros?.length > 0);
+
+  useEffect(() => {
+    if (filteredData) {
+      localStorage.setItem("reviews", JSON.stringify(filteredData));
+    }
+  }, [filteredData]);
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const filteredData = data?.result.filter((data) => data?.pros?.length > 0);
   return (
-    <Container ref={reviewRef}  style={{paddingTop:"80px"}}>
-      <h3 style={{color: "red"}}>Hotel Review</h3>
+    <div ref={reviewRef}  style={{paddingTop:"80px"}}>
+      <h3 style={{color: "black"}}>Hotel Review</h3>
       <div className="m-2">
         <div className="fs-5 fw-bold">Guest reviews</div>
       </div>
@@ -42,7 +49,7 @@ const HotelReviewList = ({ hotelId, reviewRef }) => {
           <HotelReviewCard review={review} key={index} />
         ))}
       </Carousel>
-    </Container>
+    </div>
   );
 };
 

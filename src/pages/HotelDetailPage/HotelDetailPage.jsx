@@ -16,6 +16,7 @@ import "./HotelDetailPage.style.css";
 import SearchBar from "../../common/SearchBar/SearchBar";
 import HotelOverview from "./components/HotelOverview/HotelOverview";
 import HotelInfo from "./components/HotelInfo/HotelInfo";
+import { useHotelsByGeoData } from '../../hooks/useFetchHotelsByGeoData';
 
 const HotelDetailPage = () => {
   const location = useLocation();
@@ -26,6 +27,13 @@ const HotelDetailPage = () => {
     dateFrom,
     dateTo,
     adultNum,
+  });
+
+  const { data: hotelsGeoData } = useHotelsByGeoData({
+    geoData: { latitude: data?.latitude, longitude: data?.longitude },
+    radius: 20,
+    dateFrom,
+    dateTo,
   });
 
   // 사진 모달을 위함
@@ -44,11 +52,9 @@ const HotelDetailPage = () => {
         break;
       case "reviews":
         reviewRef.current.scrollIntoView();
-        console.log("reviewRef- cu", reviewRef.current)
         break;
       case "faq":
         faqRef.current.scrollIntoView();
-        console.log("cu", faqRef.current)
         break;
       default:
         homeRef.current.scrollIntoView();
@@ -84,15 +90,17 @@ const HotelDetailPage = () => {
         homeRef={homeRef}
         reviewScore={reviewScore}
         data={data}
+        hotelsGeoData={hotelsGeoData}
         photos={photos}
       />
 
+      <HotelReview hotelId={data.hotel_id} reviewRef={reviewRef}/>
       <AdvertisingBanner />
 
       <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
-      <TermsOfUse />
+      <TermsOfUse data={data} />
 
-      <HotelReview hotelId={data.hotel_id} reviewRef={reviewRef}/>
+      
 
       <FreqeuntAskedQuestions faqRef={faqRef}/>
     </div>

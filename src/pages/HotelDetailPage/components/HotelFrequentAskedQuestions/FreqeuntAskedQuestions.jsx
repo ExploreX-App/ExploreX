@@ -2,8 +2,8 @@ import { Container, Accordion, Card, Row, Col } from "react-bootstrap";
 import './FrequentAskedQuestions.style.css'
 const FreqeuntAskedQuestions = ({faqRef}) => {
     return (
-        <Container ref={faqRef} className="FnA-container">
-            <h3 style={{color: "red"}}>Hotel FAQ</h3>
+        <div ref={faqRef}  style={{paddingTop:"80px", paddingBottom:"80px"}} className="FnA-container">
+            <h3 style={{color: "black"}}>Hotel FAQ</h3>
             <Row>
                 {/* Left Column: Title */}
                 <Col className="FnA-col-1" xs={12} md={4} style={{ backgroundColor: "#d0e2ff" }}>
@@ -85,7 +85,7 @@ const FreqeuntAskedQuestions = ({faqRef}) => {
                     </Accordion>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 };
 

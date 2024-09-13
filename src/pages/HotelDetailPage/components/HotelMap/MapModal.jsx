@@ -12,7 +12,7 @@ const CustomMarkerIcon = (price) => {
   return L.divIcon({
     className: "custom-marker", // 커스텀 클래스 설정
     html: `<div class="marker-container">
-               <div class="price-label">${price}</div>
+               <div class="price-label">${price.slice(2)}</div>
              </div>`,
     iconSize: [80, 30], // 마커 크기 조정
     iconAnchor: [40, 15], // 마커 포지션 조정
@@ -22,26 +22,13 @@ const CustomMarkerIcon = (price) => {
 // 이 코드 없으면 기본 아이콘이 표시되지 않을 수 있음
 // L.Marker.prototype.options.icon = DefaultIcon;
 
-const MapModal = ({ show, onHide, hotel }) => {
-  const { data, error, isLoading, isError } = useHotelsByKeywordQuery({
-    keyword: hotel?.city,
-    dateFrom: hotel?.arrival_date,
-    dateTo: hotel?.departure_date,
-    adultNum: 2,
-  });
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  if (isError) {
-    return <div>{error.message}</div>;
-  }
-  const hotels = data;
-  console.log(hotels)
-  // const totalHotels = hotels?.concat(hotel);
+const MapModal = ({ show, onHide, hotel, hotels }) => {
+  const totalHotels = hotels?.concat(hotel);
+  
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Hahahaha</Modal.Title>
+        <Modal.Title>Hotels in {hotel.city}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div style={{ height: "400px", width: "100%" }}>
@@ -55,14 +42,14 @@ const MapModal = ({ show, onHide, hotel }) => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            {hotels?.map((hotel) => (
+          {totalHotels?.map((hotel) => (
               <Marker
-                position={[hotel.property.latitude, hotel.property.longitude]}
+                position={[hotel.latitude, hotel.longitude]}
                 icon={CustomMarkerIcon(
-                  hotel.property.priceBreakdown?.grossPrice?.value.toFixed(0)
+                  hotel.composite_price_breakdown?.gross_amount?.amount_rounded
                 )}
               >
-                <Popup>{hotel.property.name}</Popup>
+                <Popup>{hotel.hotel_name}</Popup>
               </Marker>
             ))}
           </MapContainer>

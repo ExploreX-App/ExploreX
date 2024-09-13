@@ -1,39 +1,95 @@
 import React from "react";
-import './HotelRoomCard.style.css'
+import './HotelRoomCard.style.css';
 import { Button } from "react-bootstrap";
+import { FaMapMarkerAlt, FaBed, FaRulerCombined, FaMoneyBillAlt, FaStar, FaUsers } from "react-icons/fa";
 
 const HotelRoomCard = ({ room }) => {
   const price = room?.product_price_breakdown;
+  
   return (
     <div className="p-3 d-flex hotel-room-card-container">
       <div className="hotel-room-card-box">
-        <div className="fs-5 hotel-room-name">{room?.room_name}</div>
+        {/* Room Name */}
+        <div className="fs-5 hotel-room-name">{room?.room_name || "Standard Room"}</div>
+        
+        {/* Room Highlights */}
         <div className="hotel-room-bh_room_highlights-name-container">
-          {room?.bh_room_highlights.map((hl, index) => (
-            <div className="hotel-room-bh_room_highlights-name">{hl.name}</div>
-          ))}
+          {room?.bh_room_highlights?.length > 0 ? (
+            room.bh_room_highlights.map((hl, index) => (
+              <div key={index} className="hotel-room-bh_room_highlights-name">
+                {hl.name}
+              </div>
+            ))
+          ) : (
+            <div>No highlights available</div>
+          )}
         </div>
-        <div className="room-surface">{room.room_surface_in_m2}m&sup2;</div>
-        <div className="room-guest">Number of guests: {room?.nr_adults}</div>
-        <div className="room-mealplan">{room?.mealplan}</div>
+
+        {/* Number of Guests */}
+        <div className="hotel-info-item">
+          <FaBed className="hotel-info-icon" />
+          Number of guests: {room?.nr_adults || "1 adult"}
+        </div>
+
+        {/* Meal Plan */}
+        <div className="hotel-info-item">
+          <FaStar className="hotel-info-icon" />
+          Meal plan: {room?.mealplan || "No meal included"}
+        </div>
+
+        {/* Accommodation Type */}
+        <div className="hotel-info-item">
+          <FaBed className="hotel-info-icon" />
+          Accommodation type: {room?.name_without_policy || room?.accommodation_type_name || "Standard Room Type"}
+        </div>
+
+        {/* Room Surface */}
+        <div className="hotel-info-item">
+          <FaRulerCombined className="hotel-info-icon" />
+          Average room size: {room?.room_surface_in_m2 || "30"} m²
+        </div>
+
+        {/* Maximum Occupancy */}
+        <div className="hotel-info-item">
+          <FaUsers className="hotel-info-icon" />
+          Max Occupancy: {room?.max_occupancy || "2 guests"}
+        </div>
+        
+        {/* Room Type */}
+        <div className="hotel-info-item">
+          <FaBed className="hotel-info-icon" />
+          Room Type: {room?.room_type || "Standard Room"}
+        </div>
       </div>
+
       <ul>
+        {/* Payment Options */}
         <li>
           {room?.pay_in_advance === 1 ? "Pay in advance" : "Pay at property"}
         </li>
-        <li className="refundable">{room?.refundable === 1 ? "Refundable" : "Non-refundable"}</li>
+
+        {/* Refundable */}
+        <li className="refundable">
+          {room?.refundable === 1 ? "Refundable" : "Non-refundable"}
+        </li>
+
+        {/* Price Information */}
         <div className="price-section">
-          <span className="room-price-label">Total &#40;hotel currency&#41;:</span>
-          {price.gross_amount_hotel_currency.amount_rounded}
+          <span className="room-price-label">Total (hotel currency):</span>
+          {price?.gross_amount_hotel_currency?.amount_rounded || "Contact for pricing"}
         </div>
+        
         <div>
-        <span className="room-price-label">Price for {price.nr_stays} nights &#40;US&#41;:</span>
-          {price.gross_amount.amount_rounded}
+          <span className="room-price-label">Price for {price?.nr_stays || 1} nights (US):</span>
+          {price?.gross_amount?.amount_rounded || "Contact for pricing"}
         </div>
+
         <div>
-        <span className="room-price-label">per night:</span>
-          {price.gross_amount_per_night.amount_rounded}
+          <span className="room-price-label">Per night:</span>
+          {price?.gross_amount_per_night?.amount_rounded || "Contact for pricing"}
         </div>
+
+        {/* Reserve Button */}
         <Button>Reserve</Button>
       </ul>
     </div>
