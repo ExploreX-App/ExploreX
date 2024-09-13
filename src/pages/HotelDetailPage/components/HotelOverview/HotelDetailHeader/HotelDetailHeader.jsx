@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'; // 아이콘 import
 import './HotelDetailHeader.style.css'
-import HotelReviewStars from '../HotelReviewStars/HotelReviewStars';
+import HotelReviewStars from '../../HotelReviewStars/HotelReviewStars';
 
 const HotelDetailHeader = ({ hotel, reviewScore }) => {
   return (

@@ -1,48 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
-import HotelDetailHeader from "./components/HotelDetailHeader/HotelDetailHeader";
-import HotelPageLayout from "../HotelPage/Layout/HotelPageLayout";
 import { useHotelDetailsQuery } from "../../hooks/useFetchHotelDetails";
-import { useHotelsByGeoData } from "../../hooks/useFetchHotelsByGeoData";
-
-import { Modal, Carousel } from "react-bootstrap";
-
-
 // 컴포넌트들
-import HotelDescription from "./components/HotelDescription/HotelDescription";
 import ImportantInformation from "./components/HotelImportantInformation/HotelImportantInformation";
-import FacilitiesNService from "./components/HotelFacilitiesNService/HotelFacilitiesNService"
+import FacilitiesNService from "./components/HotelFacilitiesNService/HotelFacilitiesNService";
 import TermsOfUse from "./components/HotelTermsOfUse/HotelTermsOfUse";
 import FreqeuntAskedQuestions from "./components/HotelFrequentAskedQuestions/FreqeuntAskedQuestions";
 import HotelReview from "./components/HotelReviewList/HotelReviewList";
 import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
-// import HotelRoomList from "./components/HotelRoomList/HotelRoomList"
-import MapPreview from "./components/HotelMap/MapPreview";
-
 
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
 import "./HotelDetailPage.style.css";
-import HotelRoomList from "./components/HotelRoomList";
-
-const scrollToElement = (elementId, offset = 0) => {
-  const element = document.getElementById(elementId);
-  if (element) {
-    const yOffset = offset;
-    const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: yPosition, behavior: "smooth" });
-  }
-};
+import SearchBar from "../../common/SearchBar/SearchBar";
+import HotelOverview from "./components/HotelOverview/HotelOverview";
+import HotelInfo from "./components/HotelInfo/HotelInfo";
 
 const HotelDetailPage = () => {
   const location = useLocation();
-  const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state || {};
-  console.log("photos가 왜 하나만 들어와?", photos)
-  const [keywordQuery, setKeywordQuery] = useState(null);
-  const navigate = useNavigate();
+  const { dateFrom, dateTo, adultNum, photos, reviewScore } =
+    location.state || {};
   const { id } = useParams();
-  console.log("iiiid", id)
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
     hotelId: id,
     dateFrom,
@@ -50,93 +29,39 @@ const HotelDetailPage = () => {
     adultNum,
   });
 
-  const { data: hotelsData } = useHotelsByGeoData({
-    geoData: { latitude: data?.latitude, longitude: data?.longitude },
-    radius: 10,
-    dateFrom,
-    dateTo,
-  });
-
-  console.log("hotels", hotelsData);
-
-
-  // 탭을 위함
-  const [activeKey, setActiveKey] = useState("home");
-  const [isManualScroll, setIsManualScroll] = useState(false);
-
   // 사진 모달을 위함
-  const [showAllPhotos, setShowAllPhotos] = useState(false); // 사진 더보기 상태
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const homeRef = useRef();
+  const infoRef = useRef();
+  const facilityRef = useRef();
+  const termsRef = useRef();
+  const importantRef = useRef();
+  const reviewRef = useRef();
+
   const handleSelect = (key) => {
-    if (key !== activeKey) {
-      setActiveKey(key);
-      navigate({ search: `?section=${key}` }, { replace: true });
-      setIsManualScroll(true);
-      scrollToElement(key, -80);
+    switch (key) {
+      case "info-n-rates":
+        infoRef.current.scrollIntoView();
+        break;
+      case "facilities-n-service":
+        facilityRef.current.scrollIntoView();
+        break;
+      case "terms-of-use":
+        termsRef.current.scrollIntoView();
+        break;
+      case "important-info":
+        importantRef.current.scrollIntoView();
+        break;
+      case "reviews":
+        reviewRef.current.scrollIntoView();
+        break;
+      default:
+        homeRef.current.scrollIntoView();
+        break;
     }
   };
-
-  const handleShowMorePhotos = () => {
-    setShowAllPhotos(true); // 사진 더보기 눌렀을 때 캐러셀로 변경
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isManualScroll) return;
-
-      const sections = [
-        { id: "home", offset: 0 },
-        { id: "info-n-rates", offset: 0 },
-        { id: "facilities-n-service", offset: 0 },
-        { id: "terms-of-use", offset: 0 },
-        { id: "important-info", offset: 0 },
-        { id: "reviews", offset: 0 },
-      ];
-      let currentSection = null;
-
-      sections.forEach(({ id }) => {
-        const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = rect.top;
-          const elementBottom = rect.bottom;
-
-          if (elementTop <= window.innerHeight / 2 && elementBottom >= window.innerHeight / 2) {
-            currentSection = id;
-          }
-        }
-      });
-
-      if (currentSection && currentSection !== activeKey && data) {
-        setActiveKey(currentSection);
-        navigate({
-          search: `?section=${currentSection}`,
-          state: {
-            dateFrom: data.dateFrom,
-            dateTo: data.dateTo,
-            adultNum: data.adultNum,
-            photos: data.photos,
-            reviewScore: data.reviewScore,
-          },
-        }, { replace: true });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [activeKey, navigate, isManualScroll, data]);
-
-  useEffect(() => {
-    if (isManualScroll) {
-      const timeout = setTimeout(() => setIsManualScroll(false), 1000);
-      return () => clearTimeout(timeout);
-    }
-  }, [isManualScroll]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -145,116 +70,49 @@ const HotelDetailPage = () => {
     return <h1>{error.message}</h1>;
   }
 
-  const initialPhotos = photos?.slice(0, 5) || []; // undefined일 경우 빈 배열로 처리
-
   return (
     <div>
-      <HotelPageLayout />
+      <SearchBar dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum} />
       <div className="tabs-container">
-        <Tabs onSelect={handleSelect} activeKey={activeKey} id="hotel-detail-tabs" className="mb-3" fill>
+        <Tabs
+          onSelect={handleSelect}
+          id="hotel-detail-tabs"
+          className="mb-3"
+          fill
+        >
           <Tab eventKey="home" title="Hotel Overview"></Tab>
           <Tab eventKey="info-n-rates" title="Info & rates"></Tab>
-          <Tab eventKey="facilities-n-service" title="Facilities & Service"></Tab>
+          <Tab
+            eventKey="facilities-n-service"
+            title="Facilities & Service"
+          ></Tab>
           <Tab eventKey="terms-of-use" title="Terms of Use"></Tab>
           <Tab eventKey="important-info" title="Important Information"></Tab>
           <Tab eventKey="reviews" title="Customer Reviews"></Tab>
         </Tabs>
       </div>
 
-
       {/* Hotel Overview Section */}
-      <div id="home">
-        <HotelDetailHeader hotel={data} reviewScore={reviewScore} />
-        <div className="pics-n-map">
-          <div className="photo-gallery">
-            {!showAllPhotos ? (
-              <>
-                {initialPhotos?.map((photo, index) => {
-                  const adjustedPhoto = photo.replace("square60", "square600");
-                  return <img src={adjustedPhoto} key={index} alt="" className={`photo-${index}`} />;
-                })}
-                {Object.values(data?.rooms || {}).map((room) =>
-                  room?.photos?.slice(0, 5).map((photo, index) => (
-                    <img src={photo.url_max300} alt="" key={index} className={`photo-room-${index}`} />
-                  ))
-                )}
-                {photos?.length > 6 && (
-                  <button onClick={handleShowMorePhotos} className="btn btn-primary moreBtn">
-                    사진 더보기
-                  </button>
-                )}
-              </>
-            ) : (
-              <Carousel>
-                {photos?.map((photo, index) => {
-                  const adjustedPhoto = photo.replace("square60", "square600");
-                  return (
-                    <Carousel.Item key={index}>
-                      <img src={adjustedPhoto} alt={`photo-${index}`} className="d-block w-100" />
-                    </Carousel.Item>
-                  );
-                })}
-                {Object.values(data?.rooms || {}).map((room) =>
-                  room?.photos?.map((photo, index) => (
-                    <Carousel.Item key={index}>
-                      <img src={photo.url_max300} alt={`photo-room-${index}`} className="d-block w-100" />
-                    </Carousel.Item>
-                  ))
-                )}
-              </Carousel>
-            )}
-                  {/* <button onClick={handleShowMorePhotos} className="btn btn-primary moreBtn">
-                    사진 더보기
-                  </button> */}
-          </div>
-
-          {/* 맵 추가 */}
-          <div
-            className="map"
-            style={{
-              border: "2px solid black",
-              width: "200px",
-              height: "auto",
-              margin: "20px",
-            }}
-          >
-          <MapPreview hotel={data} hotels={hotelsData} />
-          </div>
-        </div>
-        <HotelDescription hotelId={data.hotel_id}/>
-      </div>
+      <HotelOverview
+        homeRef={homeRef}
+        reviewScore={reviewScore}
+        data={data}
+        photos={photos}
+      />
 
       {/* Info & Rates Section */}
-      <div id="info-n-rates">
-      <HotelRoomList hotelId={data.hotel_id}  dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/>
-
-        <div>Total: {data?.composite_price_breakdown?.gross_amount?.amount_rounded}</div>
-        <div>Per night: {data?.composite_price_breakdown?.gross_amount_per_night?.amount_rounded}</div>
-        <div>Accommodation type: {data?.accommodation_type_name}</div>
-        <div>
-          Address: {data?.address}, {data?.city}, {data?.country_trans}
-        </div>
-        <div>Average room size m²: {data?.average_room_size_for_ufi_m2}</div>
-        <div>
-          {typeof data?.distance_to_cc === "number"
-            ? `${data.distance_to_cc.toFixed(0)} km from the center of ${data.city}`
-            : "Distance information not available"}
-        </div>
-        <div>Available rooms: {data?.available_rooms}</div>
-        <div>Review: {data?.review_nr}</div>
-        <div className="mt-3 mb-3">
-          {data?.facilities_block?.name}:
-          {data?.facilities_block?.facilities?.map((fac, index) => (
-            <div key={index}>{fac.name}</div>
-          ))}
-        </div>
-      </div>
+      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
 
       {/* Other sections */}
-      <div id="facilities-n-service"><FacilitiesNService /></div>
-      <div id="terms-of-use"><TermsOfUse /></div>
-      <div id="important-info"><ImportantInformation /><FreqeuntAskedQuestions /></div>
-      <div id="reviews"><HotelReview hotelId={data.hotel_id} /></div>
+      <FacilitiesNService facilityRef={facilityRef} />
+      <TermsOfUse termsRef={termsRef} />
+      <div id="important-info" ref={importantRef}>
+        <ImportantInformation />
+        <FreqeuntAskedQuestions />
+      </div>
+      <div id="reviews" >
+        <HotelReview hotelId={data.hotel_id} reviewRef={reviewRef}/>
+      </div>
       <AdvertisingBanner />
     </div>
   );

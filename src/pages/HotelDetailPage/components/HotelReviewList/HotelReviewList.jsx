@@ -7,7 +7,7 @@ import { responsive } from "../../../../utils/settings/hotelReviewSliderSetting"
 import "./HotelReviewList.style.css";
 import HotelReviewScore from "./components/HotelReviewScore";
 
-const HotelReviewList = ({ hotelId }) => {
+const HotelReviewList = ({ hotelId, reviewRef }) => {
   const [sortOption, setSortOption] = useState("sort_most_relevant");
   const { data, isLoading, error, isError } = useHotelReviewQuery({
     hotelId,
@@ -22,7 +22,7 @@ const HotelReviewList = ({ hotelId }) => {
   }
   const filteredData = data?.result.filter((data) => data?.pros?.length > 0);
   return (
-    <Container>
+    <Container ref={reviewRef}>
       <div className="m-2">
         <div className="fs-5 fw-bold">Guest reviews</div>
       </div>
