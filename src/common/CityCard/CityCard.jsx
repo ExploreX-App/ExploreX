@@ -14,7 +14,6 @@ const TourCard = ({item}) => {
       dateTo,
       adultNum: 2,
     };
-    console.log(searchData)
     navigate("/hotels", { state: searchData });
   }
   return (
@@ -38,7 +37,7 @@ const TourCard = ({item}) => {
         }}
       ></div>
       <div
-        className="position-absolute bottom-0 m-3 text-white fw-bold"
+        className="position-absolute bottom-0 m-3 text-white fw-bold fs-5"
         style={{ zIndex: 5 }}
       >
         {item.name}
