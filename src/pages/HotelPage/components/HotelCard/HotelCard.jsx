@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import "./HotelCard.style.css";
 
+
 const HotelCard = ({ hotel, adultNum }) => {
   const navigate = useNavigate();
   const hotelImg = hotel.photoUrls[0].replace("square60", "square300"); // photo size adjusted
@@ -15,8 +16,11 @@ const HotelCard = ({ hotel, adultNum }) => {
         adultNum: adultNum,
         photos: hotel.photoUrls,
       },
+
     });
   };
+
+  console.log(hotel)
   return (
     <div
       className="p-2 m-2 gap-3 hotelCard-container"
@@ -69,6 +73,7 @@ const HotelCard = ({ hotel, adultNum }) => {
         </Col>
       </Row>
     </div>
+
   );
 };
 

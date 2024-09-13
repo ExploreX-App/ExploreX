@@ -4,10 +4,7 @@ import { Image } from "react-bootstrap";
 const Avatar = ({ imgUrl, name }) => {
   return (
     <div className="avatar d-flex gap-2 align-items-center">
-      {imgUrl ? (
-        <Image style={{ width: "30px" }} roundedCircle src={imgUrl} alt="" />
-      ) : (
-        <span
+      <span
           className="text-center align-content-center"
           style={{
             width: "30px",
@@ -19,7 +16,6 @@ const Avatar = ({ imgUrl, name }) => {
         >
           {name[0]}
         </span>
-      )}
       <div className="fw-semibold">{name}</div>
     </div>
   );
