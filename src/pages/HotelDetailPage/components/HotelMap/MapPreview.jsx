@@ -20,30 +20,33 @@ const DefaultIcon = L.icon({
 // 이 코드 없으면 기본 아이콘이 표시되지 않을 수 있음
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const MapPreview = ({ hotel }) => {
+const MapPreview = ({ hotel, hotelsGeoData }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-  const position = [hotel.latitude, hotel.longitude];
+  const position = [hotel?.latitude, hotel?.longitude];
   return (
     <div>
       {/* 작은 미리보기 지도 */}
-      <div style={{ width: "240px", height: "200px", position: "relative" }}>
-        <MapContainer
-          center={position}
-          zoom={13}
-          scrollWheelZoom={false}
-          style={{ height: "100%", width: "100%" }}
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <Marker position={position} zIndexOffset={1000}>
-            <Popup>{hotel.hotel_name}</Popup>
-          </Marker>
-        </MapContainer>
+      <div className="position-relative w-100" style={{ height: "320px" }}>
+        {hotel?.latitude && hotel?.longitude && (
+          <MapContainer
+            center={position}
+            zoom={13}
+            scrollWheelZoom={false}
+            style={{ borderRadius: "5px", overflow: "hidden" }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={position} zIndexOffset={1000}>
+              <Popup>{hotel?.hotel_name}</Popup>
+            </Marker>
+          </MapContainer>
+        )}
+
         {/* 가운데 버튼 */}
         <Button
           onClick={handleShowModal}
@@ -69,6 +72,7 @@ const MapPreview = ({ hotel }) => {
         show={showModal}
         onHide={handleCloseModal}
         hotel={hotel}
+        hotels={hotelsGeoData}
       />
     </div>
   );

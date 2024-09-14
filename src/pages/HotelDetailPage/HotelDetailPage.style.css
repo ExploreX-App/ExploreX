@@ -35,7 +35,7 @@ gap: 10px;
 
 .photo-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 5개의 열 */
+  grid-template-columns: repeat(3, 1fr); /* 5개의 열 */
   grid-template-rows: repeat(3, 200px); /* 3개의 행, 각 행의 높이를 200px로 설정 */
   grid-gap: 10px; /* 이미지 간의 간격 */
 }
