@@ -65,6 +65,7 @@ const Reviews = ({ reviews }) => {
         </div>
       </div>
       <hr />
+
       {sampleReviews.map((review, index) => (
         <div key={index} className='review-container'>
           {/* First row: Profile picture, name, like icon, and count */}
