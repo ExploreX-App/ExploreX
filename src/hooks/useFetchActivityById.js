@@ -1,9 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import api from "../api/amadeusApi";
+import { useQuery } from '@tanstack/react-query';
+import api from '../api/amadeusApi';
 
 const fetchActivityById = async (id) => {
   const response = await api.get(`/shopping/activities/${id}`);
   return response.data;
+
 };
 
 const fetchActivitiesByIds = async (ids) => {
@@ -18,5 +19,6 @@ export const useActivityQuery = ({ ids }) => {
     enabled: ids.length > 0,
     retry: 2,
     select: (results) => results,
+
   });
 };

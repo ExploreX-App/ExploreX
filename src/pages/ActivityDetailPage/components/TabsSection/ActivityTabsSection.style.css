@@ -1,0 +1,36 @@
+body {
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        'SF Pro Display',
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+}
+
+.tabs-container {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.activity-tap-type {
+    margin-top: 20px;
+    color: #464646;
+}
+
+.activity-tap-title {
+    font-size: 3rem !important;
+    font-weight: 400;
+}
+
+.activity-tap-ratimg {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-weight: 400;
+}
