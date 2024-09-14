@@ -21,7 +21,6 @@ const fetchHotelsByGeoData = async ({ geoData, radius, dateFrom, dateTo }) => {
 };
 
 export const useHotelsByGeoData = (inputData) => {
-  const navigate = useNavigate();
   const shouldFetch = inputData.hotelId && inputData.dateFrom && inputData.dateTo && inputData.adultNum !== undefined;
   const query = useQuery({
     queryKey: inputData ? ["hotels", inputData.geoData] : null,
@@ -31,9 +30,6 @@ export const useHotelsByGeoData = (inputData) => {
     retry: 0,
     staleTime: 10000000000000,
   });
-  if (!shouldFetch) {
-    navigate("/"); // 조건이 충족되지 않으면 홈으로 리다이렉트
-  }
   return query
 
 };

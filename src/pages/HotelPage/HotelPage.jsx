@@ -18,6 +18,7 @@ const HotelPage = () => {
     dateTo,
     adultNum,
   });
+  console.log(keyword)
   if (isLoading) {
     return <h1>Loading...</h1>;
   }

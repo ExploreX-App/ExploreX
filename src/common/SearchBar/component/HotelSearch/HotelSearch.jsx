@@ -29,12 +29,15 @@ const HotelSearch = ({ keyword, dateFrom, dateTo, adultNum }) => {
   );
 
   const [city, setCity] = useState(keyword || "");
-  console.log(city);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSearch = () => {
     try {
-      keyword = city?.address_components[0]?.short_name
+      if (typeof city === "string") {
+        keyword = city;
+      } else {
+        keyword = city?.address_components[0]?.short_name;
+      }
     } catch {
       setCityError(true);
     }

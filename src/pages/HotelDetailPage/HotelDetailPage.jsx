@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useHotelDetailsQuery } from "../../hooks/useFetchHotelDetails";
 // 컴포넌트들
-import ImportantInformation from "./components/HotelImportantInformation/HotelImportantInformation";
-import FacilitiesNService from "./components/HotelFacilitiesNService/HotelFacilitiesNService";
 import TermsOfUse from "./components/HotelTermsOfUse/HotelTermsOfUse";
 import FreqeuntAskedQuestions from "./components/HotelFrequentAskedQuestions/FreqeuntAskedQuestions";
 import HotelReview from "./components/HotelReviewList/HotelReviewList";
@@ -17,10 +15,10 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 import HotelOverview from "./components/HotelOverview/HotelOverview";
 import HotelInfo from "./components/HotelInfo/HotelInfo";
 import { useHotelsByGeoData } from '../../hooks/useFetchHotelsByGeoData';
-import { faQ } from "@fortawesome/free-solid-svg-icons";
 
 const HotelDetailPage = () => {
   const location = useLocation();
+  console.log(location.state)
   const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state || {};
   const { id } = useParams();
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
@@ -29,7 +27,7 @@ const HotelDetailPage = () => {
     dateTo,
     adultNum,
   });
-
+  console.log(data)
   const { data: hotelsGeoData } = useHotelsByGeoData({
     geoData: { latitude: data?.latitude, longitude: data?.longitude },
     radius: 20,

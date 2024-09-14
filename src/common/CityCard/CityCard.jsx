@@ -14,6 +14,7 @@ const TourCard = ({item}) => {
       dateTo,
       adultNum: 2,
     };
+    console.log(searchData)
     navigate("/hotels", { state: searchData });
   }
   return (
