@@ -10,7 +10,7 @@ const SearchBar = ({ keyword, dateFrom, dateTo, adultNum, tab="hotel" }) => {
   return (
     <div className="search-container">
       <Tabs
-        defaultActiveKey="hotel"
+        defaultActiveKey={activeTab}
         id="fill-tab-example"
         className="mb-3"
         fill
