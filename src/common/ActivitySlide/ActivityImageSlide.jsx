@@ -3,7 +3,7 @@ import { FaMedal, FaImage } from 'react-icons/fa';
 import './ActivityImageSlide.style.css';
 
 const ActivityImageSlide = ({ data }) => {
-  if (!data?.pictures || data.pictures.length === 0) {
+  if (!data?.pictures || data?.pictures?.length === 0) {
     return <p>No images available</p>;
   }
 

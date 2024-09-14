@@ -34,7 +34,7 @@ const SavedActivities = () => {
       activityMockData[Math.floor(Math.random() * activityMockData.length)];
     return { ...activity, ...randomMockData };
   });
-  const numSaved = mergedData.length;
+  const numSaved = mergedData?.length;
   return (
     <ActivitySlide
       saved={true}
