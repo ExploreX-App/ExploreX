@@ -93,7 +93,6 @@ const HotelDetailPage = () => {
         faqRef={faqRef}
       />
 
-
       <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
       <HotelReview hotelId={data?.hotel_id} reviewRef={reviewRef}/>
 

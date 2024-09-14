@@ -23,9 +23,9 @@ const HotelDetailOverview = ({
 
   // 사진의 총 수가 5인지 확인
   const totalPhotosCount = initialPhotos.length + roomPhotos.length;
-  console.log("Initial Photos Count:", initialPhotos.length); // 디버그 로그
-  console.log("Room Photos Count:", roomPhotos.length); // 디버그 로그
-  console.log("Total Photos Count:", totalPhotosCount); // 디버그 로그
+  // console.log("Initial Photos Count:", initialPhotos.length); // 디버그 로그
+  // console.log("Room Photos Count:", roomPhotos.length); // 디버그 로그
+  // console.log("Total Photos Count:", totalPhotosCount); // 디버그 로그
 
   const reviews = JSON.parse(localStorage.getItem("reviews"));
 
