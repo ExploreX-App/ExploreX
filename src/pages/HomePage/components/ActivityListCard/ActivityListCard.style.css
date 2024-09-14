@@ -5,12 +5,11 @@
 
   border-radius: 1rem;
   cursor: pointer;
-  display: flex;
   align-items: stretch;
-  min-height: 200px;
-  height: 200px;
+  /* height: 200px; */
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 .card-title {
@@ -41,7 +40,6 @@
 }
 
 .custom-free-cancel {
-  /* color: rgb(4 121 82); */
   color: #69adff;
   font-size: 16px;
   margin-top: auto;
@@ -69,30 +67,13 @@
   font-family: "Suse", sans-serif;
 }
 
-.heart-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: red;
-  font-size: 24px;
-  cursor: pointer;
-  background-color: white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 3px;
-}
-
-.heart-icon.animate__zoomOut,
-.heart-icon.animate__wobble {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
 .custom-badge {
   background-color: #318aff;
   color: white;
+}
+
+.activity__img {
+  width: 100%;
+  height: 220px !important;
+  object-fit: cover;
 }
