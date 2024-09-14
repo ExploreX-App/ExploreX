@@ -94,7 +94,6 @@ console.log("home",faqRef)
         faqRef={faqRef}
       />
 
-
       <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} reviewScore={reviewScore}/>
       <HotelReview hotelId={data?.hotel_id} reviewRef={reviewRef}/>
 
