@@ -30,6 +30,41 @@ const Reviews = ({ reviews }) => {
 
   return (
     <div>
+      {/* Review Rating Bars */}
+      <div className='review-rating-container'>
+        <div className='review-bar-container'>
+          <span className='review-label'>Excellent</span>
+          <div className='bar'>
+            <div className='bar-fill excellent' style={{ width: '80%' }}></div>
+          </div>
+          <span className='review-count'>7,315</span>
+        </div>
+
+        <div className='review-bar-container'>
+          <span className='review-label'>Very good</span>
+          <div className='bar'>
+            <div className='bar-fill very-good' style={{ width: '10%' }}></div>
+          </div>
+          <span className='review-count'>140</span>
+        </div>
+
+        <div className='review-bar-container'>
+          <span className='review-label'>Average</span>
+          <div className='bar'>
+            <div className='bar-fill average' style={{ width: '5%' }}></div>
+          </div>
+          <span className='review-count'>13</span>
+        </div>
+
+        <div className='review-bar-container'>
+          <span className='review-label'>Poor</span>
+          <div className='bar'>
+            <div className='bar-fill poor' style={{ width: '2%' }}></div>
+          </div>
+          <span className='review-count'>4</span>
+        </div>
+      </div>
+      <hr />
       {sampleReviews.map((review, index) => (
         <div key={index} className='review-container'>
           {/* First row: Profile picture, name, like icon, and count */}
