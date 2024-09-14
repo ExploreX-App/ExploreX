@@ -6,6 +6,8 @@ import "./HotelReviewCard.style.css"
 
 const HotelReviewCard = ({ review }) => {
   const [modalShow, setModalShow] = useState(false);
+
+  
   return (
     <>
       <Card className="review-card p-2">
@@ -21,7 +23,7 @@ const HotelReviewCard = ({ review }) => {
           </div>
           <Card.Text
             className="mt-3"
-            style={{ height: "100px", overflow: "hidden" }}
+            style={{ height: "100px", overflow: "hidden", fontWeight: "normal"}}
           >
             {review.pros}
           </Card.Text>

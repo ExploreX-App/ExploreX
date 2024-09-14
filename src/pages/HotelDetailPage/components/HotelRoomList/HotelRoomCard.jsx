@@ -25,7 +25,7 @@ const HotelRoomCard = ({ hotel, room, reviewScore }) => {
     <Row className="p-3 d-flex hotel-room-card-container">
       <Col className="hotel-room-card-box" md={8} xs={12}>
         {/* Room Name */}
-        <div className="fs-5 hotel-room-name">
+        <div className="hotel-room-name">
           {room?.room_name || "Standard Room"}
         </div>
 

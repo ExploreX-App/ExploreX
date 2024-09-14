@@ -44,7 +44,7 @@ const HotelReviewList = ({ hotelId, reviewRef }) => {
         containerClass={"carousel-container"}
         responsive={responsive}
       >
-        {filteredData?.map((review, index) => (
+        {filteredData.length > 0 && filteredData?.map((review, index) => (
           <HotelReviewCard review={review} key={index} />
         ))}
       </Carousel>
