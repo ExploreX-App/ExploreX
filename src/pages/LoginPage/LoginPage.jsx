@@ -40,7 +40,7 @@ const LoginPage = () => {
  
   // useHotelQuery
   return (
-    <Container fluid="md" className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+    <Container fluid="md" className="d-flex justify-content-center align-items-center" >
         <Row className="w-100 align-items-center">
             {/* 이미지 컬럼 */}
             <Col md={12} className="d-flex justify-content-center">
@@ -80,10 +80,10 @@ const LoginPage = () => {
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check
                                 type="checkbox"
-                                label="Check me out"
+                                label="Stay logged in"
                                 checked={isChecked} 
                                 name="checkbox" 
-                                required 
+                                // required 
                                 onChange={handleOnChange}
                             />
                         </Form.Group>

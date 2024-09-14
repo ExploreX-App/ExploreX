@@ -1,0 +1,62 @@
+/* 달력 팝업 스타일링 */
+.react-datepicker {
+    z-index: 1000;
+    display: flex; /* 달력들을 가로로 정렬하기 위해 flexbox 사용 */
+    justify-content: space-between; /* 두 달력 사이에 간격을 줌 */
+    padding: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  /* 각 달력의 컨테이너 */
+  .react-datepicker__month-container {
+    display: inline-block; /* 각 달력을 가로로 배치 */
+    margin-right: 0px; /* 두 달력 사이 간격 */
+    width: auto; /* 달력의 너비 자동 조정 */
+  }
+  
+  /* 달력 헤더 스타일 */
+  .react-datepicker__header {
+    background-color: #007bff; /* 헤더 배경색 */
+    color: white;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center; /* 중앙 정렬 */
+  }
+  
+  /* 날짜 스타일 */
+  .react-datepicker__day {
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin: 0.2rem;
+    text-align: center;
+    border-radius: 50%;
+  }
+  
+  .react-datepicker__day:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .react-datepicker__day--selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .react-datepicker__day--range-start, .react-datepicker__day--range-end {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+  }
+  
+  .react-datepicker__day--in-range {
+    background-color: #d0e8ff;
+    color: black;
+  }
+
+  .datapicker-input {
+    width: 200px;
+    height: 48px;
+    border-radius: 5px;
+    border: 2px solid green
+  }
