@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useHotelDetailsQuery } from "../../hooks/useFetchHotelDetails";
 // 컴포넌트들
-import ImportantInformation from "./components/HotelImportantInformation/HotelImportantInformation";
-import FacilitiesNService from "./components/HotelFacilitiesNService/HotelFacilitiesNService";
 import TermsOfUse from "./components/HotelTermsOfUse/HotelTermsOfUse";
 import FreqeuntAskedQuestions from "./components/HotelFrequentAskedQuestions/FreqeuntAskedQuestions";
 import HotelReview from "./components/HotelReviewList/HotelReviewList";
@@ -17,7 +15,6 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 import HotelOverview from "./components/HotelOverview/HotelOverview";
 import HotelInfo from "./components/HotelInfo/HotelInfo";
 import { useHotelsByGeoData } from '../../hooks/useFetchHotelsByGeoData';
-import { faQ } from "@fortawesome/free-solid-svg-icons";
 
 const HotelDetailPage = () => {
   const location = useLocation();
@@ -29,7 +26,7 @@ const HotelDetailPage = () => {
     dateTo,
     adultNum,
   });
-
+  console.log("hotel detail page", reviewScore)
   const { data: hotelsGeoData } = useHotelsByGeoData({
     geoData: { latitude: data?.latitude, longitude: data?.longitude },
     radius: 20,
@@ -45,7 +42,7 @@ const HotelDetailPage = () => {
   const infoRef = useRef();
   const reviewRef = useRef();
   const faqRef = useRef();
-
+console.log("home",faqRef)
   const handleSelect = (key) => {
     switch (key) {
       case "info-n-rates":
@@ -98,7 +95,7 @@ const HotelDetailPage = () => {
       />
 
 
-      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
+      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} reviewScore={reviewScore}/>
       <HotelReview hotelId={data?.hotel_id} reviewRef={reviewRef}/>
 
       <TermsOfUse data={data} faqRef={faqRef} />

@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Suse&display=swap");
+
+.filter-container {
+  padding: 20px;
+  background-color: white;
+}
+
+.filter-header {
+  font-size: 25px;
+  margin-bottom: 20px;
+  font-family: "Suse", sans-serif;
+}
+
+.filter-group {
+  font-family: "Suse", sans-serif;
+  font-size: 18px;
+}
+
+.filter-group h6 {
+  font-size: 20px;
+}
+
+.filter-group-custom {
+  background-color: white;
+}
+
+.price-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.price-box {
+  height: 60px;
+  padding: 5px;
+  font-size: 20px;
+  border: 0.5px solid #979797;
+  border-radius: 10px;
+  font-family: "Suse", sans-serif;
+}
+
+.price-inputs span {
+  margin-top: 2px;
+  margin-left: 3px;
+  font-size: 18px;
+  color: #6d6d6d;
+  font-family: "Suse", sans-serif;
+}
+
+.slider-track {
+  height: 60px;
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+}
+
+.slider-track-filled {
+  position: absolute;
+  height: 3px;
+  background: #69adff;
+}
+
+.slider-thumb {
+  height: 30px;
+  background-color: #318aff;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.slider-thumb:active,
+.slider-thumb:focus {
+  box-shadow: 0 0px 1px 15px rgba(123, 196, 255, 0.3);
+}
+
+.price-box-wrapper {
+  position: relative;
+}
+
+.min-label,
+.max-label {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 14px;
+  color: grey;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rating-button {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-button {
+  height: 40px;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid #ccc;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.filter-button:hover {
+  border: 2.5px solid #318aff;
+}
+
+.filter-button.selected {
+  background-color: #318aff;
+  border-color: #318aff;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* 체크박스 원형 */
+.form-check-input {
+  height: 20px;
+  border-radius: 50% !important;
+  border: 2px solid #ccc;
+  transition: all 0.3s;
+  appearance: none;
+  margin-top: 0;
+}
+
+.form-check-input:hover {
+  border-color: #318aff;
+}
+
+.form-check-input:checked {
+  border-color: #318aff;
+  background-color: white;
+  position: relative;
+}
+
+/* 체크박스 선택 시 파란 원  */
+.form-check-input:checked::before {
+  content: "";
+  display: block;
+  height: 10px;
+  background-color: #318aff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-check-input {
+  padding: 2px;
+}
+
+.activity-filter {
+  padding-top: 0px;
+}
+
+.compare-activities {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.compare-activities::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.compare-activities span {
+  font-family: "Suse", sans-serif;
+  font-size: 20px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  height: 25px;
+  margin-right: 15px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  left: 7px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-activity {
+  padding-top: 20px;
+  /* border: 10px solid #9a9a9a; */
+  margin-right: 100px;
+  margin-bottom: 120px;
+  position: relative;
+  font-size: 20px;
+}
+
+.search-activity::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.search-activity label {
+  font-size: 30px;
+  font-family: "Suse", sans-serif;
+  /* border: 1px solid black; */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #5c5c5c;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+.search-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
