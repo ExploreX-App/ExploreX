@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './AboutPage.style.css';
 import aboutImg2 from '../../assets/about-img2.jpg';
 import arrow from '../../assets/arrow.png';
@@ -10,6 +10,8 @@ import member5 from '../../assets/member1.jpg';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const AboutPage = () => {
   // 스크롤 감지를 위한 ref 및 inView 상태 설정
@@ -26,9 +28,40 @@ const AboutPage = () => {
     threshold: 0.2
   });
   const { ref: teamRef, inView: teamInView } = useInView({
+    // 팀 섹션을 위한 훅 추가
     triggerOnce: true,
     threshold: 0.2
   });
+
+  // 팀 섹션으로 스크롤할 수 있는 ref 생성
+  const teamSectionRef = useRef(null);
+
+  // 버튼 클릭 시 팀 섹션으로 스크롤하는 함수
+  const scrollToTeamSection = () => {
+    if (teamSectionRef.current) {
+      teamSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // 반응형 설정
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
   return (
     <Container className='about-page'>
@@ -63,14 +96,14 @@ const AboutPage = () => {
               className='about-main-img'
             />
             <div className='overlay-box'>
-              <h2 className='about-img-box-title'>Why We Do This</h2>
+              <h2 className='about-img-box-title'>ExploreX</h2>
               <p className='about-img-box-txt'>
-                Our founders also feel the burden of creating their very first
-                business. As their frustration manifests into this product, it
-                is born to help fellow entrepreneurs stay focused on one aspect:
-                do business.
+                ExploreX is a cutting-edge travel guide website designed to help
+                users discover the best hotels and activities around the globe.
               </p>
-              <button className='overlay-box-btn'>Our Team</button>
+              <button className='overlay-box-btn' onClick={scrollToTeamSection}>
+                Our Team
+              </button>
             </div>
           </Col>
         </Row>
@@ -85,17 +118,21 @@ const AboutPage = () => {
         <Row className='columns'>
           <Col lg={7}></Col>
           <Col lg={5} className='right-column'>
-            <h2>ExploreX</h2>
-            <p>
-              ExploreX is a cutting-edge travel guide website designed to help
-              users discover the best hotels and activities around the globe. By
-              leveraging the power of rapidapi.com, www.accounts.amadeus.com,
-              and Google Maps API, ExploreX offers a seamless and intuitive
-              search experience for travelers looking to explore new
-              destinations. Our project was completed in just one week using the
-              Agile Scrum methodology, showcasing the incredible efficiency and
-              collaboration of our diverse team of developers.
-            </p>
+            <div className='quote-container'>
+              <i className='fa-solid fa-quote-left quote-icon'></i>
+              <p className='quote-text'>
+                ExploreX is your ultimate travel companion, designed to unlock
+                the wonders of the world with ease. Powered by cutting-edge
+                technologies and APIs, ExploreX connects travelers to the best
+                hotels, activities, and hidden gems across the globe. Through
+                the combined power of RapidAPI, Amadeus API, and Google Maps
+                API, ExploreX offers a seamless, intuitive search experience,
+                enabling users to discover and plan their dream trips
+                effortlessly. ExploreX is more than just a travel guide—it's a
+                gateway to unforgettable experiences, helping you create
+                memories that will last a lifetime.
+              </p>
+            </div>
           </Col>
         </Row>
       </motion.div>
@@ -234,7 +271,7 @@ const AboutPage = () => {
       </motion.div>
 
       {/* Team Section */}
-      <div ref={teamRef}>
+      <div ref={teamSectionRef}>
         <motion.section
           className='team-section'
           style={{
@@ -253,76 +290,113 @@ const AboutPage = () => {
               travel experience seamless and enjoyable.
             </p>
 
-            {/* 첫 번째 줄 (3명) */}
-            <Row>
-              {[
-                { name: 'Suhyun Park', role: 'Project Owner', img: member1 },
-                { name: 'James Jo', role: 'Scrum Master', img: member2 },
-                {
-                  name: 'Hailey Kim',
-                  role: 'UX Designer / Developer',
-                  img: member3
-                }
-              ].map((member, index) => (
-                <Col md={4} key={index}>
-                  <Card className='team-card shadow'>
-                    <div className='team-img-wrapper'>
-                      <Card.Img
-                        variant='top'
-                        src={member.img}
-                        className='team-img'
-                      />
-                    </div>
-                    <Card.Body>
-                      <Card.Title>{member.name}</Card.Title>
-                      <Card.Text style={{ color: '#318AFF' }}>
-                        {member.role}
-                      </Card.Text>
-                      <hr />
-                      <ul className='team-role-list'>
-                        <li>Role responsibility 1</li>
-                        <li>Role responsibility 2</li>
-                        <li>Role responsibility 3</li>
-                        <li>Role responsibility 4</li>
-                      </ul>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+            {/* React Multi Carousel 적용 */}
+            <Carousel
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={2000}
+              removeArrowOnDeviceType={['tablet', 'mobile']}
+              showDots={true}
+              dotListClass='custom-dot-list'
+              customTransition='all 1s ease'
+              transitionDuration={1000}
+            >
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member1} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>Suhyun Park</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Project Owner
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
 
-            {/* 두 번째 줄 (2명) 중앙 정렬 */}
-            <Row className='mt-4 justify-content-center'>
-              {[
-                { name: 'Amy Ahn', role: 'Designer / Developer', img: member4 },
-                { name: 'May Kim', role: 'Main Developer', img: member5 }
-              ].map((member, index) => (
-                <Col md={4} key={index}>
-                  <Card className='team-card shadow'>
-                    <div className='team-img-wrapper'>
-                      <Card.Img
-                        variant='top'
-                        src={member.img}
-                        className='team-img'
-                      />
-                    </div>
-                    <Card.Body>
-                      <Card.Title>{member.name}</Card.Title>
-                      <Card.Text style={{ color: '#318AFF' }}>
-                        {member.role}
-                      </Card.Text>
-                      <hr />
-                      <ul className='team-role-list'>
-                        <li>Role responsibility 1</li>
-                        <li>Role responsibility 2</li>
-                        <li>Role responsibility 3</li>
-                        <li>Role responsibility 4</li>
-                      </ul>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member2} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>James Jo</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Scrum Master
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member3} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>Hailey Kim</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    UX Designer / Developer
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member4} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>Amy Ahn</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Designer / Developer
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member5} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>May Kim</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Main Developer
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+            </Carousel>
           </Container>
         </motion.section>
       </div>
