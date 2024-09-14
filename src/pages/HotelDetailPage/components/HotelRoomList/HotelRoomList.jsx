@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 
 const HotelRoomList = ({ hotelId, dateFrom, dateTo, adultNum }) => {
   const [moreRooms, setMoreRooms] = useState(5);
+  const [show, setShow] = useState(false)
   const { data, isLoading, error, isError } = useHotelRoomsQuery({
     hotelId,
     dateFrom,
@@ -21,6 +22,7 @@ const HotelRoomList = ({ hotelId, dateFrom, dateTo, adultNum }) => {
 
   const handleShowMore = () => {
     setMoreRooms((prevMoreRooms) => prevMoreRooms + 5);
+    setShow(true);
   };
 
   const roomsToShow = data.block.slice(0, moreRooms);
@@ -28,7 +30,7 @@ const HotelRoomList = ({ hotelId, dateFrom, dateTo, adultNum }) => {
   return (
     <div>
       {roomsToShow.map((room, index) => (
-        <HotelRoomCard room={room} key={index} />
+        <HotelRoomCard room={room} hotel={data} key={index} />
       ))}
       {data.block.length > moreRooms && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>

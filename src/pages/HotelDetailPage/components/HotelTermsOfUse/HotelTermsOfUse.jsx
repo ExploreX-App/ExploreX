@@ -14,14 +14,14 @@ import {
 } from "react-icons/fa";
 import "./HotelTermsOfUse.style.css";
 
-const TermsOfUse = ({ data }) => {
+const TermsOfUse = ({ data, faqRef }) => {
   return (
-    <div style={{ paddingTop: "80px" }}>
-      <h3 style={{ color: "black" }}>Terms of Use</h3>
-      <p>
+    <div style={{ padding:"80px 10px" }} ref={faqRef}>
+      <div className="fw-bold fs-4">Policies</div>
+      {/* <p>
         You can request additional services for Mayflower Park Hotel - Please
         enter them at the next step!
-      </p>
+      </p> */}
       <table className="terms-table">
         <tbody>
           <tr>
@@ -48,31 +48,7 @@ const TermsOfUse = ({ data }) => {
                 "Policies vary according to accommodation type. Please check the conditions of your required option when selecting your option."}
             </td>
           </tr>
-          <tr>
-            <td>
-              <FaGlobe /> <strong>Languages Spoken:</strong>
-            </td>{" "}
-            {/* 지구 아이콘 */}
-            <td>
-              {data?.languages_spoken?.languagecode &&
-                Object.values(data.languages_spoken.languagecode).map(
-                  (lang, index) => <div key={index}>{lang}</div>
-                )}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <FaUsers /> <strong>Family Facilities:</strong>
-            </td>{" "}
-            {/* 사용자 그룹 아이콘 */}
-            <td>
-              {data?.family_facilities?.length > 0
-                ? data.family_facilities.map((facility, index) => (
-                    <div key={index}>{facility}</div>
-                  ))
-                : "No family facilities available"}
-            </td>
-          </tr>
+          
           <tr>
             <td>
               <FaBed /> <strong>Min Room Distribution:</strong>
@@ -113,23 +89,6 @@ const TermsOfUse = ({ data }) => {
               When booking more than 7 rooms, different policies and additional
               supplements may apply.
             </td>
-          </tr>
-          <tr>
-            <td>
-              <FaSuitcase /> <strong>Parking:</strong>
-            </td>
-            <td>
-              {data?.parking_available === 1
-                ? "Parking is available on-site."
-                : "Parking is not available."}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <FaWifi /> <strong>Wifi Reviews Score:</strong>
-            </td>{" "}
-            {/* 와이파이 아이콘 */}
-            <td>{data?.wifi_review_score?.rating} / 10.00</td>
           </tr>
           <tr>
             <td>

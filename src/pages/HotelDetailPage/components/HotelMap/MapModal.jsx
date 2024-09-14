@@ -3,9 +3,6 @@ import { Modal, Button } from "react-bootstrap";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "./MapModal.style.css";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import { useHotelsByKeywordQuery } from "../../../../hooks/useFetchHotelsByKeyword";
 
 // 마커 기본 아이콘 설정
 const CustomMarkerIcon = (price) => {
@@ -24,35 +21,38 @@ const CustomMarkerIcon = (price) => {
 
 const MapModal = ({ show, onHide, hotel, hotels }) => {
   const totalHotels = hotels?.concat(hotel);
-  
+
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Hotels in {hotel.city}</Modal.Title>
+        <Modal.Title>Hotels in {hotel?.city}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div style={{ height: "400px", width: "100%" }}>
-          <MapContainer
-            center={[hotel.latitude, hotel.longitude]}
-            zoom={13}
-            scrollWheelZoom={true}
-            style={{ height: "100%", width: "100%" }}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            />
-          {totalHotels?.map((hotel) => (
-              <Marker
-                position={[hotel.latitude, hotel.longitude]}
-                icon={CustomMarkerIcon(
-                  hotel.composite_price_breakdown?.gross_amount?.amount_rounded
-                )}
-              >
-                <Popup>{hotel.hotel_name}</Popup>
-              </Marker>
-            ))}
-          </MapContainer>
+          {hotel?.latitude && hotel?.longitude && (
+            <MapContainer
+              center={[hotel?.latitude, hotel?.longitude]}
+              zoom={13}
+              scrollWheelZoom={true}
+              style={{ height: "100%", width: "100%" }}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              />
+              {totalHotels?.map((hotel) => (
+                <Marker
+                  position={[hotel?.latitude, hotel?.longitude]}
+                  icon={CustomMarkerIcon(
+                    hotel.composite_price_breakdown?.gross_amount
+                      ?.amount_rounded
+                  )}
+                >
+                  <Popup>{hotel?.hotel_name}</Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          )}
         </div>
       </Modal.Body>
       <Modal.Footer>

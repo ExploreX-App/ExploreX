@@ -17,6 +17,7 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 import HotelOverview from "./components/HotelOverview/HotelOverview";
 import HotelInfo from "./components/HotelInfo/HotelInfo";
 import { useHotelsByGeoData } from '../../hooks/useFetchHotelsByGeoData';
+import { faQ } from "@fortawesome/free-solid-svg-icons";
 
 const HotelDetailPage = () => {
   const location = useLocation();
@@ -79,10 +80,10 @@ const HotelDetailPage = () => {
           className="mb-3"
           fill
         >
-          <Tab eventKey="home" title="Hotel Overview"></Tab>
-          <Tab eventKey="info-n-rates" title="Info & rates"></Tab>
-          <Tab eventKey="reviews" title="Customer Reviews"></Tab>
-          <Tab eventKey="faq" title="Frequent Asked Questions"></Tab>
+          <Tab eventKey="home" title="Overview"></Tab>
+          <Tab eventKey="info-n-rates" title="Rooms"></Tab>
+          <Tab eventKey="reviews" title="Reviews"></Tab>
+          <Tab eventKey="faq" title="Policies"></Tab>
         </Tabs>
       </div>
 
@@ -92,17 +93,17 @@ const HotelDetailPage = () => {
         data={data}
         hotelsGeoData={hotelsGeoData}
         photos={photos}
+        reviewRef={reviewRef}
+        faqRef={faqRef}
       />
 
-      <HotelReview hotelId={data.hotel_id} reviewRef={reviewRef}/>
-      <AdvertisingBanner />
 
       <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
-      <TermsOfUse data={data} />
+      <HotelReview hotelId={data?.hotel_id} reviewRef={reviewRef}/>
 
-      
-
-      <FreqeuntAskedQuestions faqRef={faqRef}/>
+      <TermsOfUse data={data} faqRef={faqRef} />
+      <FreqeuntAskedQuestions />
+      <AdvertisingBanner />
     </div>
   );
 };
