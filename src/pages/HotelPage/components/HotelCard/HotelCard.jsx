@@ -9,7 +9,6 @@ const HotelCard = ({ hotel, adultNum }) => {
   const hotelImg = hotel.photoUrls[0].replace("square60", "square300"); // photo size adjusted
   const { currency, value } = hotel?.priceBreakdown?.grossPrice;
   const goToDetail = () => {
-    console.log(hotel)
     navigate(`./${hotel.id}`, {
       state: {
         dateFrom: hotel.checkinDate,

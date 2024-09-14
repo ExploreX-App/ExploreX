@@ -59,7 +59,6 @@ const HotelSearch = ({ keyword, dateFrom, dateTo, adultNum }) => {
         dateTo,
         adultNum: totalPpl,
       };
-      console.log(searchData);
       navigate("/hotels", { state: searchData });
     }
   };
@@ -78,7 +77,6 @@ const HotelSearch = ({ keyword, dateFrom, dateTo, adultNum }) => {
               onPlaceSelected={(place) => {
                 setCity(place);
                 setCityError(false);
-                console.log(place);
               }}
               required
             />

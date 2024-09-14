@@ -18,7 +18,6 @@ import { useHotelsByGeoData } from '../../hooks/useFetchHotelsByGeoData';
 
 const HotelDetailPage = () => {
   const location = useLocation();
-  console.log(location.state)
   const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state || {};
   const { id } = useParams();
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
@@ -27,7 +26,6 @@ const HotelDetailPage = () => {
     dateTo,
     adultNum,
   });
-  console.log(data)
   const { data: hotelsGeoData } = useHotelsByGeoData({
     geoData: { latitude: data?.latitude, longitude: data?.longitude },
     radius: 20,
