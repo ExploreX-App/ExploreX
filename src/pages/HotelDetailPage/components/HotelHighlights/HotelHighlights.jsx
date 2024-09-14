@@ -13,15 +13,9 @@ const HotelHighlights = ({ data, faqRef }) => {
             <FaGlobe /> <strong>Languages Spoken:</strong> English
           </div>
           <div className="d-flex align-items-center gap-1">
+          <FaUsers /> <strong>Family Facilities: </strong>
             {data?.family_facilities?.length > 0
-              ? data.family_facilities.map((facility, index) => (
-                  <>
-                    <FaUsers /> <strong>Family Facilities: </strong>
-                    <span key={index} className="mr-1">
-                      {facility}
-                    </span>
-                  </>
-                ))
+              ? data.family_facilities[0]
               : "No family facilities available"}
           </div>
           <div className="d-flex align-items-center gap-1">
