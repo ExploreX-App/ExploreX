@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Suse&display=swap");
+
+.card-structure {
+  border: 1px solid rgb(221, 220, 220);
+
+  border-radius: 1rem;
+  cursor: pointer;
+  align-items: stretch;
+  /* height: 200px; */
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-title {
+  min-height: 3rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.image-area {
+  padding: 0;
+  position: relative;
+  height: 100%;
+}
+
+.activity-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.custom-title {
+  font-size: 22px;
+}
+
+.custom-free-cancel {
+  color: #69adff;
+  font-size: 16px;
+  margin-top: auto;
+  font-family: "Suse", sans-serif;
+}
+
+.custom-price {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.custom-price2 {
+  font-size: 16px;
+  font-family: "Suse", sans-serif;
+}
+
+.custom-rating {
+  font-size: 20px;
+}
+
+.custom-reviews {
+  padding-top: 10px;
+  padding-left: 10px;
+  color: rgb(53, 53, 53);
+  font-family: "Suse", sans-serif;
+}
+
+.custom-badge {
+  background-color: #318aff;
+  color: white;
+}
+
+.activity__img {
+  width: 100%;
+  height: 220px !important;
+  object-fit: cover;
+}
