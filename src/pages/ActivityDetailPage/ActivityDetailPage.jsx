@@ -13,7 +13,8 @@ import ActivityPromotion from './components/Promotion/ActivityPromotion.jsx';
 
 const ActivityDetailPage = () => {
   const { id } = useParams();
-  const { data, isLoading, isError, error } = useActivityQuery({ id });
+  const { data, isLoading, isError, error } = useActivityQuery({ids: [id]});
+  const activity = data ? data[0]?.data : {}
 
   if (isLoading) {
     return <Spinner />;
@@ -23,21 +24,19 @@ const ActivityDetailPage = () => {
     return <h1>{error.message}</h1>;
   }
 
-  const photos = data?.photos || [];
-
   return (
     <Container>
       {/* Image Slider */}
       <Row>
         <Col>
-          <ActivityImageSlide photos={photos} data={data} />
+          <ActivityImageSlide data={activity} />
         </Col>
       </Row>
 
       {/* Search Bar */}
-      <Row className='mb-4'>
+      <Row className='mb-0'>
         <Col>
-          <SearchBar />
+          <SearchBar tab="activity" />
         </Col>
       </Row>
 
@@ -45,9 +44,9 @@ const ActivityDetailPage = () => {
       <Row>
         <Col>
           <ActivityTabsSection
-            data={data}
-            description={data?.description}
-            price={data?.price.amount}
+            data={activity}
+            description={activity?.description}
+            price={activity?.price?.amount}
           />
         </Col>
       </Row>
@@ -55,7 +54,7 @@ const ActivityDetailPage = () => {
       {/* Main Content and Reservation */}
       <Row className='mt-4'>
         <Col lg={12} md={12} sm={12} xs={12}>
-          <ActivityDetailContent data={data} />
+          <ActivityDetailContent data={activity} />
         </Col>
       </Row>
 

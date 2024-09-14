@@ -6,13 +6,16 @@ import { useNavigate } from "react-router-dom";
 const fetchActivities = async ({ keyword }) => {
   try {
     const cityInfo = await fetchCityByKeyword(keyword);
+    console.log("City info", cityInfo);
     const { latitude, longitude } = cityInfo.geoCode || {};
+
     if (!latitude || !longitude) {
       throw new Error("Invalid latitude or longitude");
     }
     const response = await api.get(
-      `/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=10`
+      `/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=10&limit=10`
     );
+
     return response.data;
   } catch (error) {
     console.error("Error fetching activities:", error);
@@ -25,6 +28,7 @@ export const useActivitiesQuery = ({ keyword }) => {
   if (keyword === "") {
     navigate("/");
   }
+  
   return useQuery({
     queryKey: ["activities", keyword],
     queryFn: () => fetchActivities({ keyword }),

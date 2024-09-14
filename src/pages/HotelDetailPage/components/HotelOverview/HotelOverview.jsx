@@ -1,100 +1,110 @@
-import React, { useState } from "react";
-import MapPreview from "../HotelMap/MapPreview";
+import React from "react";
+import MapPreview from '../HotelMap/MapPreview';
 import HotelDescription from "../HotelDescription/HotelDescription";
 import HotelDetailHeader from "./HotelDetailHeader/HotelDetailHeader";
-import { Carousel } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import HotelReviewCard from "../HotelReviewList/components/HotelReviewCard";
+import HotelHighlights from "../HotelHighlights/HotelHighlights";
 
-const HotelDetailOverview = ({ homeRef, reviewScore, data, photos }) => {
-  const initialPhotos = photos?.slice(0, 5) || []; // undefined일 경우 빈 배열로 처리
-  const [showAllPhotos, setShowAllPhotos] = useState(false); // 사진 더보기 상태
-  const handleShowMorePhotos = () => {
-    setShowAllPhotos(true); // 사진 더보기 눌렀을 때 캐러셀로 변경
-  };
+
+const HotelDetailOverview = ({
+  homeRef,
+  reviewScore,
+  data,
+  hotelsGeoData,
+  photos,
+  reviewRef,
+  faqRef
+}) => {
+  const initialPhotos = photos?.slice(0, 5) || [];
+  const roomPhotos = Object.values(data?.rooms || {}).flatMap((room) =>
+    room?.photos?.slice(0, 5) || []
+  );
+
+  // 사진의 총 수가 5인지 확인
+  const totalPhotosCount = initialPhotos.length + roomPhotos.length;
+  // console.log("Initial Photos Count:", initialPhotos.length); // 디버그 로그
+  // console.log("Room Photos Count:", roomPhotos.length); // 디버그 로그
+  // console.log("Total Photos Count:", totalPhotosCount); // 디버그 로그
+
+  const reviews = JSON.parse(localStorage.getItem("reviews"));
+
   return (
     <div id="home" ref={homeRef}>
-      <HotelDetailHeader hotel={data} reviewScore={reviewScore} />
-      <div className="pics-n-map">
-        <div className="photo-gallery">
-          {!showAllPhotos ? (
-            <>
-              {initialPhotos?.map((photo, index) => {
-                const adjustedPhoto = photo.replace("square60", "square600");
-                return (
+      <HotelDetailHeader
+        hotel={data}
+        reviewScore={reviewScore}
+        reviewRef={reviewRef}
+      />
+      <Container style={{ margin: "20px 0px", padding: "0px" }}>
+        <Row>
+          <Col xs={12} md={8}>
+            <div
+              className={`photo-gallery mb-4 ${
+                totalPhotosCount === 5 ? "single-photo" : ""
+              }`}
+            >
+              {/* 사진의 총 수가 5보다 작을 경우 */}
+              {totalPhotosCount < 5 ? (
+                initialPhotos[0] ? (
                   <img
-                    src={adjustedPhoto}
-                    key={index}
+                    src={initialPhotos[0].replace("square60", "square600")}
                     alt=""
-                    className={`photo-${index}`}
+                    className="photo-0"
                   />
-                );
-              })}
-              {Object.values(data?.rooms || {}).map((room) =>
-                room?.photos
-                  ?.slice(0, 5)
-                  .map((photo, index) => (
+                ) : (
+                  <p>No photos available</p>
+                )
+              ) : (
+                <>
+                  {initialPhotos.map((photo, index) => {
+                    const adjustedPhoto = photo.replace("square60", "square600");
+                    return (
+                      <img
+                        src={adjustedPhoto}
+                        key={index}
+                        alt=""
+                        className={`photo-${index}`}
+                      />
+                    );
+                  })}
+                  {roomPhotos.map((photo, index) => (
                     <img
                       src={photo.url_max300}
                       alt=""
                       key={index}
                       className={`photo-room-${index}`}
                     />
-                  ))
+                  ))}
+                </>
               )}
-              {photos?.length > 6 && (
-                <button
-                  onClick={handleShowMorePhotos}
-                  className="btn btn-primary moreBtn"
-                >
-                  사진 더보기
-                </button>
-              )}
-            </>
-          ) : (
-            <Carousel>
-              {photos?.map((photo, index) => {
-                const adjustedPhoto = photo.replace("square60", "square600");
-                return (
-                  <Carousel.Item key={index}>
-                    <img
-                      src={adjustedPhoto}
-                      alt={`photo-${index}`}
-                      className="d-block w-100"
-                    />
-                  </Carousel.Item>
-                );
-              })}
-              {Object.values(data?.rooms || {}).map((room) =>
-                room?.photos?.map((photo, index) => (
-                  <Carousel.Item key={index}>
-                    <img
-                      src={photo.url_max300}
-                      alt={`photo-room-${index}`}
-                      className="d-block w-100"
-                    />
-                  </Carousel.Item>
-                ))
-              )}
-            </Carousel>
-          )}
-          {/* <button onClick={handleShowMorePhotos} className="btn btn-primary moreBtn">
-                    사진 더보기
-                  </button> */}
-        </div>
+            </div>
+          </Col>
+          <Col
+            xs={12}
+            md={4}
+            className="h-100 d-flex flex-column justify-space-between"
+          >
+            {reviews && (
+              <div style={{ marginBottom: "20px" }}>
+                <HotelReviewCard review={reviews[0]} />
+              </div>
+            )}
 
-        {/* 맵 추가 */}
-        <div
-          className="map"
-          style={{
-            border: "2px solid black",
-            width: "200px",
-            height: "auto",
-            margin: "20px",
-          }}
-        >
-          <MapPreview hotel={data} />
-        </div>
-      </div>
-      <HotelDescription hotelId={data.hotel_id} />
+            <div style={{ marginTop: "10px" }}>
+              <MapPreview hotel={data} hotelsGeoData={hotelsGeoData} />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <Row>
+        <Col xs={12} md={8}>
+          <HotelDescription hotelId={data?.hotel_id} />
+        </Col>
+        <Col xs={12} md={4}>
+          <HotelHighlights data={data} faqRef={faqRef} />
+        </Col>
+      </Row>
     </div>
   );
 };

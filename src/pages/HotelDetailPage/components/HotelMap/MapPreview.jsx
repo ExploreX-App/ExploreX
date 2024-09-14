@@ -20,7 +20,7 @@ const DefaultIcon = L.icon({
 // 이 코드 없으면 기본 아이콘이 표시되지 않을 수 있음
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const MapPreview = ({ hotel }) => {
+const MapPreview = ({ hotel, hotelsGeoData }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => setShowModal(true);
@@ -29,12 +29,12 @@ const MapPreview = ({ hotel }) => {
   return (
     <div>
       {/* 작은 미리보기 지도 */}
-      <div style={{ width: "240px", height: "200px", position: "relative" }}>
+      <div style={{ width: "100%", height: "260px", position: "relative" }}>
         <MapContainer
           center={position}
           zoom={13}
           scrollWheelZoom={false}
-          style={{ height: "100%", width: "100%" }}
+          style={{ height: "100%", width: "100%", borderRadius: "5px", overflow: "hidden", }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -69,6 +69,7 @@ const MapPreview = ({ hotel }) => {
         show={showModal}
         onHide={handleCloseModal}
         hotel={hotel}
+        hotels={hotelsGeoData}
       />
     </div>
   );
