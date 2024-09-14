@@ -86,3 +86,15 @@ gap: 10px;
   background-color: red;
   cursor: pointer;
 }
+
+/* 첫 번째 이미지만 보여질 때 그리드 전체를 채우도록 설정 */
+.photo-gallery.single-photo {
+  grid-template-columns: 1fr; /* 하나의 열로 변경 */
+  grid-template-rows: 1fr;    /* 하나의 행으로 변경 */
+}
+
+/* 첫 번째 이미지에 대해 그리드 전체를 채우도록 설정 */
+.photo-gallery.single-photo img {
+  grid-column: 1 / -1; /* 모든 열을 차지 */
+  grid-row: 1 / -1;    /* 모든 행을 차지 */
+}
