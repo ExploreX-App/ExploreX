@@ -9,6 +9,7 @@ import HotelPage from "./pages/HotelPage/HotelPage";
 import AboutPage from "./pages/About/AboutPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HotelDetailPage from "./pages/HotelDetailPage/HotelDetailPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path=":id" element={<HotelDetailPage />} />
         </Route>
         <Route path="login" element={<LoginPage />} />
+        <Route path="profile" element={<ProfilePage />}/>
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

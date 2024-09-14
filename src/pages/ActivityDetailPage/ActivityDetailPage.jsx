@@ -13,7 +13,8 @@ import ActivityPromotion from './components/Promotion/ActivityPromotion.jsx';
 
 const ActivityDetailPage = () => {
   const { id } = useParams();
-  const { data, isLoading, isError, error } = useActivityQuery({ id });
+  const { data, isLoading, isError, error } = useActivityQuery({ids: [id]});
+  const activity = data ? data[0].data : {}
 
   if (isLoading) {
     return <Spinner />;

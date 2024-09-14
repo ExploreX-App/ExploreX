@@ -6,6 +6,7 @@
   margin: 1em;
   cursor: pointer;
   overflow: hidden;
+  z-index: 0;
 }
 .activity-card-img {
   position: relative;
@@ -25,6 +26,7 @@
   padding: 8px;
   cursor: pointer !important;
   font-size: 35px;
+  z-index: 10 !important;
 }
 .activity-card-container:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.21);

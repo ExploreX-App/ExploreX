@@ -5,32 +5,40 @@ import { useNavigate } from "react-router-dom";
 import { FaRegClock } from "react-icons/fa6";
 
 const ActivityCard = ({ item }) => {
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.stopPropagation();
     let savedActivities =
       JSON.parse(localStorage.getItem("savedActivities")) || [];
-    if (!savedActivities.includes(item.id)) {
+
+    if (savedActivities.includes(item.id)) {
+      savedActivities = savedActivities.filter((id) => id !== item.id);
+    } else {
       savedActivities.push(item.id);
     }
-    localStorage.setItem("savedActivities", JSON.stringify(savedActivities)); // Save to local storage
+
+    localStorage.setItem("savedActivities", JSON.stringify(savedActivities));
   };
 
   const navigate = useNavigate();
   const goToDetails = () => {
-    navigate(`/activities/${item.id}`)
+    navigate(`/activities/${item.id}`);
   };
   return (
     <div
       className="activity-card-container position-relative"
-      style={{ margin: "5px" }}
+      style={{ margin: "0px" }}
       onClick={goToDetails}
     >
       <div className="activity-card-img">
         <img
-          src={item.pictures[0]}
+          src={item?.pictures[0]}
           style={{ aspectRatio: "3/3", borderRadius: "0" }}
-          alt={item.name || "activity image"}
+          alt={item?.name || "activity image"}
         />
-        <IoIosHeartEmpty className="heart-icon" onClick={() => handleSave()} />
+        <IoIosHeartEmpty
+          className="heart-icon"
+          onClick={(e) => handleSave(e)}
+        />
       </div>
       <div className="activity-card-content">
         <div className="d-flex justify-content-between">
@@ -40,17 +48,21 @@ const ActivityCard = ({ item }) => {
           </div>
           <div className="activitycard-hours d-flex align-items-center justify-content-end">
             <FaRegClock className="m-1" />
-            <div className="text-nowrap">{item.minimumDuration}</div>
+            <div className="text-nowrap">{item?.minimumDuration}</div>
           </div>
         </div>
 
         <div className="review-hours d-flex align-items-center">
           <div className="activitycard-review-wrap">
-            <div className="activitycard-score">{item.rating}</div>
-            <div className="activitycard-review text-nowrap">{item.reviews} reviews</div>
+            <div className="activitycard-score">{item?.rating}</div>
+            <div className="activitycard-review text-nowrap">
+              {item?.reviews} reviews
+            </div>
           </div>
           <div className="d-flex flex-column justify-content-end">
-            <div className="activitycard-price text-nowrap">${item.price.amount}</div>
+            <div className="activitycard-price text-nowrap">
+              ${item?.price.amount}
+            </div>
           </div>
         </div>
       </div>
