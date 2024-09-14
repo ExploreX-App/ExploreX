@@ -28,6 +28,7 @@ export const useActivitiesQuery = ({ keyword }) => {
   if (keyword === "") {
     navigate("/");
   }
+  
   return useQuery({
     queryKey: ["activities", keyword],
     queryFn: () => fetchActivities({ keyword }),

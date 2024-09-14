@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Badge, Col, Container, Row } from "react-bootstrap";
 import { activityPriceMockData } from "../../../../utils/ActivityMockData";
 import { getRandomData } from "../../../ActivityPage/ActivityPage";
-import "./ActivityCard.style.css";
+import "./ActivityListCard.style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "animate.css";
 import HeartIcon from "../../../../common/HeartIcon/HeartIcon";

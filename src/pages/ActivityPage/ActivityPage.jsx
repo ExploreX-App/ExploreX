@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 import { useActivitiesQuery } from "../../hooks/useFetchActivities";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import ActivityCard from "../HomePage/components/ActivityListCard/ActivityListCard";
 import "./ActivityPage.style.css";
 import Pagination from "../HomePage/components/Pagination/Pagination";
@@ -11,6 +11,7 @@ import {
 } from "../../utils/ActivityMockData";
 import ActivityFilter from "./ActivityFilter";
 import SortBySelect from "../HomePage/components/SortBySelect/SortBySelect";
+import SearchBar from "../../common/SearchBar/SearchBar";
 
 export const getRandomData = (array) => {
   if (!array || array?.length === 0) {
@@ -26,15 +27,16 @@ const ActivityPage = () => {
   const [page, setPage] = useState(0);
   const [sortCriteria, setSortCriteria] = useState("");
   const [priceRange, setPriceRange] = useState([0, 300]); // 가격 범위 상태 추가
-
+  const location = useLocation();
+  const keyword = location?.state?.keyword.split(",")[0] || "";
+  console.log(location?.state);
 
   const itemsPerPage = 10;
   // const keyword = query.get("q");
 
   const { data, isLoading, isError, error } = useActivitiesQuery({
-    keyword: "toronto",
+    keyword,
   });
-  console.log("ddd", data);
 
   const mergedActivities = data?.map((activity, index) => {
     const randomValue = Math.floor(Math.random() * activityPriceMockData?.length);
@@ -133,11 +135,11 @@ const ActivityPage = () => {
 
   return (
     <Container>
+      <SearchBar tab="activity" />
       {/* filter */}
       <Row className="w-100">
         <SortBySelect setSortCriteria={handleFilterChange} />
       </Row>
-
       {/* sort by */}
       <Row className="">
         <Col xs={12} md={3}>
