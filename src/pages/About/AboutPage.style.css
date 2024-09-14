@@ -1,3 +1,8 @@
+html,
+body {
+    font-size: 1.2rem;
+}
+
 .about-page {
     display: flex;
     flex-direction: column;
@@ -16,19 +21,21 @@
 }
 
 .about-skills-section {
-    margin-top: 150px;
     margin-bottom: 150px;
 }
 
 .about-title {
     text-align: left;
     margin-top: 30px;
+    margin-left: 15rem;
     font-size: 3rem !important;
     font-weight: 400 !important;
 }
 
 .about-subtitle {
     text-align: left;
+    font-size: 1.5rem;
+    margin-left: 15rem;
     margin-bottom: 30px;
 }
 
@@ -109,7 +116,7 @@
 
 .skills-txt {
     color: #1e3050;
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     text-align: left;
 }
 
@@ -176,6 +183,39 @@
 }
 
 .about-title {
+    margin-top: 150px;
     font-size: 2rem;
-    color: #333;
+    color: #318AFF;
+}
+
+.quote-text {
+    letter-spacing: 1;
+}
+
+.team-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.team-title {
+    margin-bottom: 30px;
+}
+
+.team-description {
+    margin-bottom: 120px !important;
+}
+
+.team-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.team-card:nth-child(even) {
+    transform: translateY(-60px);
 }
