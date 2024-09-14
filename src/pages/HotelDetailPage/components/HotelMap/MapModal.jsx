@@ -9,7 +9,7 @@ const CustomMarkerIcon = (price) => {
   return L.divIcon({
     className: "custom-marker", // 커스텀 클래스 설정
     html: `<div class="marker-container">
-               <div class="price-label">${price.slice(2)}</div>
+               <div class="price-label">${price?.slice(2)}</div>
              </div>`,
     iconSize: [80, 30], // 마커 크기 조정
     iconAnchor: [40, 15], // 마커 포지션 조정
@@ -19,13 +19,16 @@ const CustomMarkerIcon = (price) => {
 // 이 코드 없으면 기본 아이콘이 표시되지 않을 수 있음
 // L.Marker.prototype.options.icon = DefaultIcon;
 
-const MapModal = ({ show, onHide, hotel, hotels }) => {
+const MapModal = ({ show, onHide, hotel, hotels, city }) => {
   const totalHotels = hotels?.concat(hotel);
+  const mapTitle = hotel?.city
+    ? `Hotels in ${hotel?.city}`
+    : `Hotels in ${city}`;
 
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Hotels in {hotel?.city}</Modal.Title>
+        <Modal.Title>{mapTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div style={{ height: "400px", width: "100%" }}>
@@ -45,7 +48,8 @@ const MapModal = ({ show, onHide, hotel, hotels }) => {
                   position={[hotel?.latitude, hotel?.longitude]}
                   icon={CustomMarkerIcon(
                     hotel.composite_price_breakdown?.gross_amount
-                      ?.amount_rounded
+                      ?.amount_rounded ||
+                      "US$" + hotel.priceBreakdown.grossPrice.value.toFixed(2)
                   )}
                 >
                   <Popup>{hotel?.hotel_name}</Popup>

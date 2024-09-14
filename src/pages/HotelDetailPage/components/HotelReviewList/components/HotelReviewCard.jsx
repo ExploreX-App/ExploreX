@@ -23,7 +23,7 @@ const HotelReviewCard = ({ review }) => {
           </div>
           <Card.Text
             className="mt-3"
-            style={{ height: "100px", overflow: "hidden" }}
+            style={{ height: "100px", overflow: "hidden", fontWeight: "normal"}}
           >
             {review.pros}
           </Card.Text>

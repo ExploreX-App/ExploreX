@@ -14,7 +14,6 @@ const HotelCard = ({ hotel, adultNum }) => {
     navigate(`./${hotel.id}`);
   };
 
-
   const handleSave = () => {
     let savedHotels = JSON.parse(localStorage.getItem("savedHotels")) || [];
     if (!savedHotels.includes(hotel.id.toString())) {
@@ -26,7 +25,7 @@ const HotelCard = ({ hotel, adultNum }) => {
   return (
     <div
       className="p-2 m-2 gap-3 hotelCard-container"
-      style={{ border: "1px solid black" }}
+      style={{ border: "1px solid black", width: "100%"}}
     >
       <Row className="flex-grow-1">
         <Col lg={5}>
