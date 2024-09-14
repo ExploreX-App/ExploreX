@@ -6,6 +6,7 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 import { cities } from "../../utils/mockData/cityData";
 import CitySlide from "../../common/CitySlide/CitySlide"
 import ActivitySlide from "../../common/ActivitySlide/ActivitySlide";
+import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
 
 const HomePage = () => {
   return (
@@ -17,6 +18,9 @@ const HomePage = () => {
         <SearchBar />
         <CitySlide title="Dream Your Next Trip" items={cities} />
         <ActivitySlide keyword="Vancouver" />
+        <AdvertisingBanner />
+        
+        
       </div>
     </Container>
   );
