@@ -26,6 +26,7 @@ const HotelDetailPage = () => {
     dateTo,
     adultNum,
   });
+  console.log("hotel detail page", reviewScore)
   const { data: hotelsGeoData } = useHotelsByGeoData({
     geoData: { latitude: data?.latitude, longitude: data?.longitude },
     radius: 20,
@@ -41,7 +42,7 @@ const HotelDetailPage = () => {
   const infoRef = useRef();
   const reviewRef = useRef();
   const faqRef = useRef();
-
+console.log("home",faqRef)
   const handleSelect = (key) => {
     switch (key) {
       case "info-n-rates":
@@ -94,7 +95,7 @@ const HotelDetailPage = () => {
       />
 
 
-      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
+      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} reviewScore={reviewScore}/>
       <HotelReview hotelId={data?.hotel_id} reviewRef={reviewRef}/>
 
       <TermsOfUse data={data} faqRef={faqRef} />
