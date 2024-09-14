@@ -16,7 +16,7 @@ export const useActivityQuery = ({ ids }) => {
   return useQuery({
     queryKey: ["activities", ids],
     queryFn: () => fetchActivitiesByIds(ids),
-    enabled: ids.length > 0,
+    enabled: ids?.length > 0,
     retry: 2,
     select: (results) => results,
 
