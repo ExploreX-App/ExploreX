@@ -34,7 +34,7 @@ const ActivityDetailPage = () => {
       </Row>
 
       {/* Search Bar */}
-      <Row className='mb-4'>
+      <Row className='mb-0'>
         <Col>
           <SearchBar tab="activity" />
         </Col>

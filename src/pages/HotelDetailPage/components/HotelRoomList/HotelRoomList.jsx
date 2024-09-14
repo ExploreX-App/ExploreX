@@ -3,16 +3,16 @@ import HotelRoomCard from "./HotelRoomCard"
 import { useHotelRoomsQuery } from '../../../../hooks/useFetchHotelRooms';
 import { Button } from "react-bootstrap";
 
-const HotelRoomList = ({ hotelId, dateFrom, dateTo, adultNum }) => {
+const HotelRoomList = ({ hotel, adultNum, reviewScore }) => {
   const [moreRooms, setMoreRooms] = useState(5);
   const [show, setShow] = useState(false)
   const { data, isLoading, error, isError } = useHotelRoomsQuery({
-    hotelId,
-    dateFrom,
-    dateTo,
+    hotelId: hotel?.hotel_id,
+    dateFrom: hotel?.arrival_date,
+    dateTo: hotel?.departure_date,
     adultNum,
   });
-
+console.log("hotelroom data:",data)
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
@@ -30,7 +30,7 @@ const HotelRoomList = ({ hotelId, dateFrom, dateTo, adultNum }) => {
   return (
     <div>
       {roomsToShow.map((room, index) => (
-        <HotelRoomCard room={room} hotel={data} key={index} />
+        <HotelRoomCard room={room} hotelRoomData={data} hotel={ hotel} key={index} reviewScore={reviewScore} />
       ))}
       {data.block.length > moreRooms && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
