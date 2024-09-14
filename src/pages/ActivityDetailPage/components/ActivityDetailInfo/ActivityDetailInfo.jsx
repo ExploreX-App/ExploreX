@@ -32,8 +32,10 @@ const ActivityAmenities = () => {
   return (
     <Container className='Activity-detail-info'>
       <Row>
-        <Col md={8}>
-          address <br />
+        <Col md={8} className='Activity-detail-info-text'>
+          <br />
+          C/ de Pau Claris, 189, L'Eixample, 08037 Barcelona, Spain <br />
+          <br />
           <FaMapMarkerAlt className='icon-color' />
           <b> Duration:</b> 1 h 30 minutes
           <br />
@@ -48,27 +50,14 @@ const ActivityAmenities = () => {
           <br />
           <FaHeadset className='icon-color' />
           <b> Live guide:</b> English, Spanish
-          <br />
-          <Button variant='link'>See all property amenities</Button>
+          <hr />
         </Col>
 
         <Col md={4}>
+          <br />
           {latitude && longitude && (
             <GoogleMapCard lat={latitude} lng={longitude} />
           )}
-          <div className='d-flex align-items-center mt-1 mb-1 fs-5'>
-            <LuTimerReset style={{ marginRight: '.25rem' }} />
-            <div>{data?.minimumDuration || '1 hour 30 minutes'}</div>
-          </div>
-          <div className='d-flex align-items-center mt-1 mb-1 fs-5'>
-            <PiMoney style={{ marginRight: '.25rem' }} />
-            {data?.price.currencyCode} ${data?.price.amount}
-          </div>
-          <Link
-            to={data?.bookingLink || `https://maps.google.com?q=${data?.name}`}
-          >
-            <Button>Book</Button>
-          </Link>
         </Col>
       </Row>
     </Container>
