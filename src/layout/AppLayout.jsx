@@ -10,7 +10,7 @@ const AppLayout = () => {
   const user = localStorage.getItem("user");
 
   const handleLogout = () => {
-    localStorage.clear("user");
+    localStorage.removeItem("user");
     navigate("/");
   };
   return (
@@ -54,7 +54,7 @@ const AppLayout = () => {
                 </Nav.Link>
               ) : (
                 // <Button className='logout-btn'> Logout </Button>
-                <Nav.Link as={Link} onClick={handleLogout}>
+                <Nav.Link as={Link} to="/" onClick={handleLogout}>
                   Sign out
                 </Nav.Link>
               )}
