@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useHotelDetailsQuery } from "../../hooks/useFetchHotelDetails";
-import { useLocation, useParams } from "react-router-dom";
-import HotelDescription from "./components/HotelDescription";
+// 컴포넌트들
+import TermsOfUse from "./components/HotelTermsOfUse/HotelTermsOfUse";
+import FreqeuntAskedQuestions from "./components/HotelFrequentAskedQuestions/FreqeuntAskedQuestions";
+import HotelReview from "./components/HotelReviewList/HotelReviewList";
+import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
+
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+
+import "./HotelDetailPage.style.css";
+import SearchBar from "../../common/SearchBar/SearchBar";
+import HotelOverview from "./components/HotelOverview/HotelOverview";
+import HotelInfo from "./components/HotelInfo/HotelInfo";
+import { useHotelsByGeoData } from '../../hooks/useFetchHotelsByGeoData';
 
 const HotelDetailPage = () => {
   const location = useLocation();
-  const { dateFrom, dateTo, adultNum, photos } = location.state;
+  const { dateFrom, dateTo, adultNum, photos, reviewScore } = location.state || {};
   const { id } = useParams();
   const { data, isLoading, error, isError } = useHotelDetailsQuery({
     hotelId: id,
@@ -13,51 +26,80 @@ const HotelDetailPage = () => {
     dateTo,
     adultNum,
   });
+  const { data: hotelsGeoData } = useHotelsByGeoData({
+    geoData: { latitude: data?.latitude, longitude: data?.longitude },
+    radius: 20,
+    dateFrom,
+    dateTo,
+  });
+
+  // 사진 모달을 위함
+  const [showModal, setShowModal] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const homeRef = useRef();
+  const infoRef = useRef();
+  const reviewRef = useRef();
+  const faqRef = useRef();
+
+  const handleSelect = (key) => {
+    switch (key) {
+      case "info-n-rates":
+        infoRef.current.scrollIntoView();
+        break;
+      case "reviews":
+        reviewRef.current.scrollIntoView();
+        break;
+      case "faq":
+        faqRef.current.scrollIntoView();
+        break;
+      default:
+        homeRef.current.scrollIntoView();
+        break;
+    }
+  };
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+
   return (
     <div>
-      <div>
-        {photos?.map((photo, index) => {
-          const adjustedPhoto = photo.replace("square60", "square600");
-          return <img src={adjustedPhoto} key={index} alt="" />;
-        })}
-        {Object.values(data?.rooms).map((room) =>
-          room?.photos?.map((photo, index) => (
-            <img src={photo.url_max300} alt="" key={index} />
-          ))
-        )}
-        <div className="fs-2">{data.hotel_name}</div>
-        <div>Total: {data?.composite_price_breakdown.gross_amount.amount_rounded}</div>
-            <div>Per night: {data?.composite_price_breakdown.gross_amount_per_night.amount_rounded}</div>
-        <div>Accommodation type: {data?.accommodation_type_name}</div>
-        <div>
-          Address: {data?.address}, {data?.city}, {data?.country_trans}
-        </div>
-        <div>Average room size m^2: {data?.average_room_size_for_ufi_m2}</div>
-        <div>
-          {data?.distance_to_cc.toFixed(0)}km from the center of {data?.city}
-        </div>
-        <div>available rooms: {data?.available_rooms}</div>
-        <div>review:{data?.review_nr}</div>
-        <div className="mt-3 mb-3">
-          {data?.facilities_block.name} :
-          {data?.facilities_block.facilities.map((fac, index) => (
-            <div key={index}>{fac.name}</div>
-          ))}
-        </div>
-        <div className="mb-3">
-          Property highlights:
-          {data?.property_highlight_strip.map((hl, index) => (
-            <div key={index}>{hl.name}</div>
-          ))}
-        </div>
+      <SearchBar dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum} />
+      <div className="tabs-container">
+        <Tabs
+          onSelect={handleSelect}
+          id="hotel-detail-tabs"
+          className="mb-3"
+          fill
+        >
+          <Tab eventKey="home" title="Overview"></Tab>
+          <Tab eventKey="info-n-rates" title="Rooms"></Tab>
+          <Tab eventKey="reviews" title="Reviews"></Tab>
+          <Tab eventKey="faq" title="Policies"></Tab>
+        </Tabs>
       </div>
-      <div><HotelDescription hotelId={data.hotel_id}/></div>
+
+      <HotelOverview
+        homeRef={homeRef}
+        reviewScore={reviewScore}
+        data={data}
+        hotelsGeoData={hotelsGeoData}
+        photos={photos}
+        reviewRef={reviewRef}
+        faqRef={faqRef}
+      />
+
+
+      <HotelInfo data={data} infoRef={infoRef} adultNum={adultNum} />
+      <HotelReview hotelId={data?.hotel_id} reviewRef={reviewRef}/>
+
+      <TermsOfUse data={data} faqRef={faqRef} />
+      <FreqeuntAskedQuestions />
+      <AdvertisingBanner />
     </div>
   );
 };

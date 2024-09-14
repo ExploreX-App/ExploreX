@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../api/amadeusApi";
 import { fetchCityByKeyword } from "../services/cityService";
+import { useNavigate } from "react-router-dom";
 
 const fetchActivities = async ({ keyword }) => {
   try {
@@ -20,6 +21,10 @@ const fetchActivities = async ({ keyword }) => {
 };
 
 export const useActivitiesQuery = ({ keyword }) => {
+  const navigate = useNavigate();
+  if (keyword === "") {
+    navigate("/");
+  }
   return useQuery({
     queryKey: ["activities", keyword],
     queryFn: () => fetchActivities({ keyword }),
