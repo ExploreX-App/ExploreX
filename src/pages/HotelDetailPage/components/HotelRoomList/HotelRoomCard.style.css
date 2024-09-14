@@ -1,19 +1,19 @@
 .hotel-room-card-container {
-    display: flex;
+    /* display: flex; */
     border: 2px solid #ddd; /* Slightly lighter border */
     border-radius: 12px; /* Rounded corners */
     padding: 20px; /* Increased padding for better spacing */
     background-color: #fff; /* White background */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for a more pronounced effect */
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 20px;
-    gap: 20px; /* Added gap between the two main sections */
+    /* gap: 20px; Added gap between the two main sections */
 }
 
-.hotel-room-card-box {
+/* .hotel-room-card-box {
     flex: 2; /* Increased flex to take more space */
-}
+/* } */ 
 
 .hotel-room-name {
     font-weight: 700; /* Slightly less bold */

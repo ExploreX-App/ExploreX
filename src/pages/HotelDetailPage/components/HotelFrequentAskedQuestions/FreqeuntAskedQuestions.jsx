@@ -2,9 +2,9 @@ import { Container, Accordion, Card, Row, Col } from "react-bootstrap";
 import './FrequentAskedQuestions.style.css'
 const FreqeuntAskedQuestions = ({faqRef}) => {
     return (
-        <div ref={faqRef}  style={{paddingTop:"80px", paddingBottom:"80px"}} className="FnA-container">
-            <h3 style={{color: "black"}}>Hotel FAQ</h3>
-            <Row>
+        <div ref={faqRef}  style={{padding: "0 10px" }} className="FnA-container">
+            <div className="fw-bold fs-4">FAQ</div>
+            <Row style={{padding: "10px"}}>
                 {/* Left Column: Title */}
                 <Col className="FnA-col-1" xs={12} md={4} style={{ backgroundColor: "#d0e2ff" }}>
                     <h4 style={{padding:'30px'}}>Frequent Asked Questions</h4>
@@ -12,19 +12,16 @@ const FreqeuntAskedQuestions = ({faqRef}) => {
 
                 {/* Right Column: Accordion */}
                 <Col className="FnA-col-2" xs={12} md={8}>
-                    <Accordion defaultActiveKey="0">
+                    <Accordion>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="FnA-header" style={{ borderTopLeftRadius: '0px' }}>What activities and services are provided at Excalibur?</Accordion.Header>
                             <Accordion.Body>
                                 Excalibur offers the following activities/services, and fees may apply:
-                                <ul>
+                                <ul className="mt-2">
                                     <li>Fitness Center</li>
                                     <li>Shopping</li>
-                                    <li>Hot Springs</li>
-                                    <li>Casino</li>
                                     <li>Golf Course (within 3km)</li>
                                     <li>Evening Entertainment</li>
-                                    <li>Water Activities</li>
                                     <li>Swimming Pool</li>
                                 </ul>
                             </Accordion.Body>
@@ -41,21 +38,21 @@ const FreqeuntAskedQuestions = ({faqRef}) => {
                         </Accordion.Item>
 
                         <Accordion.Item eventKey="3">
-                            <Accordion.Header>How far is Excalibur from the center of Las Vegas?</Accordion.Header>
-                            <Accordion.Body>Excalibur is approximately 2.1 km from the center of Las Vegas.</Accordion.Body>
+                            <Accordion.Header>How far is Excalibur from the city center?</Accordion.Header>
+                            <Accordion.Body>Excalibur is approximately 2.1 km from the center of the city.</Accordion.Body>
                         </Accordion.Item>
 
-                        <Accordion.Item eventKey="4">
+                        {/* <Accordion.Item eventKey="4">
                             <Accordion.Header>Does Excalibur have a swimming pool?</Accordion.Header>
                             <Accordion.Body>Yes, Excalibur has a swimming pool. Please contact the hotel for more details.</Accordion.Body>
-                        </Accordion.Item>
+                        </Accordion.Item> */}
 
                         <Accordion.Item eventKey="5">
                             <Accordion.Header>Is parking available for guests at Excalibur?</Accordion.Header>
                             <Accordion.Body>Yes, parking is available for guests at Excalibur.</Accordion.Body>
                         </Accordion.Item>
 
-                        <Accordion.Item eventKey="6">
+                        {/* <Accordion.Item eventKey="6">
                             <Accordion.Header>Are there any restaurants in Excalibur?</Accordion.Header>
                             <Accordion.Body>
                                 Excalibur has 14 restaurants:
@@ -76,7 +73,7 @@ const FreqeuntAskedQuestions = ({faqRef}) => {
                                     <li>Dicks Last Resort</li>
                                 </ul>
                             </Accordion.Body>
-                        </Accordion.Item>
+                        </Accordion.Item> */}
 
                         <Accordion.Item eventKey="7">
                             <Accordion.Header>Is Excalibur popular among families?</Accordion.Header>

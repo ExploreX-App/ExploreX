@@ -11,13 +11,13 @@ import "./HotelInfo.style.css";
 
 const HotelDetailInfo = ({ data, infoRef, adultNum }) => {
   return (
-    <div id="info-n-rates" ref={infoRef} style={{ paddingTop: "80px" }}>
-      <h3 style={{ color: "black" }}>Hotel Information</h3>
+    <div id="info-n-rates" ref={infoRef} style={{ paddingTop: "80px", margin: "0px 10px" }}>
+      <div className="fs-4 fw-bold mb-3">Choose your room</div>
 
       <HotelRoomList
-        hotelId={data.hotel_id}
-        dateFrom={data.arrival_date}
-        dateTo={data.departure_date}
+        hotelId={data?.hotel_id}
+        dateFrom={data?.arrival_date}
+        dateTo={data?.departure_date}
         adultNum={adultNum}
       />
       </div>

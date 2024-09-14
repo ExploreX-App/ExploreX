@@ -8,7 +8,7 @@ import "./HotelReviewList.style.css";
 import HotelReviewScore from "./components/HotelReviewScore";
 
 const HotelReviewList = ({ hotelId, reviewRef }) => {
-  const [sortOption, setSortOption] = useState("sort_most_relevant");
+  const [sortOption, setSortOption] = useState("sort_score_desc");
   const { data, isLoading, error, isError } = useHotelReviewQuery({
     hotelId,
     sortOption,
@@ -30,9 +30,8 @@ const HotelReviewList = ({ hotelId, reviewRef }) => {
   }
   return (
     <div ref={reviewRef}  style={{paddingTop:"80px"}}>
-      <h3 style={{color: "black"}}>Hotel Review</h3>
       <div className="m-2">
-        <div className="fs-5 fw-bold">Guest reviews</div>
+        <div className="fs-4 fw-bold">Guest reviews</div>
       </div>
       <HotelReviewScore hotelId={hotelId} reviewCount={data.count} />
       <div className="fw-semibold m-2">Guest who stayed here loved</div>

@@ -4,23 +4,35 @@ import HotelDescription from "../HotelDescription/HotelDescription";
 import HotelDetailHeader from "./HotelDetailHeader/HotelDetailHeader";
 import { Carousel, Container, Row, Col } from "react-bootstrap";
 import HotelReviewCard from "../HotelReviewList/components/HotelReviewCard";
+import HotelHighlights from "../HotelHighlights/HotelHighlights";
 
-const HotelDetailOverview = ({ homeRef, reviewScore, data, hotelsGeoData, photos }) => {
-  const initialPhotos = photos?.slice(0, 5) || []; 
-  const [showAllPhotos, setShowAllPhotos] = useState(false); 
+const HotelDetailOverview = ({
+  homeRef,
+  reviewScore,
+  data,
+  hotelsGeoData,
+  photos,
+  reviewRef,
+  faqRef
+}) => {
+  const initialPhotos = photos?.slice(0, 5) || [];
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
   const handleShowMorePhotos = () => {
     setShowAllPhotos(true);
   };
-
   const reviews = JSON.parse(localStorage.getItem("reviews"));
 
   return (
     <div id="home" ref={homeRef}>
-      <HotelDetailHeader hotel={data} reviewScore={reviewScore} />
-      <Container style={{ marginTop: "20px", marginBottom: "20px" }}>
+      <HotelDetailHeader
+        hotel={data}
+        reviewScore={reviewScore}
+        reviewRef={reviewRef}
+      />
+      <Container style={{ margin: "20px 0px", padding: "0px" }}>
         <Row>
           <Col xs={12} md={8}>
-            <div className="photo-gallery">
+            <div className="photo-gallery mb-4">
               {!showAllPhotos ? (
                 <>
                   {initialPhotos?.map((photo, index) => {
@@ -90,9 +102,13 @@ const HotelDetailOverview = ({ homeRef, reviewScore, data, hotelsGeoData, photos
               )}
             </div>
           </Col>
-          <Col xs={6} md={4}>
+          <Col
+            xs={12}
+            md={4}
+            className="h-100 d-flex flex-column justify-space-between"
+          >
             {reviews && (
-              <div style={{ marginBottom: "10px" }}>
+              <div style={{ marginBottom: "20px" }}>
                 <HotelReviewCard review={reviews[0]} />
               </div>
             )}
@@ -103,7 +119,14 @@ const HotelDetailOverview = ({ homeRef, reviewScore, data, hotelsGeoData, photos
           </Col>
         </Row>
       </Container>
-      <HotelDescription hotelId={data.hotel_id} />
+      <Row>
+        <Col xs={12} md={8}>
+          <HotelDescription hotelId={data?.hotel_id} />
+        </Col>
+        <Col xs={12} md={4}>
+          <HotelHighlights data={data} faqRef={faqRef}/>
+        </Col>
+      </Row>
     </div>
   );
 };

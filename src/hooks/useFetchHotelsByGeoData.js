@@ -1,12 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import hotelApi from "../api/hotelAPI";
+import { useNavigate } from "react-router-dom";
 
-const fetchHotelsByGeoData = async ({
-  geoData,
-  radius,
-  dateFrom,
-  dateTo,
-}) => {
+const fetchHotelsByGeoData = async ({ geoData, radius, dateFrom, dateTo }) => {
   try {
     const response = await hotelApi.get("/searchHotelsByCoordinates", {
       params: {
@@ -25,16 +21,19 @@ const fetchHotelsByGeoData = async ({
 };
 
 export const useHotelsByGeoData = (inputData) => {
+  const navigate = useNavigate();
+  const shouldFetch = inputData.hotelId && inputData.dateFrom && inputData.dateTo && inputData.adultNum !== undefined;
   const query = useQuery({
     queryKey: inputData ? ["hotels", inputData.geoData] : null,
-    queryFn: () =>
-      fetchHotelsByGeoData(inputData),
+    queryFn: () => fetchHotelsByGeoData(inputData),
     select: (result) => result?.data?.result,
-    enabled: !!inputData,  // inputData가 있을 때만 실행
+    enabled: shouldFetch, // inputData가 있을 때만 실행
     retry: 0,
-    staleTime: 10000000000000
+    staleTime: 10000000000000,
   });
-
-  return query;
+  if (!shouldFetch) {
+    navigate("/"); // 조건이 충족되지 않으면 홈으로 리다이렉트
+  }
+  return query
 
 };
