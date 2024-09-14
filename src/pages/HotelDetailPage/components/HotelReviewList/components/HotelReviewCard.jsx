@@ -6,6 +6,8 @@ import "./HotelReviewCard.style.css"
 
 const HotelReviewCard = ({ review }) => {
   const [modalShow, setModalShow] = useState(false);
+
+  
   return (
     <>
       <Card className="review-card p-2">
