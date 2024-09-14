@@ -1,0 +1,84 @@
+.hotel-room-card-container {
+    /* display: flex; */
+    border: 2px solid #ddd; /* Slightly lighter border */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Increased padding for better spacing */
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for a more pronounced effect */
+    width: 100%;
+    /* justify-content: space-between; */
+    margin-bottom: 20px;
+    /* gap: 20px; Added gap between the two main sections */
+}
+
+/* .hotel-room-card-box {
+    flex: 2; /* Increased flex to take more space */
+/* } */ 
+
+.hotel-room-name {
+    font-weight: 700; /* Slightly less bold */
+    font-size: 22px; /* Increased font size */
+    color: #0056b3; /* Darker blue for better readability */
+    margin-bottom: 12px; /* Increased margin for separation */
+}
+
+.hotel-room-bh_room_highlights-name-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Slightly increased gap */
+    margin-bottom: 12px; /* Increased margin */
+}
+
+.hotel-room-bh_room_highlights-name {
+    color: #0056b3; /* Darker blue for highlights */
+    font-size: 15px; /* Slightly larger font size */
+    background-color: #e0f0ff; /* Lighter blue background */
+    padding: 6px 12px; /* Increased padding for better spacing */
+    border-radius: 6px; /* Larger border-radius */
+}
+
+.room-surface, .room-guest, .room-mealplan {
+    margin-bottom: 12px; /* Increased margin for better spacing */
+    font-size: 16px; /* Slightly larger font size */
+    color: #333; /* Darker text color for better readability */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px; /* Increased font size for better readability */
+}
+
+ul li {
+    margin-bottom: 10px; /* Increased margin for separation */
+}
+
+ul div {
+    margin-bottom: 10px; /* Increased margin for separation */
+    font-weight: 600; /* Bold for better emphasis */
+}
+.refundable{
+    /* color: #46b805; */
+    font-weight: 600;
+}
+
+.room-price-label {
+    font-weight: 700; /* Bold for emphasis */
+    color: #0071c2; /* Consistent color with room name */
+}
+
+button {
+    margin-top: 15px; /* Increased margin for better spacing */
+    background-color: #0071c2; /* Main button color */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Increased padding */
+    border-radius: 6px; /* Larger border-radius */
+    cursor: pointer;
+    font-size: 16px; /* Increased font size */
+}
+
+button:hover {
+    background-color: #005fa3; /* Darker shade for hover effect */
+}

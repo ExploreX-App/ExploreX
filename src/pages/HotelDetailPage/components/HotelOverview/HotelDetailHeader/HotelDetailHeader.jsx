@@ -15,7 +15,7 @@ const HotelDetailHeader = ({ hotel, reviewScore }) => {
         </div>
 
         {/* 호텔 이름 */}
-        <h2 className="hotel-name ms-3">{hotel.hotel_name}</h2>
+        <h2 className="hotel-name ms-3">{hotel?.hotel_name}</h2>
       </div>
 
       {/* 두 번째 줄: 위치 정보, 링크 */}
@@ -24,7 +24,7 @@ const HotelDetailHeader = ({ hotel, reviewScore }) => {
         <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon me-2" />
         
         {/* 주소 */}
-        <span className="address">{hotel.address}, {hotel.city}, {hotel.country_trans}</span>
+        <span className="address">{hotel?.address}, {hotel?.city}, {hotel?.country_trans}</span>
 
         {/* <span className="ms-3">
           <a href="#lage" className="highlight-link">Ausgezeichnete Lage</a> - 

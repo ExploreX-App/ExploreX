@@ -1,0 +1,58 @@
+/* ActivityPromotion.style.css */
+.featurette {
+    background-color: #ffefd5;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.featurette-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* 기본 상태에서 사선은 보이지 않음 */
+.featurette::before,
+.featurette::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200%;
+    background-color: transparent;
+    top: -50%;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* 왼쪽 사선 배경 */
+.featurette::before {
+    left: -150px;
+    transform: rotate(-45deg);
+}
+
+/* 오른쪽 사선 배경 */
+.featurette::after {
+    right: -150px;
+    transform: rotate(45deg);
+}
+
+/* 마우스 호버 시 사선에 컬러 적용 */
+.featurette:hover::before {
+    background-color: rgba(255, 0, 0, 0.5);
+    /* 빨간색 반투명 */
+    left: 0;
+}
+
+.featurette:hover::after {
+    background-color: rgba(0, 0, 255, 0.5);
+    /* 파란색 반투명 */
+    right: 0;
+}
+
+/* 컨텐츠가 사선 위로 보이도록 설정 */
+.featurette .col-md-7,
+.featurette .col-md-5 {
+    position: relative;
+    z-index: 2;
+}

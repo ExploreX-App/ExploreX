@@ -5,8 +5,10 @@ import "../HotelSearch/HotelSearch.style.css";
 import AutoComplete from "react-google-autocomplete";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { IoCalendarOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const ActivitySearch = () => {
+  const navigate = useNavigate();
   const [city, setCity] = useState("");
   const [dateValues, setDateValues] = useState([
     new DateObject().subtract(4, "days"),
@@ -16,13 +18,14 @@ const ActivitySearch = () => {
 
   // Handle search
   const handleSearch = () => {
-    const searchData = {
-      keyword: city?.formatted_address,
-    };
-    if (!searchData.keyword) {
+    try {
+      const searchData = {
+        keyword: city?.formatted_address,
+      };
+      navigate("/activities", { state: searchData });
+    } catch {
       setError(true);
     }
-    console.log(searchData);
   };
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 

@@ -10,7 +10,7 @@ const getStarIcons = (score) => {
   const halfStar = score % 1 >= 0.5; // 반쪽 별 여부
   const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // 빈 별 개수
 
-  console.log(fullStars,'|', halfStar, '|', emptyStars)
+
   // 꽉 찬 별 추가
   for (let i = 0; i < fullStars; i++) {
     stars.push(<FontAwesomeIcon icon={faStar} key={`full-${i}`} />);

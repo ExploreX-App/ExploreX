@@ -5,10 +5,10 @@ import VideoBanner from "./components/VideoBanner/VideoBanner";
 import SearchBar from "../../common/SearchBar/SearchBar";
 import { cities } from "../../utils/mockData/cityData";
 import CitySlide from "../../common/CitySlide/CitySlide"
-import ActivitySlide from "../../common/ActivitySlide/ActivitySlide";
-import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
+import ActivityCitySlide from "./components/ActivityCitySlide";
 
 const HomePage = () => {
+  const keyword = "Vancouver"
   return (
     <Container>
       <div>
@@ -17,10 +17,7 @@ const HomePage = () => {
         </div>
         <SearchBar />
         <CitySlide title="Dream Your Next Trip" items={cities} />
-        <ActivitySlide keyword="Vancouver" />
-        <AdvertisingBanner />
-        
-        
+        <ActivityCitySlide keyword={keyword} title={`Ways to tour ${keyword}`} />
       </div>
     </Container>
   );

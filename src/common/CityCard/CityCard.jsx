@@ -14,15 +14,14 @@ const TourCard = ({item}) => {
       dateTo,
       adultNum: 2,
     };
-    console.log(searchData)
     navigate("/hotels", { state: searchData });
   }
   return (
-    <div className="tourcard-wrap position-relative" style={{ margin: "10px" }} onClick={goToDetails}>
+    <div className="tourcard-wrap position-relative" style={{ margin: "0px" }} onClick={goToDetails}>
       <img
         src={item.img}
         className="card-img"
-        style={{ aspectRatio: "4/5", borderRadius: "10px" }}
+        style={{ borderRadius: "10px", height: "300px" }}
         alt="cadana"
       />
       <div
@@ -38,7 +37,7 @@ const TourCard = ({item}) => {
         }}
       ></div>
       <div
-        className="position-absolute bottom-0 m-3 text-white fw-bold"
+        className="position-absolute bottom-0 m-3 text-white fw-bold fs-5"
         style={{ zIndex: 5 }}
       >
         {item.name}

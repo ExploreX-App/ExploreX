@@ -2,13 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import hotelApi from "../api/hotelAPI";
 import { fetchHotelDestination } from "../services/hotelService";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const fetchHotelsByKeyword = async ({
   keyword,
   dateFrom,
   dateTo,
   adultNum,
-  page,
+  page=1,
+  sortBy="popularity"
 }) => {
   try {
     const destinationData = await fetchHotelDestination({ keyword });
@@ -21,9 +23,9 @@ const fetchHotelsByKeyword = async ({
         departure_date: dateTo,
         adults: adultNum,
         page_number: page,
+        sort_by: sortBy
       },
     });
-     console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching hotels with information:", error);
@@ -32,6 +34,10 @@ const fetchHotelsByKeyword = async ({
 };
 
 export const useHotelsByKeywordQuery = (inputData) => {
+  const navigate = useNavigate();
+  if (inputData.keyword === "") {
+    navigate("/")
+  }
   const query = useQuery({
     queryKey: inputData ? ["hotels", inputData.keyword] : null,
     queryFn: () =>
