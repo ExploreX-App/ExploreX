@@ -1,22 +1,24 @@
-import { useQuery } from "@tanstack/react-query";
-import api from "../api/amadeusApi";
+import { useQuery } from '@tanstack/react-query';
+import api from '../api/amadeusApi';
 
-const fetchActivityById = async ({ id }) => {
-  try {
-    const response = await api.get(`/shopping/activities/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching activity by id:", error);
-    throw error;
-  }
+const fetchActivityById = async (id) => {
+  const response = await api.get(`/shopping/activities/${id}`);
+  return response.data;
+
 };
 
-export const useActivityQuery = ({ id }) => {
+const fetchActivitiesByIds = async (ids) => {
+  const promises = ids.map((id) => fetchActivityById(id));
+  return Promise.all(promises);
+};
+
+export const useActivityQuery = ({ ids }) => {
   return useQuery({
-    queryKey: ["activity", id],
-    queryFn: () => fetchActivityById({ id }),
-    enabled: !!id,
+    queryKey: ["activities", ids],
+    queryFn: () => fetchActivitiesByIds(ids),
+    enabled: ids.length > 0,
     retry: 2,
-    select: (result) => result.data,
+    select: (results) => results,
+
   });
 };

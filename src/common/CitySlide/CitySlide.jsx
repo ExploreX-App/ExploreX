@@ -9,14 +9,14 @@ import { responsive } from "../../utils/settings/citySliderSetting";
 const CitySlide = ({ title, items }) => {
   return (
     <div className="cardSlide-container">
-      <div className="fs-4 fw-bold">{title}</div>
+      <div className="fs-4 fw-bold mb-2">{title}</div>
       <Container className="p-0">
         <Carousel
           style={{ width: "100%" }}
           partialVisbile={false}
           infinite={true}
           autoPlay={true}
-          autoPlaySpeed={5000}
+          autoPlaySpeed={6000}
           itemClass={"carousel-item-padding-0-px"}
           containerClass={"carousel-container"}
           responsive={responsive}
