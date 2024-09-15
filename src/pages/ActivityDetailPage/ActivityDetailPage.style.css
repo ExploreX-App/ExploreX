@@ -4,3 +4,8 @@ img {
     object-fit: cover;
     object-position: center;
 }
+
+.activity-banner-margin {
+    margin-top: 200px !important;
+    padding-top: 200px !important;
+}

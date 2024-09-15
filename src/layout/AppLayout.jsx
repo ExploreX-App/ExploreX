@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import Footer from "../pages/components/Footer/Footer";
 import "./AppLayout.style.css";
-import logo from"./exploreX.png"
+import logo from "./exploreX.png";
 
 const AppLayout = () => {
   const navigate = useNavigate();
@@ -18,6 +18,10 @@ const AppLayout = () => {
     <Container className="app-container ">
       <Navbar expand="lg" className="navbar-container">
         <Container fluid>
+          <Navbar.Brand href="/" className="">
+            <img height={50} className="" src={logo} alt="logo" />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" className="navbar-icon" />
           <Navbar.Collapse id="navbarScroll">
             {/* Menu Items */}
             <Nav className="me-auto my-2 my-lg-0 gap-3 px-4" navbarScroll>
@@ -37,11 +41,6 @@ const AppLayout = () => {
                 Flights
               </Nav.Link> */}
             </Nav>
-
-              <Navbar.Brand href="/" className="mx-auto d-flex justify-content-center">
-        <img height={60} className="" src={logo} alt="logo" />
-      </Navbar.Brand>
-
 
             {/* Login */}
             <Nav className="ms-auto gap-3 px-4">

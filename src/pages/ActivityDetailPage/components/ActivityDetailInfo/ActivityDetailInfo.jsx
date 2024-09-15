@@ -48,8 +48,8 @@ const ActivityAmenities = () => {
           </div>
           <div className='d-flex align-items-center mt-1 mb-1 fs-5'>
             <PiMoney style={{ marginRight: '.25rem' }} className='icon-color' />
-            {data?.price?.currencyCode
-              ? `${data.price.currencyCode} $${data.price.amount}`
+            ${data?.price?.currencyCode
+              ? `${data.price.currencyCode} ${data.price.amount}`
               : '0'}
           </div>
           <FaUsers className='icon-color' />

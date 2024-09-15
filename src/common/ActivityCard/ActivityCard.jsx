@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ActivityCard.style.css";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { IoHeart } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { FaRegClock } from "react-icons/fa6";
 
 const ActivityCard = ({ item }) => {
+  const [toggleHeart, setToggleHeart] = useState(false);
   const handleSave = (e) => {
     e.stopPropagation();
+    setToggleHeart(!toggleHeart);
     let savedActivities =
       JSON.parse(localStorage.getItem("savedActivities")) || [];
 
@@ -35,10 +38,14 @@ const ActivityCard = ({ item }) => {
           style={{ aspectRatio: "3/3", borderRadius: "0" }}
           alt={item?.name || "activity image"}
         />
-        <IoIosHeartEmpty
-          className="heart-icon"
-          onClick={(e) => handleSave(e)}
-        />
+        {!toggleHeart ? (
+          <IoIosHeartEmpty
+            className="heart-icon"
+            onClick={(e) => handleSave(e)}
+          />
+        ) : (
+          <IoHeart className="heart-icon" onClick={(e) => handleSave(e)} />
+        )}
       </div>
       <div className="activity-card-content">
         <div className="d-flex justify-content-between">
