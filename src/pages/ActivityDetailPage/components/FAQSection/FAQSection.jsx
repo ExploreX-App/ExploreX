@@ -2,12 +2,13 @@ import React from 'react';
 import { Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './FAQSection.style.css';
+import qImg from '../../../../assets/q.jpg';
 
 const FAQSection = () => (
   <div>
     <h1 className='FAQ-title'>
       <img
-        src='https://cdn.dribbble.com/userupload/12999996/file/original-4f6387877d5fe6775f746cfbec15a6eb.jpg?resize=752x'
+        src={qImg}
         style={{ width: '150px' }}
         alt='Frequently Asked Questions Illustration'
       />
