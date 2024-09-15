@@ -6,8 +6,9 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import SearchBar from "../../common/SearchBar/SearchBar";
 import MapPreview from "../HotelDetailPage/components/HotelMap/MapPreview";
 import Pagination from "../HomePage/components/Pagination/Pagination";
-
+import Spinner from "../../common/Spinner/Spinner";
 const itemsPerPage = 20;
+
 
 const HotelPage = () => {
   const location = useLocation();
@@ -52,7 +53,7 @@ const HotelPage = () => {
   }, [sortBy]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
 
   if (isError) {

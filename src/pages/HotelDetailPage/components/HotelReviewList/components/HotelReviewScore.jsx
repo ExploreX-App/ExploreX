@@ -1,13 +1,14 @@
 import React from "react";
 import { useHotelScoreQuery } from "../../../../../hooks/useFetchHotelScore";
 import { ProgressBar } from "react-bootstrap";
+import Spinner from "../../../../../common/Spinner/Spinner";
 
 const HotelReviewScore = ({ hotelId, reviewCount }) => {
   const { data, isLoading, error, isError } = useHotelScoreQuery({
     hotelId,
   });
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
   if (isError) {
     return <h1>{error.message}</h1>;

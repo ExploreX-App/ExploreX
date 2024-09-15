@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HotelRoomCard from "./HotelRoomCard"
 import { useHotelRoomsQuery } from '../../../../hooks/useFetchHotelRooms';
 import { Button } from "react-bootstrap";
+import Spinner from "../../../../common/Spinner/Spinner";
 
 const HotelRoomList = ({ hotel, adultNum, reviewScore }) => {
   const [moreRooms, setMoreRooms] = useState(5);
@@ -13,9 +14,9 @@ const HotelRoomList = ({ hotel, adultNum, reviewScore }) => {
     adultNum,
   });
 console.log("hotelroom data:",data)
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+if (isLoading) {
+  return <Spinner />;
+}
   if (isError) {
     return <h1>{error.message}</h1>;
   }

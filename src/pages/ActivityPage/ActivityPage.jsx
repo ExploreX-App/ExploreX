@@ -12,6 +12,7 @@ import {
 import ActivityFilter from "./ActivityFilter";
 import SortBySelect from "../HomePage/components/SortBySelect/SortBySelect";
 import SearchBar from "../../common/SearchBar/SearchBar";
+import Spinner from "../../common/Spinner/Spinner";
 
 export const getRandomData = (array) => {
   if (!array || array?.length === 0) {
@@ -125,8 +126,9 @@ const ActivityPage = () => {
       behavior: "smooth",
     });
   };
+
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (isError) {
