@@ -15,6 +15,7 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 import HotelOverview from "./components/HotelOverview/HotelOverview";
 import HotelInfo from "./components/HotelInfo/HotelInfo";
 import { useHotelsByGeoData } from "../../hooks/useFetchHotelsByGeoData";
+import Spinner from "../../common/Spinner/Spinner";
 
 const HotelDetailPage = () => {
   const navigate = useNavigate();
@@ -65,8 +66,9 @@ const HotelDetailPage = () => {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
+
   if (isError) {
     return <h1>{error.message}</h1>;
   }

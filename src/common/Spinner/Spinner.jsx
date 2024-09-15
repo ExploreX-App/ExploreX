@@ -20,7 +20,7 @@ const Spinner = () => {
           <div></div>
         </div>
       </div>
-      <div className='loading-text'>Loading...</div>
+      {/* <div className='loading-text'>Loading...</div> */}
     </div>
   );
 };
