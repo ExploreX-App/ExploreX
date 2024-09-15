@@ -4,6 +4,7 @@ justify-content: space-between;
 gap: 10px;
 }
 .tabs-container {
+    z-index: 30;
     position: sticky; /* 스크롤해도 상단에 고정 */
     top: 0;           /* 화면 상단에 붙도록 설정 */
     /* z-index: 1000;     */

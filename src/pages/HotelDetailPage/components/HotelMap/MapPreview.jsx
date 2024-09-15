@@ -29,7 +29,7 @@ const MapPreview = ({ hotel, hotelsGeoData, city }) => {
   return (
     <div>
       {/* 작은 미리보기 지도 */}
-      <div style={{ width: "100%", height: "260px", position: "relative" }}>
+      <div style={{ width: "100%", height: "260px", position: "relative", zIndex: 0 }}>
         <MapContainer
           center={position}
           zoom={13}

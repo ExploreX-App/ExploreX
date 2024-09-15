@@ -20,7 +20,7 @@ const HotelHighlights = ({ data, faqRef }) => {
           </div>
           <div className="d-flex align-items-center gap-1">
             <FaWifi /> <strong>Wifi Reviews Score:</strong>{" "}
-            {data?.wifi_review_score?.rating}
+            {data?.wifi_review_score?.rating || "N/A"}
           </div>
           <div className="d-flex align-items-center gap-1">
             <FaSuitcase /> <strong>Parking:</strong>{" "}
