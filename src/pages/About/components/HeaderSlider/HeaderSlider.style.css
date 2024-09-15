@@ -79,3 +79,53 @@
         transform: translateX(-100vw);
     }
 }
+
+@media (max-width: 768px) {
+    .image-slider-container {
+        overflow-x: hidden;
+        /* Prevent horizontal scrollbars */
+    }
+
+    .slider-image {
+        width: 100vw !important;
+        clip-path: none !important;
+        /* Remove the diagonal cut on mobile */
+        left: 0 !important;
+        /* Ensure images start at the left */
+        transform: translateX(100vw);
+        /* Start the animation from the right */
+    }
+
+    /* Hiding the overlay box (card) on mobile */
+    .overlay-box {
+        display: none;
+        /* Hide the cards on mobile */
+    }
+
+    @keyframes slideInOut {
+        0% {
+            opacity: 0;
+            transform: translateX(100vw);
+        }
+
+        10% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        40% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        70% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateX(-100vw);
+        }
+    }
+}

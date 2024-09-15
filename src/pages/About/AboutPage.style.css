@@ -219,3 +219,54 @@ body {
 .team-card:nth-child(even) {
     transform: translateY(-60px);
 }
+
+@media screen and (max-width: 768px) {
+    .about-title {
+        margin: 0;
+        padding: 0;
+        font-size: 1.8rem !important;
+        padding: 10px;
+    }
+
+    .about-subtitle {
+        text-align: left;
+        font-size: 1rem;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .team-card {
+        width: 85%;
+        height: 300px;
+        transform: none;
+    }
+
+    .team-card:nth-child(even) {
+        transform: none;
+    }
+
+    .quote-text {
+        font-size: 0.9rem;
+        letter-spacing: -0.4 !important;
+        padding: 10px;
+    }
+
+    .quote-container {
+        padding: 0;
+        margin: 0 10px;
+    }
+
+    .quote-icon {
+        position: absolute;
+        top: 0;
+        font-size: 70px;
+        color: rgba(0, 0, 0, 0.1);
+        z-index: -1;
+    }
+
+    .right-column {
+        text-align: start;
+        margin-top: 0 !important;
+        margin-bottom: 0;
+    }
+}

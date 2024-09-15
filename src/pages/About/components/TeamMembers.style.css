@@ -11,7 +11,7 @@
 }
 
 .team-title {
-    font-size: 2.2rem !important;
+    font-size: 3rem !important;
     margin-bottom: 10px;
     color: white;
 }
@@ -101,4 +101,45 @@
 .member-title {
     font-size: 1.2rem !important;
     color: #69ADFF;
+}
+
+@media screen and (max-width: 768px) {
+    .team-cards-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+    }
+
+    .team-card {
+        width: 85%;
+        height: 300px;
+    }
+
+    .team-card.offset-card {
+        margin-top: 0;
+    }
+
+    .team-img {
+        height: 100%;
+    }
+
+    .team-description {
+        font-size: 1.2rem;
+        margin-bottom: 0px;
+        color: #ccc;
+    }
+
+    .team-title {
+        font-size: 2.2rem !important;
+        margin-bottom: 0;
+        color: white;
+    }
+
+    .team-description {
+        font-size: 1rem;
+        margin-bottom: 15px !important;
+        color: #ccc;
+    }
 }

@@ -73,3 +73,24 @@
 .content-box p {
     margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+
+    .skills-section {
+        width: 100vw;
+        background-color: #1e2a38 !important;
+        padding: 30px 0;
+        color: white;
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+        margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+}
