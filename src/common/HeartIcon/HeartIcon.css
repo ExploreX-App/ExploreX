@@ -1,0 +1,26 @@
+.heart-icon {
+    position: absolute;
+    color: red;
+    font-size: 26px !important;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3px !important;
+    transition: transform 0.3s ease !important;  
+  }
+
+  .heart-icon:hover {
+    background-color: rgb(255, 255, 255) !important;
+    transform: scale(1.2); 
+  }
+  
+  .heart-icon.animate__zoomOut,
+  .heart-icon.animate__wobble {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }

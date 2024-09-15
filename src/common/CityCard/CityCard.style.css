@@ -1,0 +1,16 @@
+.tourcard-wrap{
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 0;
+}
+.card-img{
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    aspect-ratio: auto 4/5 !important;
+}
+
+.tourcard-wrap:hover{
+    transform: scale(1.05);
+}

@@ -1,0 +1,12 @@
+.star-icon {
+    color: #ffbf00; /* 별 색깔 */
+    font-size: 20px; /* 별 크기 */
+    margin-right: 2px; /* 별들 사이의 간격 */
+  }
+  
+  .review-score {
+    font-size: 18px;
+    color: #ffa500; /* 리뷰 점수 색상 */
+    font-weight: bold;
+    background-color: white;
+  }

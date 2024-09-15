@@ -1,0 +1,16 @@
+.review-card {
+    width: 100%;
+    height: "15rem";
+  }
+  
+  @media (min-width: 768px) {
+    .element {
+      width: 20rem;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .element {
+      width: 25rem;
+    }
+  }

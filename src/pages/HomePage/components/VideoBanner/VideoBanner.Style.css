@@ -1,0 +1,76 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
+#bg-video {
+  object-fit: cover;
+  width: 100vw;
+  height: 85%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.hero-content {
+  margin-top: 3em;
+  margin-bottom: 2em;
+  width: 70%;
+}
+.hero-heading div {
+  color: white;
+  font-size: 30px;
+}
+
+.hero-title {
+  font-size: 60px !important;
+}
+
+h1 {
+  font-family: "SF Pro Display", sans-serif;
+  color: white;
+  font-weight: bold !important;
+  font-size: 75px !important;
+}
+
+@media (min-width: 576px) {
+  #bg-video {
+    height: 85%;
+  }
+  .hero-title {
+    font-size: 60px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #bg-video {
+    height: 78%;
+  }
+  .hero-title {
+    font-size: 65px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #bg-video {
+    height: 68%;
+  }
+  .hero-title {
+    font-size: 70px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #bg-video {
+    height: 70%;
+  }
+  .hero-title {
+    font-size: 80px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  #bg-video {
+    height: 73%;
+  }
+  .hero-title {
+    font-size: 88px !important;
+  }
+}

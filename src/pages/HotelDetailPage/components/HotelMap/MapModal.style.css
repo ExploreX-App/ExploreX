@@ -1,0 +1,39 @@
+.custom-marker {
+    background: none;
+  }
+  
+  .marker-container {
+    background-color: #003580;
+    color: white;
+    border-radius: 10px;
+    /* padding: 5px 10px; */
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 80px;
+    z-index: 10000;
+  }
+  .marker-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0px; /* 화살표가 마커 아래에 나오도록 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #003580 transparent transparent; /* 삼각형의 색상을 마커 배경과 동일하게 */
+    width: 0;
+    z-index: 10000;
+  }
+  
+  .price-label {
+    display: inline-block;
+    background-color: #003580;
+    /* padding: 5px 10px; */
+    color: white;
+    border-radius: 10px;
+  }
+  .leaflet-popup-content {
+    width: fit-content !important;
+    z-index: 10 !important;
+  }

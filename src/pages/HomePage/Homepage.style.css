@@ -1,0 +1,9 @@
+
+.homepage-heading{
+    height: auto;
+}
+
+.category-list{
+    display: flex;
+    flex-direction: row
+}

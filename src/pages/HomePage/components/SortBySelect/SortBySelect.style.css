@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Suse&display=swap");
+
+.top-area {
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.sort-select-container {
+  position: relative;
+  /* margin-top: 30px; */
+  /* margin-right: 13%; */
+}
+
+.sort-select-container select {
+  border: 1px solid #9a9a9a;
+}
+
+.properties-300 {
+  position: relative;
+  /* display: flex; */
+  justify-content: center;
+  /* flex-direction: column; */
+  border: none;
+  border-radius: 10px;
+  /* margin-top: 30px; */
+  font-family: "Suse", sans-serif;
+  /* margin-left: 70px; */
+}
+
+.sort-select-container h3 {
+  position: absolute;
+  top: 10px;
+  left: 19px;
+  font-size: 13px;
+  /* margin: 0; */
+  background-color: transparent;
+  padding: 0 5px;
+}
+
+.sort-select-container select {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  padding-top: 25px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.sort-select-container select:hover {
+  border: 2.5px solid #318aff;
+}
+
+.sort-select-container select:focus,
+.sort-select-container select:active {
+  box-shadow: none;
+  outline: none;
+}

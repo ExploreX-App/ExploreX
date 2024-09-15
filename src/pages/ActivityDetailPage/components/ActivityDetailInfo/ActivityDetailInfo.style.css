@@ -1,0 +1,19 @@
+.ActivityDetailInfo {
+    margin: 10px !important;
+}
+
+.Activity-detail-info-txt {
+    font-size: 1.2rem;
+    color: #464646;
+}
+
+.btn-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+.icon-color {
+    color: #318AFF;
+}

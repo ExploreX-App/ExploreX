@@ -1,0 +1,147 @@
+.image-container {
+  object-fit: cover;
+  width: 100vw;
+  height: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.activity-detail-bg-img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 3;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.overlay-title {
+  color: white;
+  text-align: center;
+  z-index: 4;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1.5s ease, opacity 1.5s ease;
+}
+
+.overlay-description {
+  color: white;
+  text-align: center;
+  z-index: 4;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.overlay-title {
+  font-size: 4rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.overlay-description {
+  font-size: 1.5rem;
+  max-width: 80%;
+}
+
+.image-container:hover .activity-img {
+  transform: scale(1.2);
+}
+
+.image-container:hover .overlay {
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+}
+
+/* 마우스 호버 시 타이틀과 디스크립션 애니메이션 */
+.image-container:hover .overlay-title,
+.image-container:hover .overlay-description {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+/* 이미지 위 뱃지 */
+.badge {
+  background-color: #f2b203;
+  font-size: 16px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 4em;
+  border-radius: 0 !important;
+  z-index: 1000;
+}
+
+.badge-hot-place {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.badge-hot-place-icon {
+  color: black;
+  font-size: 4em;
+  margin-top: 0 !important;
+  margin-bottom: 5px;
+}
+
+/* 이미지 더보기 버튼 */
+.more-images-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 2em;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.more-images-btn:hover {
+  background-color: #353535;
+}
+
+.ico-img {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .activity-img {
+    height: 200px;
+  }
+
+  .overlay-title {
+    font-size: 2rem;
+  }
+
+  .overlay-description {
+    font-size: 1rem;
+  }
+}

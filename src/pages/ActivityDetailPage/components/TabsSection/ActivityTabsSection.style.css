@@ -1,0 +1,48 @@
+body {
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        'SF Pro Display',
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+}
+
+.tabs-container {
+    margin-top: 0px;
+    padding: 20px;
+}
+
+.activity-tap-type {
+    margin-top: 20px;
+    color: #464646;
+}
+
+.activity-tap-title {
+    font-size: 3rem !important;
+    font-weight: 400;
+}
+
+.activity-tap-ratimg {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-weight: 400;
+}
+
+.nav-tabs .nav-item .nav-link.active,
+.nav-tabs .nav-item .nav-link {
+    font-size: 1.2rem;
+}
+
+
+.activity-img {
+    width: 500px;
+    float: right;
+    margin-left: 40px;
+}

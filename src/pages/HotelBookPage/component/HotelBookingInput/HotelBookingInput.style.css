@@ -1,0 +1,17 @@
+.hotelBookingInput-container{
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 10px;
+    padding: 2em 2em;
+    margin-bottom: 2em;
+}
+.PhoneInputInput{
+    height: 40px  !important;
+}
+.hotelBookingInput-btn{
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    background-color: #318AFF;
+    color: white;
+}
