@@ -35,10 +35,9 @@ const ActivityAmenities = () => {
       <Row>
         <Col md={8} className='Activity-detail-info-txt'>
           <h3 className='activity-tap-type'>Entire cabin</h3>
-          <h1 className='activity-tap-title'>
-            {data?.name} <FaLink size={24} color='black' />
-          </h1>
-          C/ de Pau Claris, 189, L'Eixample, 08037 Barcelona, Spain <br />
+          <h1 className='activity-tap-title'>{data?.name}</h1>
+          Address: C/ de Pau Claris, 189, L'Eixample, 08037 Barcelona, Spain{' '}
+          <br />
           <br />
           <div className='d-flex align-items-center mt-1 mb-1 fs-5'>
             <FaMapMarkerAlt
@@ -50,8 +49,8 @@ const ActivityAmenities = () => {
           <div className='d-flex align-items-center mt-1 mb-1 fs-5'>
             <PiMoney style={{ marginRight: '.25rem' }} className='icon-color' />
             {data?.price?.currencyCode
-              ? `${data.price.currencyCode} $${data.price.amount ?? 0}`
-              : 0}
+              ? `${data.price.currencyCode} $${data.price.amount}`
+              : '0'}
           </div>
           <FaUsers className='icon-color' />
           <b> Ages:</b> 0-90
