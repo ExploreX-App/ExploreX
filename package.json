@@ -14,6 +14,8 @@
     "@mui/styled-engine-sc": "^6.0.2",
     "@mui/x-date-pickers": "^6.20.2",
     "@popperjs/core": "2.11.8",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.4.0",
     "@tanstack/react-query": "^5.55.4",
     "@tanstack/react-query-devtools": "^5.55.4",
     "@testing-library/jest-dom": "^5.17.0",
@@ -41,7 +43,6 @@
     "react-multi-date-picker": "^4.5.2",
     "react-paginate": "^8.2.0",
     "react-phone-number-input": "^3.4.5",
-
     "react-query": "^3.39.3",
     "react-range": "^1.10.0",
     "react-router-dom": "^6.26.1",
