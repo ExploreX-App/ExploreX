@@ -42,7 +42,7 @@ const ActivityTabsSection = ({ data, description, price }) => {
                 __html: showMore ? description : description.slice(0, maxLength)
               }}
             />
-            {description.length > maxLength && (
+            {description?.length > maxLength && (
               <div
                 onClick={toggleShowMore}
                 style={{ cursor: 'pointer', color: '#007bff' }}
