@@ -33,3 +33,7 @@
     color: white;
     border-radius: 10px;
   }
+  .leaflet-popup-content {
+    width: fit-content !important;
+    z-index: 10 !important;
+  }

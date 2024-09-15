@@ -1,26 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "./MapModal.style.css";
+import MapPopup from "./MapPopup";
 
-// 마커 기본 아이콘 설정
 const CustomMarkerIcon = (price) => {
   return L.divIcon({
-    className: "custom-marker", // 커스텀 클래스 설정
+    className: "custom-marker",
     html: `<div class="marker-container">
                <div class="price-label">${price?.slice(2)}</div>
              </div>`,
-    iconSize: [80, 30], // 마커 크기 조정
-    iconAnchor: [40, 15], // 마커 포지션 조정
+    iconSize: [80, 30],
+    iconAnchor: [40, 15],
   });
 };
 
-// 이 코드 없으면 기본 아이콘이 표시되지 않을 수 있음
-// L.Marker.prototype.options.icon = DefaultIcon;
-
 const MapModal = ({ show, onHide, hotel, hotels, city }) => {
   const totalHotels = hotels?.concat(hotel);
+  const isDetailPage = hotel?.name === undefined;
+console.log(hotel?.name)
   const mapTitle = hotel?.city
     ? `Hotels in ${hotel?.city}`
     : `Hotels in ${city}`;
@@ -45,14 +44,33 @@ const MapModal = ({ show, onHide, hotel, hotels, city }) => {
               />
               {totalHotels?.map((hotel) => (
                 <Marker
+                  key={hotel?.id || hotel?.name}  // key를 설정하여 오류 방지
                   position={[hotel?.latitude, hotel?.longitude]}
                   icon={CustomMarkerIcon(
-                    hotel.composite_price_breakdown?.gross_amount
-                      ?.amount_rounded ||
-                      "US$" + hotel.priceBreakdown.grossPrice.value.toFixed(2)
+                    hotel.composite_price_breakdown?.gross_amount?.amount_rounded ||
+                    "US$" + hotel.priceBreakdown.grossPrice.value.toFixed(2)
                   )}
                 >
-                  <Popup>{hotel?.hotel_name}</Popup>
+                  <Popup>
+                    {isDetailPage ? (
+                      <MapPopup
+                        hotel={{
+                          name: hotel?.hotel_name,
+                        }}
+                        isDetailPage={isDetailPage}
+                      />
+                    ) : (
+                      <MapPopup
+                        hotel={{
+                          name: hotel?.name,
+                          reviewScore: hotel?.reviewScore,
+                          reviewScoreWord: hotel?.reviewScoreWord,
+                          photos: hotel?.photoUrls,
+                        }}
+                        isDetailPage={isDetailPage}
+                      />
+                    )}
+                  </Popup>
                 </Marker>
               ))}
             </MapContainer>
