@@ -10,7 +10,7 @@ const AdvertisingBanner = () => {
                     <div style={{ color: "#fefefe", fontWeight: "bold", flex: '1', textAlign: 'center', minWidth: '200px' }}> 
                         Save an average of 15% on thousands of hotels when you're signed in 
                     </div>
-                    <Button style={{ width: "auto", borderRadius: '18px', margin: "10px", padding: '5px 20px' }}>Sign in</Button>
+                    <Button style={{ width: "auto", borderRadius: '18px', margin: "10px", padding: '5px 20px', color: '#318AFF' }}>Sign in</Button>
                     <div style={{ color: "#fefefe", fontWeight: "bold", minWidth: '200px', textAlign: 'center' }}>
                         Sign up, it's free
                     </div>

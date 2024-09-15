@@ -6,6 +6,7 @@ import AutoComplete from "react-google-autocomplete";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { IoCalendarOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import "./ActivitySearch.style.css"
 
 const ActivitySearch = () => {
   const navigate = useNavigate();
@@ -80,6 +81,7 @@ const ActivitySearch = () => {
             size="md"
             onClick={handleSearch}
             type="submit"
+
           >
             Search
           </Button>
