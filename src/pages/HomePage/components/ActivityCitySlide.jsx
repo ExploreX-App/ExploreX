@@ -5,14 +5,17 @@ import { useActivitiesQuery } from "../../../hooks/useFetchActivities";
 import { activityMockData } from "../../../utils/mockData/activityData";
 import ActivitySlide from "../../../common/ActivitySlide/ActivitySlide";
 import { responsive } from "../../../utils/settings/activitySliderSetting";
+import Spinner from "../../../common/Spinner/Spinner";
 
 const ActivityCitySlide = ({ keyword, title }) => {
   const { data, isLoading, error, isError } = useActivitiesQuery({
     keyword,
   });
+
   if (isLoading) {
-    <h1>Loading...</h1>;
+    return <Spinner />;
   }
+
   if (isError) {
     <Alert variant="danger">{error.message}</Alert>;
   }

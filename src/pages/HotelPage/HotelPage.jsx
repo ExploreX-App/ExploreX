@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import SearchBar from "../../common/SearchBar/SearchBar";
 import { Container, Row, Col } from "react-bootstrap";
 import MapPreview from "../HotelDetailPage/components/HotelMap/MapPreview";
+import Spinner from "../../common/Spinner/Spinner";
 
 const HotelPage = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const HotelPage = () => {
     adultNum,
   });
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
   if (isError) {
     return <h1>{error.message}</h1>;
