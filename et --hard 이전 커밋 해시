@@ -1,0 +1,540 @@
+[33mcommit 4bd775d6ceeb6bc5dc923b0ff9af4f908c01d2bd[m[33m ([m[1;36mHEAD -> [m[1;32mamy/about[m[33m, [m[1;31morigin/amy/about[m[33m)[m
+Merge: aa2349b d380cde
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sun Sep 15 00:27:32 2024 -0400
+
+    Merge branch 'amy/about' of https://github.com/ExploreX-App/ExploreX into amy/about
+
+[33mcommit aa2349b462a1cbe1089faf7edbc4203ca8658b2c[m[33m ([m[1;32mamy/activity-detail-new[m[33m)[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sun Sep 15 00:26:50 2024 -0400
+
+    .env deleted
+
+[33mcommit 64fce246cb3cbdbbaa23573f652d2694e2df385a[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sun Sep 15 00:26:05 2024 -0400
+
+    .env key deleted
+
+[33mcommit dedb4a2641a88ab6ad3046b4710a89cf2d808190[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sun Sep 15 00:18:15 2024 -0400
+
+    activity detail updated
+
+[33mcommit d380cdef271e06d9720a0dac7bed1695f7d1e89c[m
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 20:30:06 2024 -0700
+
+    Delete .env
+
+[33mcommit 1751599176cb1f699208ff686a5d2265bfe97061[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 21:22:36 2024 -0400
+
+    about completed
+
+[33mcommit 1b3bab6d056460ea04483bc5866d252b056aeb44[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 19:43:11 2024 -0400
+
+    about update
+
+[33mcommit 9056a9ff98684a72603b7b2217e4ee4855580a40[m
+Merge: 42ebd57 8ce0eb0
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 15:43:12 2024 -0400
+
+    Resolved merge conflict between develop and amy/about
+
+[33mcommit 42ebd57fc600fda931b888d7ef0af85ca9476d60[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 13:46:25 2024 -0400
+
+    team member slider
+
+[33mcommit 197c4d014c4f3e2447e5290e5ceb9658cdac3bb6[m[33m ([m[1;32mamy/spinner[m[33m)[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 11:12:55 2024 -0400
+
+    about
+
+[33mcommit 8ce0eb0f63d6c8eb9b497ce528e17fdf5fe7c4fd[m
+Merge: 519982a 45962c4
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 05:09:43 2024 -0700
+
+    Merge pull request #46 from ExploreX-App/may/detail-photo-hotfix
+    
+    May/detail photo hotfix
+
+[33mcommit 45962c404833d7ca58bb25d790011e15f9d3c440[m[33m ([m[1;31morigin/may/detail-photo-hotfix[m[33m)[m
+Merge: db9f759 519982a
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 05:09:24 2024 -0700
+
+    Merge branch 'develop' into may/detail-photo-hotfix
+
+[33mcommit 519982a2ca47809c5fd2ec7eb215075e37c73d8a[m
+Merge: b1c5893 4b42f87
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 05:08:41 2024 -0700
+
+    Merge pull request #43 from ExploreX-App/amy/activity-detail-new
+    
+    Amy/activity detail new
+
+[33mcommit 4b42f87f8c6e8f10260017cdd2fd79a0abb46c44[m
+Merge: f24e9d3 b1c5893
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 05:07:49 2024 -0700
+
+    Merge branch 'develop' into amy/activity-detail-new
+
+[33mcommit b1c58930f7b194084040aecef42b9966a0da324c[m
+Merge: b810de6 e2f6dfd
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 04:45:59 2024 -0700
+
+    Merge pull request #39 from ExploreX-App/amy/spinner
+    
+    Amy/spinner
+
+[33mcommit b810de6d26a5009eb5dde037216a53b77ee7e153[m
+Merge: db13bab 5930ff2
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 04:44:53 2024 -0700
+
+    Merge pull request #48 from ExploreX-App/activity-list-james
+    
+    Activity list james
+
+[33mcommit 5930ff27cb8488c2033f203ca33d1035dbeaf6e5[m[33m ([m[1;31morigin/activity-list-james[m[33m)[m
+Merge: d42896b db13bab
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 04:44:25 2024 -0700
+
+    Merge branch 'develop' into activity-list-james
+
+[33mcommit db13babcef1e20c5cb747338c7bccc84f12b55a4[m
+Merge: b38fc0a 77685f5
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Sat Sep 14 04:42:36 2024 -0700
+
+    Merge pull request #47 from ExploreX-App/page/hotel-reserve
+    
+    Page/hotel reserve
+
+[33mcommit d42896b79a9cea76a11987e9d0e039b88ca6123c[m
+Author: jamesjo <jamescakr@gmail.com>
+Date:   Sat Sep 14 05:41:23 2024 -0600
+
+    develop merge
+
+[33mcommit 77685f59dee21adc97e226396d072c6ec0db08c9[m
+Author: Minjoo Kim <haileykim206@gmail.com>
+Date:   Sat Sep 14 04:31:40 2024 -0700
+
+    hotelBookingcard design
+
+[33mcommit 00b7e6d2d8f5422f1f6e383e4a48888f7c605237[m
+Author: jamesjo <jamescakr@gmail.com>
+Date:   Sat Sep 14 03:17:09 2024 -0600
+
+    merged developp
+
+[33mcommit ba70d66da7740262291d7708c824fa11097aec93[m
+Merge: 14414af b38fc0a
+Author: jamesjo <jamescakr@gmail.com>
+Date:   Sat Sep 14 03:12:08 2024 -0600
+
+    merged develop
+
+[33mcommit 14414af7cf877fc95ab406153ae8bc390bd4330e[m
+Merge: 5dd1444 4cc6c85
+Author: jamesjo <jamescakr@gmail.com>
+Date:   Sat Sep 14 03:07:37 2024 -0600
+
+    merge develop
+
+[33mcommit 5dd1444f9454518ee75b740c0b604697fcff0aee[m
+Author: jamesjo <jamescakr@gmail.com>
+Date:   Sat Sep 14 03:02:13 2024 -0600
+
+    added activity page
+
+[33mcommit db9f759c230d3ce3d58ad00996830813aff03556[m
+Author: MayHyeyeonKim <hkim7963@gmail.com>
+Date:   Fri Sep 13 23:31:12 2024 -0700
+
+    hotefix: map
+
+[33mcommit 06f0e756c101fa87431080ebab4c72bef717a97c[m
+Author: MayHyeyeonKim <hkim7963@gmail.com>
+Date:   Fri Sep 13 23:11:33 2024 -0700
+
+    hotfix: display only a single img when the total num of hotel photos is less than 5
+
+[33mcommit 78e2e5607c860c186dd5c1ea212a92b19eb5fc29[m
+Merge: 223ec12 640f373
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 23:05:17 2024 -0700
+
+    Merge branch 'page/hotel-reserve' of https://github.com/ExploreX-App/ExploreX into page/hotel-reserve
+
+[33mcommit 52889bb003990f64247f3411e28afe83013a5515[m
+Author: MayHyeyeonKim <hkim7963@gmail.com>
+Date:   Fri Sep 13 22:59:56 2024 -0700
+
+    hotfix: display only a single img when the total num of hotel photos is less than 5
+
+[33mcommit 223ec1228a1d9b77889be6bbc04196d47527ca06[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 22:58:36 2024 -0700
+
+    added reviewScore
+
+[33mcommit 640f37384417b763e60d853a9f1bff32d3a964bc[m
+Merge: 1635bce b38fc0a
+Author: Minjoo Kim <haileykim206@gmail.com>
+Date:   Fri Sep 13 22:14:36 2024 -0700
+
+    Merge branch 'develop' of https://github.com/jamescakr/ExploreX into page/hotel-reserve
+
+[33mcommit 1635bce871274caceae3683f9fa0199fa219ecc9[m
+Author: Minjoo Kim <haileykim206@gmail.com>
+Date:   Fri Sep 13 22:09:46 2024 -0700
+
+     hotelBookingCard design
+
+[33mcommit b38fc0ab5ea163f6e01e2247970d300c3ccd2524[m
+Merge: e830600 debf1e3
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 22:00:05 2024 -0700
+
+    Merge pull request #45 from ExploreX-App/error/activity-detail
+    
+    Error/activity detail
+
+[33mcommit debf1e32451a4383371340aabf4561becfe9e80c[m[33m ([m[1;31morigin/error/activity-detail[m[33m)[m
+Merge: 56c8254 e830600
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:57:03 2024 -0700
+
+    Merge branch 'develop' into error/activity-detail
+    merge with develop
+    .
+
+[33mcommit 56c8254e5371465ac5f5fb2cd7bec85f9a6a9605[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:56:29 2024 -0700
+
+    final errorr
+
+[33mcommit e830600233b5e53a9c17afbdc766ae4e00628148[m
+Merge: 34b71ec ec81a67
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 21:52:02 2024 -0700
+
+    Merge pull request #44 from ExploreX-App/error/activity-detail
+    
+    Error/activity detail
+
+[33mcommit ec81a672c386d0107f18b92b01dc5e6faf26e0c9[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:49:48 2024 -0700
+
+    deleted console logs:
+
+[33mcommit bacce425e29fefef6d5a11d6f83b0ac4aa2c4eaf[m
+Merge: 0d9709d 34b71ec
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:47:26 2024 -0700
+
+    Merge branch 'develop' into error/activity-detail
+    merge
+
+[33mcommit 0d9709dafaf7b494ecd0483763bf8994cb50e323[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:46:52 2024 -0700
+
+    fixed error
+
+[33mcommit f24e9d3bd6aa23962b9dfb6781940d1ae5702f95[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 00:40:54 2024 -0400
+
+    spinner bg removed
+
+[33mcommit 6d3ab8a53cd6bfe20291734a9df239253ec861c4[m
+Merge: bbd3653 34b71ec
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Sat Sep 14 00:30:48 2024 -0400
+
+    Merge branch 'develop' into amy/activity-detail-new
+
+[33mcommit 34b71ec5189b47c79bc7b46138141f0cfbb306f4[m
+Merge: 5b34b3c c1e7dee
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 21:25:08 2024 -0700
+
+    Merge pull request #42 from ExploreX-App/error/activity-detail
+    
+    Error/activity detail
+
+[33mcommit c1e7dee1fd547946a92536964f6844379f0d0a95[m
+Merge: 2018bd1 5b34b3c
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:16:47 2024 -0700
+
+    Merge branch 'develop' into error/activity-detail
+
+[33mcommit 2018bd10411e68da30026165d7ba3141c5edcfa7[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:15:46 2024 -0700
+
+    fixed logout error
+
+[33mcommit 5b34b3c0475ff86e9d87e4b0cd01fa73e500b9fe[m
+Merge: eb75d91 8428518
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 21:07:54 2024 -0700
+
+    Merge pull request #41 from ExploreX-App/error/activity-detail
+    
+    error fixed
+
+[33mcommit 84285185a32d4840d7df4f104b771b656cc09e63[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 21:07:22 2024 -0700
+
+    fixed error
+
+[33mcommit 395f2abb5d250c5142342590611bb353c211fc43[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 20:59:06 2024 -0700
+
+    error fixed
+
+[33mcommit eb75d91f81bd29343abf6fe1a7647af00e1c8e9b[m
+Merge: 01ec440 416f249
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 20:48:54 2024 -0700
+
+    Merge pull request #38 from ExploreX-App/may/hotel-detail-2
+    
+    May/hotel detail 2
+
+[33mcommit 416f249221cc9d784e549ab311348c3873cfc172[m[33m ([m[1;31morigin/may/hotel-detail-2[m[33m)[m
+Merge: 9ba6eef 01ec440
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 20:48:46 2024 -0700
+
+    Merge branch 'develop' into may/hotel-detail-2
+
+[33mcommit 9ba6eef7263e84b15e1ee9bf518a39c1c065cde3[m
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 23:47:45 2024 -0400
+
+    Update .env
+
+[33mcommit 3323b3383b28f7e161eb81b6e840901cba3bf09c[m
+Merge: a378af5 8024c89
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 20:47:00 2024 -0700
+
+    Merge pull request #40 from ExploreX-App/page/hotel-detail-edit
+    
+    edited hotel detail page
+
+[33mcommit 8024c89619d7ea7b45647a3f34bf2af84e7ce49e[m[33m ([m[1;31morigin/page/hotel-detail-edit[m[33m)[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 20:45:12 2024 -0700
+
+    edited hotel detail page
+
+[33mcommit bbd3653ccd95cb1c2c242e0e33ad48ebc9f338ec[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 22:22:04 2024 -0400
+
+    activity detail update
+
+[33mcommit 01ec440636d27a856d784414c019a5437c96ca55[m
+Merge: c24deb2 ea7166d
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 19:19:31 2024 -0700
+
+    Merge pull request #36 from ExploreX-App/page/profile
+    
+    added profile page
+
+[33mcommit ea7166d7dd001520f5d2d0e04d24cf0493016b47[m[33m ([m[1;31morigin/page/profile[m[33m)[m
+Merge: e091450 c24deb2
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 19:19:19 2024 -0700
+
+    Merge branch 'develop' into page/profile
+
+[33mcommit c24deb220ab7715e0288b88c255847a0c78a15dc[m
+Merge: d56836f 0a9ae88
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 17:17:00 2024 -0700
+
+    Merge pull request #37 from ExploreX-App/amy/activity-detail-new
+    
+    Amy/activity detail new
+
+[33mcommit e2f6dfd8407d29732d23adcde91deed40cfe55f9[m[33m ([m[1;31morigin/amy/spinner[m[33m)[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 18:18:57 2024 -0400
+
+    Add loading spinner to common component
+
+[33mcommit 0a9ae887c01064b8547706e5ba0452032edb55dd[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 17:55:41 2024 -0400
+
+    reviews updated
+
+[33mcommit 9cecdaa195e7f29afa613c55e2f5d582bf0a9f41[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 17:17:07 2024 -0400
+
+    FAQ updated
+
+[33mcommit 5d7bfefa9b8fa0aefdd72d6e0b31b451e37c82b1[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 16:44:41 2024 -0400
+
+    promotion banner update
+
+[33mcommit a378af50bc92c02e843fe3b176d96f801b18ef23[m
+Author: MayHyeyeonKim <hkim7963@gmail.com>
+Date:   Fri Sep 13 13:36:28 2024 -0700
+
+    completed hotel-detail
+
+[33mcommit ed3f2d24954ce0ae94b438dd10140cee2907bf13[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 15:52:40 2024 -0400
+
+    spinner completed
+
+[33mcommit 4baaec8f32a6bd202911541d42bd8b806652b565[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 15:39:45 2024 -0400
+
+    env rm
+
+[33mcommit 8aee98b33216e4e8f043ccb22670a8972b09810e[m
+Author: Amy Ahn <amy.ahn.kr@gmail.com>
+Date:   Fri Sep 13 15:38:20 2024 -0400
+
+    activity detail page layout fixed
+
+[33mcommit 448b2376e46777db69a8c88358c7c9abe27474d6[m
+Author: MayHyeyeonKim <hkim7963@gmail.com>
+Date:   Fri Sep 13 11:53:30 2024 -0700
+
+    modified hotel detail page
+
+[33mcommit e0914501d411732f5392fb78451875dfa25438fa[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 08:30:28 2024 -0700
+
+    added profile page
+
+[33mcommit d56836f5d21ae6e38498207311f5ec18b883a3d8[m
+Merge: 9d3c38b cc10da5
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 06:35:38 2024 -0700
+
+    Merge pull request #35 from ExploreX-App/feature/save
+    
+    added save feature
+
+[33mcommit 9d3c38bb282e0bd798a55784f6c8a481fa553e5e[m
+Merge: c2dbdb2 f1acd41
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 06:35:22 2024 -0700
+
+    Merge pull request #34 from ExploreX-App/page/hotels
+    
+    Page/hotels
+
+[33mcommit f1acd41d1bf4f28313d7ea7bc26a05d0a271a631[m[33m ([m[1;31morigin/page/hotels[m[33m)[m
+Merge: 019651d c2dbdb2
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 06:35:12 2024 -0700
+
+    Merge branch 'develop' into page/hotels
+
+[33mcommit c2dbdb2080effc279d873c7360eef319d34b4c37[m
+Merge: d361c95 b25ad9f
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 06:32:04 2024 -0700
+
+    Merge pull request #33 from ExploreX-App/feature/hotel-hooks
+    
+    added sort params
+
+[33mcommit d361c9519f887a602f1482b8e0c6f34f5cf12825[m
+Merge: 5dc5365 f990108
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 06:31:51 2024 -0700
+
+    Merge pull request #32 from ExploreX-App/page/landing
+    
+    updated landing
+
+[33mcommit f9901081f76b6baf6d1378b1a1a9b094c5969423[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 06:16:15 2024 -0700
+
+    updated login page
+
+[33mcommit cc10da55098d28641561330cc268950bb3fb7d07[m[33m ([m[1;31morigin/feature/save[m[33m)[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 06:04:59 2024 -0700
+
+    added save feature
+
+[33mcommit 89a98d7efe93b5674179736f380631899b9012b5[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 04:55:16 2024 -0700
+
+    updated navbar
+
+[33mcommit 025920fc250201700eccec24794d2ea19a9d42c7[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 04:53:55 2024 -0700
+
+    added validation
+
+[33mcommit 019651d08930952503a2db0caf2b62606a101eb1[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 04:21:39 2024 -0700
+
+    fixed gap
+
+[33mcommit b25ad9f0d205bf11b5547e472d068148646ac5b2[m[33m ([m[1;31morigin/feature/hotel-hooks[m[33m)[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 03:30:59 2024 -0700
+
+    added sort params
+
+[33mcommit 6d290006a7537c6a20a30d3df7b62d46ee2da434[m
+Author: Suhyun <suhyun.park63@gmail.com>
+Date:   Fri Sep 13 03:21:53 2024 -0700
+
+    updated landing
+
+[33mcommit 5dc5365870283c81d764bd2da2669d16b6542ecd[m
+Merge: f7e8542 d8fe7b0
+Author: Suhyun Park <39171224+suuhyun@users.noreply.github.com>
+Date:   Fri Sep 13 01:47:30 2024 -0700
+
+    Merge pull request #31 from ExploreX-App/minjoo/landing
+    
+    Minjoo/landing

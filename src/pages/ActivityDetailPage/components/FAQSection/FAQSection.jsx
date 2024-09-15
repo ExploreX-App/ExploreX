@@ -16,7 +16,7 @@ const FAQSection = () => (
 
     <Accordion defaultActiveKey={['0']} alwaysOpen>
       <Accordion.Item eventKey='0'>
-        <Accordion.Header>What servivces do you provide?</Accordion.Header>
+        <Accordion.Header>What services do you provide?</Accordion.Header>
         <Accordion.Body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

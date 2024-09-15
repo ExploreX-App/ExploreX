@@ -1,5 +1,6 @@
 import React from 'react';
 import './ActivityImageSlide.style.css';
+import HeartIcon from '../HeartIcon/HeartIcon';
 
 const ActivityImageSlide = ({ data }) => {
   if (!data?.pictures || data?.pictures?.length === 0) {

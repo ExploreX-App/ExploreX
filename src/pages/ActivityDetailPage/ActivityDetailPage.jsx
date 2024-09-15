@@ -13,8 +13,8 @@ import ActivityPromotion from './components/Promotion/ActivityPromotion.jsx';
 
 const ActivityDetailPage = () => {
   const { id } = useParams();
-  const { data, isLoading, isError, error } = useActivityQuery({ids: [id]});
-  const activity = data ? data[0]?.data : {}
+  const { data, isLoading, isError, error } = useActivityQuery({ ids: [id] });
+  const activity = data ? data[0]?.data : {};
 
   if (isLoading) {
     return <Spinner />;
@@ -26,17 +26,13 @@ const ActivityDetailPage = () => {
 
   return (
     <Container>
-      {/* Image Slider */}
-      <Row>
+      {/* Image Slider with Search Bar */}
+      <Row className='image-container'>
         <Col>
           <ActivityImageSlide data={activity} />
-        </Col>
-      </Row>
-
-      {/* Search Bar */}
-      <Row className='mb-0'>
-        <Col>
-          <SearchBar tab="activity" />
+          <div className='searchbar-container'>
+            <SearchBar tab='activity' />
+          </div>
         </Col>
       </Row>
 
