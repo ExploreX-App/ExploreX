@@ -20,6 +20,7 @@ const HotelCard = ({ hotel, adultNum }) => {
     });
   };
 
+
   const handleSave = () => {
     let savedHotels = JSON.parse(localStorage.getItem("savedHotels")) || [];
     if (!savedHotels.includes(hotel.id.toString())) {
@@ -44,7 +45,7 @@ const HotelCard = ({ hotel, adultNum }) => {
               onClick={() => handleSave()}
             />
             <div className="w-100 mt-2 mb-2 hotelCard-title position-relative">
-              <div className="fs-3 fw-bold">{hotel?.name}</div>
+              <div className="fs-4 fw-bold">{hotel?.name.length>20? hotel.name.slice(0,25) + "..." :hotel.name}</div>
             </div>
 
             <div className="d-flex align-items-center">
