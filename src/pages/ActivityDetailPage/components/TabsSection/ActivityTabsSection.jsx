@@ -71,10 +71,6 @@ const ActivityTabsSection = ({ data, description, price }) => {
           <br />
           <Reviews />
         </Tab>
-
-        <Tab eventKey='policies' title='Policies'>
-          <p>Policies</p>
-        </Tab>
       </Tabs>
     </Container>
   );
