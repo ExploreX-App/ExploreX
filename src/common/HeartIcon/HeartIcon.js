@@ -6,7 +6,9 @@ import "./HeartIcon.css";
 const HeartIcon = ({ isHeartFilled, onClick }) => {
   const [animationClass, setAnimationClass] = useState("");
 
-  const handleHeartClick = () => {
+  const handleHeartClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (isHeartFilled) {
       setAnimationClass("animate__wobble");
     } else {
@@ -24,7 +26,7 @@ const HeartIcon = ({ isHeartFilled, onClick }) => {
       className={`bi ${
         isHeartFilled ? "bi-heart-fill" : "bi-heart"
       } heart-icon ${animationClass}`}
-      onClick={handleHeartClick}
+      onClick={(e) => handleHeartClick(e)}
     ></i>
   );
 };

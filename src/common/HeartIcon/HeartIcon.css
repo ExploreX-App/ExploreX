@@ -1,9 +1,7 @@
 .heart-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
     color: red;
-    font-size: 24px;
+    font-size: 26px !important;
     cursor: pointer;
     background-color: white;
     border-radius: 50%;
@@ -12,7 +10,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 3px;
+    padding-bottom: 3px !important;
+    transition: transform 0.3s ease !important;  
+  }
+
+  .heart-icon:hover {
+    background-color: rgb(255, 255, 255) !important;
+    transform: scale(1.2); 
   }
   
   .heart-icon.animate__zoomOut,
