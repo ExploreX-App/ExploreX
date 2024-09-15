@@ -1,16 +1,16 @@
-import React from 'react';
-import { useActivityQuery } from '../../hooks/useFetchActivityById';
-import { useParams } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
-import Spinner from '../../common/Spinner/Spinner';
-import SearchBar from '../../common/SearchBar/SearchBar';
-import ActivityImageSlide from '../../common/ActivitySlide/ActivityImageSlide';
-import ActivityTabsSection from './components/TabsSection/ActivityTabsSection';
-import ActivityDetailContent from './ActivityDetailContent';
-import FAQSection from './components/FAQSection/FAQSection';
-import PoliciesAndFeesSection from './components/PoliciesAndFeesSection/PoliciesAndFeesSection';
-import ActivityPromotion from './components/Promotion/ActivityPromotion.jsx';
-import AdvertisingBanner from '../../common/AdvertisingBanner/AdvertisingBanner.jsx';
+import React from "react";
+import { useActivityQuery } from "../../hooks/useFetchActivityById";
+import { useParams } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import Spinner from "../../common/Spinner/Spinner";
+import SearchBar from "../../common/SearchBar/SearchBar";
+import ActivityImageSlide from "../../common/ActivitySlide/ActivityImageSlide";
+import ActivityTabsSection from "./components/TabsSection/ActivityTabsSection";
+import ActivityDetailContent from "./ActivityDetailContent";
+import FAQSection from "./components/FAQSection/FAQSection";
+import PoliciesAndFeesSection from "./components/PoliciesAndFeesSection/PoliciesAndFeesSection";
+import ActivityPromotion from "./components/Promotion/ActivityPromotion.jsx";
+import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner.jsx";
 
 const ActivityDetailPage = () => {
   const { id } = useParams();
@@ -35,11 +35,11 @@ const ActivityDetailPage = () => {
       </Row>
 
       {/* Search Bar */}
-      <Row className='mb-0'>
-        <Col>
-          <SearchBar tab='activity' />
-        </Col>
-      </Row>
+      <div className="mb-0" style={{ marginTop: "220px" }}>
+        <div className="activity-banner-margin">
+          <SearchBar tab="activity" />
+        </div>
+      </div>
 
       {/* Tabs for Overview, Amenities, Prices, Policies */}
       <Row>
@@ -57,34 +57,34 @@ const ActivityDetailPage = () => {
       </Row>
 
       {/* Main Content and Reservation */}
-      <Row className='mt-4'>
+      <Row className="mt-4">
         <Col lg={12} md={12} sm={12} xs={12}>
           <ActivityDetailContent data={activity} />
         </Col>
       </Row>
 
       {/* Activity Promotion */}
-      <Row className='mt-4'>
+      <Row className="mt-4">
         <Col>
           <ActivityPromotion />
         </Col>
       </Row>
 
       {/* FAQ Section */}
-      <Row className='mt-4'>
+      <Row className="mt-4">
         <Col>
           <FAQSection />
         </Col>
       </Row>
 
       {/* Policies and Fees */}
-      <Row className='mt-4'>
+      <Row className="mt-4">
         <Col>
           <PoliciesAndFeesSection />
         </Col>
       </Row>
 
-      <Row className='mt-4'>
+      <Row className="mt-4">
         <Col>
           <AdvertisingBanner />
         </Col>
