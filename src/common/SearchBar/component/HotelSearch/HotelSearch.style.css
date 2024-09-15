@@ -54,7 +54,7 @@
 
 .done-button {
   display: block;
-  background-color: #007aff;
+  background-color: #318AFF;
   color: white;
   padding: 10px;
   text-align: center;
@@ -90,29 +90,29 @@ input:focus {
 }
 
 .search-button:hover {
-    background-color: #015aba !important;
+    background-color: #488BD4!important;
 }
 
 .done-button:hover {
-    background-color: #015aba !important;
+    background-color: #488BD4 !important;
 }
 
 .done-button,
 .search-button {
-    background-color: #2c8ef8 !important;
+    background-color: #318AFF !important;
     height: 48px;
     font-weight: 500 !important;
 }
 
 .modal-button {
-    border-color: #2c8ef8 !important;
+    border-color: #318AFF!important;
     background-color: white !important;
-    color: #2c8ef8 !important;
+    color: #318AFF!important;
     font-weight: 700 !important;
     height: 40px !important;
 }
 
 .modal-button:hover {
-    background-color: #2c8ef8 !important;
+    background-color: #488BD4!important;
     color: white !important;
 }
