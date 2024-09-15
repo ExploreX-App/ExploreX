@@ -20,13 +20,44 @@
     width: 160px;
 }
 
-.review-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+.bar {
+    background-color: #ddd;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent overflow */
 }
 
-.review-text {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+.bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.bar-fill.excellent {
+    background-color: #4caf50;
+}
+
+.bar-fill.very-good {
+    background-color: #8bc34a;
+}
+
+.bar-fill.average {
+    background-color: #ff9800;
+}
+
+.bar-fill.poor {
+    background-color: #f44336;
+}
+
+.review-count {
+    margin-left: 10px;
 }

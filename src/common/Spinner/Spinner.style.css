@@ -85,7 +85,6 @@
   height: 100px;
   display: inline-block;
   overflow: visible;
-  background: #464646;
 }
 
 .ldio-yzaezf3dcmj {
@@ -107,11 +106,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #464646;
 }
 
 .loading-text {
-  color: #ffffff;
+  color: #464646;
   font-size: 3rem;
+  font-weight: 400;
   margin-top: 20px;
 }

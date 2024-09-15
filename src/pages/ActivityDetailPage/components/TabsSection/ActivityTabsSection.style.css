@@ -14,8 +14,8 @@ body {
 }
 
 .tabs-container {
-    margin-top: 20px;
-    padding: 0;
+    margin-top: 0px;
+    padding: 20px;
 }
 
 .activity-tap-type {
@@ -33,4 +33,16 @@ body {
     align-items: center;
     gap: 1px;
     font-weight: 400;
+}
+
+.nav-tabs .nav-item .nav-link.active,
+.nav-tabs .nav-item .nav-link {
+    font-size: 1.2rem;
+}
+
+
+.activity-img {
+    width: 500px;
+    float: right;
+    margin-left: 40px;
 }

@@ -2,14 +2,13 @@
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-.overlay {
-    cursor: pointer;
+    position: relative;
+    z-index: 0;
 }
 .card-img{
     object-fit: cover;
     transition: transform 0.3s ease;
-    aspect-ratio: auto 3/4 !important;
+    aspect-ratio: auto 4/5 !important;
 }
 
 .tourcard-wrap:hover{

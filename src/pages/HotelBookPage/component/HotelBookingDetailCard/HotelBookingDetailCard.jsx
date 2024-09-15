@@ -4,8 +4,8 @@ import "./HotelBookingDetailCard.style.css";
 const HotelBookingDetailCard = ({ hotel, room, reviewScore }) => {
   console.log("detail", hotel)
 
-   const checkInDate = hotel.arrival_date;
-  const checkOutDate = hotel.departure_date;
+   const checkInDate = hotel?.arrival_date;
+  const checkOutDate = hotel?.departure_date;
 
   const calculateNights = (checkInDate, checkOutDate) => {
     const checkIn = new Date(checkInDate);
@@ -16,7 +16,7 @@ const HotelBookingDetailCard = ({ hotel, room, reviewScore }) => {
   };
   const numberOfNights = calculateNights(checkInDate, checkOutDate);
  
-
+console.log("price",numberOfNights)
 
     return (
       

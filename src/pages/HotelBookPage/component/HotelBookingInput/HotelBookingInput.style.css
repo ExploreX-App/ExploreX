@@ -1,7 +1,8 @@
 .hotelBookingInput-container{
     border: 1px solid rgb(230, 230, 230);
     border-radius: 10px;
-    padding: 4em 2em;
+    padding: 2em 2em;
+    margin-bottom: 2em;
 }
 .PhoneInputInput{
     height: 40px  !important;
