@@ -14,12 +14,25 @@ import { useNavigate } from "react-router-dom";
 const HotelRoomCard = ({ hotel, room, reviewScore }) => {
   const navigate = useNavigate();
   const price = room?.product_price_breakdown;
+
   const goToReserve = () => {
     console.log("sending info", room)
+
+    const bookingInfo = {
+      hotel: hotel,
+      room: room,
+      reviewScore: reviewScore
+    };
+
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || []; 
+    bookings.push(bookingInfo);
+    localStorage.setItem("bookings", JSON.stringify(bookings))
+
     navigate("./reserve", {
       state: { hotel, room, reviewScore },
     });
   };
+
   console.log("hotelRoom Card", reviewScore)
   return (
     <Row className="p-3 d-flex hotel-room-card-container">

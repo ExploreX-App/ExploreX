@@ -10,7 +10,7 @@ const AppLayout = () => {
   const user = localStorage.getItem("user");
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.clear();
     navigate("/");
   };
   return (

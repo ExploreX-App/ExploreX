@@ -27,6 +27,9 @@
 
 .hotelBookingCard-title {
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 }
 .hotelBookingCard-address{
