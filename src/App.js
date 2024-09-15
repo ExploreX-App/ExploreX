@@ -24,17 +24,11 @@ function App() {
         </Route>
         <Route path='hotels'>
           <Route index element={<HotelPage />} />
-<<<<<<< HEAD
-          <Route path=':id' element={<HotelDetailPage />} />
-        </Route>
-        <Route path='login' element={<LoginPage />} />
-=======
           <Route path=":id" element={<HotelDetailPage />} />
           <Route path=":id/reserve" element={<HotelBookPage />} />
         </Route>
         <Route path="login" element={<LoginPage />} />
         <Route path="profile" element={<ProfilePage />} />
->>>>>>> develop
       </Route>
 
       <Route path='*' element={<NotFoundPage />} />
