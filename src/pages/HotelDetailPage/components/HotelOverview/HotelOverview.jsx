@@ -85,7 +85,7 @@ const HotelDetailOverview = ({
             md={4}
             className="h-100 d-flex flex-column justify-space-between"
           >
-            {reviews && (
+            {(reviews && reviews.length > 0) && (
               <div style={{ marginBottom: "20px" }}>
                 <HotelReviewCard review={reviews[0]} />
               </div>
