@@ -3,6 +3,8 @@ import { useHotelsByKeywordQuery } from "../../hooks/useFetchHotelsByKeyword";
 import HotelCard from "./components/HotelCard/HotelCard";
 import { useLocation } from "react-router-dom";
 import SearchBar from "../../common/SearchBar/SearchBar";
+import { Container, Row, Col } from "react-bootstrap";
+import MapPreview from "../HotelDetailPage/components/HotelMap/MapPreview";
 
 const HotelPage = () => {
   const location = useLocation();
@@ -24,16 +26,50 @@ const HotelPage = () => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+
+  let foundedHotels = [];
+  data.map((hotel) => foundedHotels.push(hotel.property));
+
   return (
     <div>
-      <div className="search-bar"><SearchBar keyword={keyword} dateFrom={dateFrom} dateTo={dateTo} adultNum={adultNum}/></div>
-      {!data && <div className="fs-5 m-3 fw-semibold">{keyword}: No properties found.</div>}
-      <div className="d-flex flex-column gap-2">
-
-      {data?.map((hotel, index) => (
-        <HotelCard hotel={hotel?.property} adultNum="2" key={index} />
-      ))}
+      <div className="search-bar">
+        <SearchBar
+          keyword={keyword}
+          dateFrom={dateFrom}
+          dateTo={dateTo}
+          adultNum={adultNum}
+        />
       </div>
+      {!data && (
+        <div className="fs-5 m-3 fw-semibold">
+          {keyword}: No properties found.
+        </div>
+      )}
+      <Container>
+        <Row>
+          <Col xs={12} md={8}>
+            <div className="d-flex flex-column gap-2">
+              {data?.map((hotel, index) => (
+                <HotelCard
+                  hotel={hotel?.property}
+                  adultNum="2"
+                  keyword={keyword}
+                  key={index}
+                />
+              ))}
+            </div>
+          </Col>
+          <Col xs={12} md={4}>
+            <div style={{ marginTop: "10px" }}>
+              <MapPreview
+                hotel={data[0].property}
+                hotelsGeoData={foundedHotels}
+                city={keyword}
+              />
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.checkout-btn{height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    background-color: #318AFF;
+    color: white;}
+
+    .checkout-container {
+        border: 1px solid rgb(230, 230, 230);
+        border-radius: 10px;
+        padding: 3em 2em;
+    }

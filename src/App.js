@@ -24,11 +24,11 @@ function App() {
         </Route>
         <Route path='hotels'>
           <Route index element={<HotelPage />} />
-          <Route path=':id' element={<HotelDetailPage />} />
-          <Route path=':id/reserve' element={<HotelBookPage />} />
+          <Route path=":id" element={<HotelDetailPage />} />
+          <Route path=":id/reserve" element={<HotelBookPage />} />
         </Route>
-        <Route path='login' element={<LoginPage />} />
-        <Route path='profile' element={<ProfilePage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="profile" element={<ProfilePage />} />
       </Route>
 
       <Route path='*' element={<NotFoundPage />} />

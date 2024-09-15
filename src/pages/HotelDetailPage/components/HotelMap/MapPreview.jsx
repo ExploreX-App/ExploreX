@@ -20,7 +20,7 @@ const DefaultIcon = L.icon({
 // 이 코드 없으면 기본 아이콘이 표시되지 않을 수 있음
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const MapPreview = ({ hotel, hotelsGeoData }) => {
+const MapPreview = ({ hotel, hotelsGeoData, city }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => setShowModal(true);
@@ -70,6 +70,7 @@ const MapPreview = ({ hotel, hotelsGeoData }) => {
         onHide={handleCloseModal}
         hotel={hotel}
         hotels={hotelsGeoData}
+        city={city}
       />
     </div>
   );
