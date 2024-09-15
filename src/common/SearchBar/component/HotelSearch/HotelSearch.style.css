@@ -6,7 +6,7 @@
   border-color: #ced4da;
   text-overflow: ellipsis;
   padding-left: 45px !important;
-  height: 48px;
+  height: 48px !important;
 }
 
 .rmdp-container {
