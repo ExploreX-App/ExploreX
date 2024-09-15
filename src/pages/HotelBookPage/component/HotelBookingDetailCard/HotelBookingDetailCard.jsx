@@ -15,8 +15,12 @@ const HotelBookingDetailCard = ({ hotel, room, reviewScore }) => {
     return differenceInDays;
   };
   const numberOfNights = calculateNights(checkInDate, checkOutDate);
- 
-console.log("price",numberOfNights)
+  const roomPricePerNight = hotel?.product_price_breakdown.all_inclusive_amount.amount_rounded
+  const numericValue = roomPricePerNight.replace(/\D/g, '');
+  const taxPrice = Math.floor(numericValue * 0.07)
+console.log("room", roomPricePerNight)
+
+console.log("per",numericValue)
 
     return (
       
@@ -32,14 +36,13 @@ console.log("price",numberOfNights)
           <div>
             <div className=" d-flex justify-content-between">
                 <div>1 room x {numberOfNights} nights</div>
-                <div>{hotel?.currency_code} ${hotel?.cheapest_avail_price_eur * 2}</div>
+                <div>{hotel?.currency_code} ${numericValue -taxPrice}</div>
             </div>
-            <div style={{ fontSize: "14px", color: "#636363" }}>{hotel?.currency_code} {hotel?.cheapest_avail_price_eur} average per night</div>
           </div>
 
           <div className=" d-flex justify-content-between mt-3 mb-4">
             <div>Taxes</div>
-            <div>{hotel?.currency_code} $50.68</div>
+              <div>{hotel?.currency_code} ${taxPrice}</div>
                   </div>
 
                 {/* section2 price total, and property fee */}
@@ -47,7 +50,7 @@ console.log("price",numberOfNights)
 
           <div className=" d-flex justify-content-between fs-4 fw-bold mt-4 mb-3 }}">
             <div>Total</div>
-            <div>{hotel?.currency_code} $788.18</div>
+              <div>{hotel?.currency_code} ${ numericValue}</div>
           </div>
 
           <div className="fw-bold mt-3 mb-3">
@@ -58,9 +61,9 @@ console.log("price",numberOfNights)
           <div>
             <div className=" d-flex justify-content-between">
               <div>1 room x {numberOfNights} nights</div>
-              <div>{hotel?.currency_code} {hotel?.cheapest_avail_price_eur * numberOfNights}</div>
+              <div>{hotel?.currency_code} {numericValue * numberOfNights}</div>
             </div>
-            <div style={{ fontSize: "14px", color: "#636363" }}>{hotel?.currency_code} {hotel?.cheapest_avail_price_eur} average per night</div>
+            <div style={{ fontSize: "14px", color: "#636363" }}>{hotel?.currency_code} {numericValue * numberOfNights} average per night</div>
           </div>
 
 
