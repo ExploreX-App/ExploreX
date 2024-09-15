@@ -15,14 +15,14 @@
     border-radius: 20px;
     /* position: relative; */
     top: -70px;
-    border: 1px solid rgb(194, 213, 255);
+    border: 1px solid rgb(209, 223, 253);
     width: 100%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-bottom: 60px;
 
 }
 .nav-link.active{
-    background-color: rgb(211, 244, 251) !important;
+    background-color: rgb(241 253 255) !important;
     color: #318AFF !important;
 }
 .nav-link{
@@ -30,7 +30,7 @@
 }
 
 .nav-link:hover{
-    background-color: rgb(120, 181, 232) !important;
+    background-color: rgb(198, 229, 254) !important;
     color: white;
 }
 

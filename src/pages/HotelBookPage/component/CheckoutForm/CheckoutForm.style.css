@@ -1,8 +1,8 @@
-.checkout-btn{height: 40px;
+.checkout-btn{height: 43px;
     width: 200px;
     border: none;
     border-radius: 8px;
-    background-color: #318AFF;
+    background-color: #318AFF !important;
     color: white;}
 
     .checkout-container {
