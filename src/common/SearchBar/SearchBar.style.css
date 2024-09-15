@@ -15,18 +15,23 @@
     border-radius: 20px;
     /* position: relative; */
     top: -70px;
-    border: 1px solid rgba(61, 122, 255, 0.199);
+    border: 1px solid rgb(194, 213, 255);
     width: 100%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-bottom: 60px;
 
 }
 .nav-link.active{
-    background-color: rgba(143, 169, 251, 0.2) !important;
+    background-color: rgb(211, 244, 251) !important;
     color: #318AFF !important;
 }
 .nav-link{
     color: rgb(31, 31, 31) !important;
+}
+
+.nav-link:hover{
+    background-color: rgb(120, 181, 232) !important;
+    color: white;
 }
 
 @media (max-width:992px){
