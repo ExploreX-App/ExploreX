@@ -77,6 +77,7 @@ const HotelDetailPage = () => {
         dateFrom={selectedHotel?.checkinDate}
         dateTo={selectedHotel?.checkoutDate}
         adultNum={adultNum}
+        style={{ position: 'relative', zIndex: 10 }} 
       />
       <div className="tabs-container">
         <Tabs
