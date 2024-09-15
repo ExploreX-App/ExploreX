@@ -21,7 +21,7 @@ const SuccessPopup = ({show, onClose }) => {
       <Modal.Footer>
         <Button
           style={{
-            backgroundColor: 'rgb(18 220 132)',
+            backgroundColor: '#99F07A',
             color: 'white',
             border: 'none',
             borderRadius: '5px',
