@@ -9,8 +9,8 @@ const fetchHotelsByKeyword = async ({
   dateFrom,
   dateTo,
   adultNum,
-  page=1,
-  sortBy="popularity"
+  page,
+  sortBy
 }) => {
   try {
     const destinationData = await fetchHotelDestination({ keyword });
@@ -39,10 +39,10 @@ export const useHotelsByKeywordQuery = (inputData) => {
     navigate("/")
   }
   const query = useQuery({
-    queryKey: inputData ? ["hotels", inputData.keyword] : null,
+    queryKey: inputData ? ["hotels", inputData.keyword, inputData.page, inputData.sortBy] : null,
     queryFn: () =>
       fetchHotelsByKeyword(inputData),
-    select: (result) => result?.data?.hotels,
+    select: (result) => result?.data,
     enabled: !!inputData,  // inputData가 있을 때만 실행
     retry: 0,
     staleTime: 10000000000000

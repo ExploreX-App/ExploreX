@@ -13,6 +13,7 @@ import ActivityFilter from "./ActivityFilter";
 import SortBySelect from "../HomePage/components/SortBySelect/SortBySelect";
 import SearchBar from "../../common/SearchBar/SearchBar";
 import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
+import Spinner from "../../common/Spinner/Spinner";
 
 export const getRandomData = (array) => {
   if (!array || array?.length === 0) {
@@ -140,27 +141,8 @@ const ActivityPage = () => {
     });
   };
 
-  // const handlePriceSort = (criteria) => {
-  //   setSortCriteria(criteria);
-  //   const sortedComplete = sortData(sortedData, sortCriteria);
-  //   console.log("handlePricesprt", sortedComplete);
-  //   setSortedData(sortedComplete);
-  // };
-  // useEffect(() => {
-  //   console.log(sortCriteria);
-  //   handlePriceSort(sortCriteria);
-  // }, [sortCriteria]);
-  // useEffect(() => {
-  //   setPaginatedActivities(sortedData);
-  // }, [sortedData]);
-  // useEffect(() => {
-  //   console.log("sorted", sortedData);
-  //   setPaginatedActivities(
-  //   );
-  // }, [paginatedActivities]);
-
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (isError) {

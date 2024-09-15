@@ -6,7 +6,7 @@ gap: 10px;
 .tabs-container {
     position: sticky; /* 스크롤해도 상단에 고정 */
     top: 0;           /* 화면 상단에 붙도록 설정 */
-    z-index: 1000;    /* 다른 요소보다 위에 위치하도록 설정 */
+    /* z-index: 1000;     */
     background-color: rgb(255, 255, 255); /* 배경색 설정 */
     box-shadow: 0 4px 1px -8px #464646; /* 고정된 탭에 약간의 그림자 추가 */
   }

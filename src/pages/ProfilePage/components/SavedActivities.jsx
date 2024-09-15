@@ -4,6 +4,7 @@ import ActivitySlide from "../../../common/ActivitySlide/ActivitySlide";
 import { responsive } from "../../../utils/settings/activitySliderSetting";
 import { activityMockData } from "../../../utils/mockData/activityData";
 import { IoHeart } from "react-icons/io5";
+import Spinner from "../../../common/Spinner/Spinner";
 
 
 const SavedActivities = () => {
@@ -22,7 +23,7 @@ const SavedActivities = () => {
   } = useActivityQuery({ ids: savedActivityIds });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {

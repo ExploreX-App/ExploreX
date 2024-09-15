@@ -6,6 +6,7 @@ import Carousel from "react-multi-carousel";
 import { responsive } from "../../../../utils/settings/hotelReviewSliderSetting";
 import "./HotelReviewList.style.css";
 import HotelReviewScore from "./components/HotelReviewScore";
+import Spinner from "../../../../common/Spinner/Spinner";
 
 const HotelReviewList = ({ hotelId, reviewRef }) => {
   const [sortOption, setSortOption] = useState("sort_score_desc");
@@ -23,8 +24,9 @@ const HotelReviewList = ({ hotelId, reviewRef }) => {
   }, [filteredData]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
+
   if (isError) {
     return <h1>{error.message}</h1>;
   }
