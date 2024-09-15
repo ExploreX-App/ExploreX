@@ -10,11 +10,12 @@ import ActivityDetailContent from './ActivityDetailContent';
 import FAQSection from './components/FAQSection/FAQSection';
 import PoliciesAndFeesSection from './components/PoliciesAndFeesSection/PoliciesAndFeesSection';
 import ActivityPromotion from './components/Promotion/ActivityPromotion.jsx';
+import AdvertisingBanner from '../../common/AdvertisingBanner/AdvertisingBanner.jsx';
 
 const ActivityDetailPage = () => {
   const { id } = useParams();
-  const { data, isLoading, isError, error } = useActivityQuery({ids: [id]});
-  const activity = data ? data[0]?.data : {}
+  const { data, isLoading, isError, error } = useActivityQuery({ ids: [id] });
+  const activity = data ? data[0]?.data : {};
 
   if (isLoading) {
     return <Spinner />;
@@ -36,18 +37,22 @@ const ActivityDetailPage = () => {
       {/* Search Bar */}
       <Row className='mb-0'>
         <Col>
-          <SearchBar tab="activity" />
+          <SearchBar tab='activity' />
         </Col>
       </Row>
 
       {/* Tabs for Overview, Amenities, Prices, Policies */}
       <Row>
         <Col>
-          <ActivityTabsSection
-            data={activity}
-            description={activity?.description}
-            price={activity?.price?.amount}
-          />
+          {activity ? (
+            <ActivityTabsSection
+              data={activity}
+              description={activity?.description}
+              price={activity?.price?.amount}
+            />
+          ) : (
+            <p>No activity information provided</p>
+          )}
         </Col>
       </Row>
 
@@ -76,6 +81,12 @@ const ActivityDetailPage = () => {
       <Row className='mt-4'>
         <Col>
           <PoliciesAndFeesSection />
+        </Col>
+      </Row>
+
+      <Row className='mt-4'>
+        <Col>
+          <AdvertisingBanner />
         </Col>
       </Row>
     </Container>
