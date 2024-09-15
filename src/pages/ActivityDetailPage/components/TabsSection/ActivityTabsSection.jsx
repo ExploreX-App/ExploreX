@@ -5,6 +5,9 @@ import './ActivityTabsSection.style.css';
 import { FaCaretDown, FaCaretUp, FaLink } from 'react-icons/fa';
 import ActivityDetailInfo from '../ActivityDetailInfo/ActivityDetailInfo.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
+import Spinner from '../../../../common/Spinner/Spinner';
+import { FaMedal } from 'react-icons/fa';
+import HeartIcon from '../../../../common/HeartIcon/HeartIcon';
 
 const ActivityTabsSection = ({ data, description, price }) => {
   const [showMore, setShowMore] = useState(true);
@@ -20,13 +23,20 @@ const ActivityTabsSection = ({ data, description, price }) => {
         <Tab eventKey='overview' title='Overview'>
           <h3 className='activity-tap-type'>Entire cabin</h3>
           <h1 className='activity-tap-title'>
-            {data?.name} <FaLink size={24} color='black' />
+            {data?.name || <Spinner />} <FaLink size={24} color='black' />
           </h1>
           <div className='activity-tap-rating'>
             <StarRating rating={data?.rating} />
           </div>
 
           <div>
+            {/* HeartIcon 추가 */}
+            <HeartIcon className='heart-icon' />
+            <img
+              className='activity-img'
+              src={data?.pictures[0]}
+              alt='Activity'
+            />
             <div
               dangerouslySetInnerHTML={{
                 __html: showMore ? description : description.slice(0, maxLength)
@@ -63,7 +73,7 @@ const ActivityTabsSection = ({ data, description, price }) => {
         </Tab>
 
         <Tab eventKey='policies' title='Policies'>
-          <p>Policies content here...</p>
+          <p>Policies</p>
         </Tab>
       </Tabs>
     </Container>

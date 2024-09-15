@@ -1,16 +1,16 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import HomePage from "./pages/HomePage/HomePage";
-import AppLayout from "./layout/AppLayout";
-import ActivityDetailPage from "./pages/ActivityDetailPage/ActivityDetailPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import ActivityPage from "./pages/ActivityPage/ActivityPage";
-import HotelPage from "./pages/HotelPage/HotelPage";
-import AboutPage from "./pages/About/AboutPage.tsx";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import HotelDetailPage from "./pages/HotelDetailPage/HotelDetailPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import HotelBookPage from "./pages/HotelBookPage/HotelBookPage";
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import HomePage from './pages/HomePage/HomePage';
+import AppLayout from './layout/AppLayout';
+import ActivityDetailPage from './pages/ActivityDetailPage/ActivityDetailPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import ActivityPage from './pages/ActivityPage/ActivityPage';
+import HotelPage from './pages/HotelPage/HotelPage';
+import AboutPage from './pages/About/AboutPage.tsx';
+import LoginPage from './pages/LoginPage/LoginPage';
+import HotelDetailPage from './pages/HotelDetailPage/HotelDetailPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import HotelBookPage from './pages/HotelBookPage/HotelBookPage';
 
 function App() {
   return (
