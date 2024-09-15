@@ -3,7 +3,7 @@
 #bg-video {
   object-fit: cover;
   width: 100vw;
-  height: 80%;
+  height: 85%;
   position: absolute;
   top: 0;
   left: 0;
@@ -11,56 +11,66 @@
 }
 .hero-content {
   margin-top: 3em;
-  margin-bottom: 0;
+  margin-bottom: 2em;
   width: 70%;
-  height: 425px;
 }
 .hero-heading div {
   color: white;
   font-size: 30px;
 }
 
+.hero-title {
+  font-size: 60px !important;
+}
+
 h1 {
   font-family: "SF Pro Display", sans-serif;
   color: white;
   font-weight: bold !important;
-  font-size: 100px !important;
+  font-size: 75px !important;
 }
 
-@media (max-width: 992px) {
-  h1 {
-    font-size: 70px !important;
-  }
-  .hero-content {
-    height: 300px;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-  }
-}
-
-@media (max-width: 767px) {
-  h1 {
-    font-size: 65px !important;
-  }
-  .hero-content {
-    height: 300px;
-    margin-top: 1.8em;
-    margin-bottom: 0.8em;
-  }
-}
-@media (max-width: 504px) {
-  .hero-content {
-    margin-top: 2em;
-    margin-bottom: 0em;
-    height: 300px;
-  }
-  .hero-heading div {
-    font-size: 24px;
+@media (min-width: 576px) {
+  #bg-video {
+    height: 85%;
   }
   .hero-title {
-    font-size: 55px !important;
+    font-size: 60px !important;
   }
+}
+
+@media (min-width: 768px) {
   #bg-video {
-    height: 100%;
+    height: 78%;
+  }
+  .hero-title {
+    font-size: 65px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #bg-video {
+    height: 68%;
+  }
+  .hero-title {
+    font-size: 70px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #bg-video {
+    height: 70%;
+  }
+  .hero-title {
+    font-size: 80px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  #bg-video {
+    height: 73%;
+  }
+  .hero-title {
+    font-size: 88px !important;
   }
 }
