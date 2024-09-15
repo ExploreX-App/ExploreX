@@ -46,3 +46,8 @@ body {
     float: right;
     margin-left: 40px;
 }
+
+.policy-title {
+    color: #318AFF;
+    margin-top: 30px !important;
+}
