@@ -44,7 +44,7 @@ const SavedActivities = () => {
         <div className="d-flex justify-content-between">
           <div>Saved Activities</div>
           <div className="fs-6 text-gray">
-            {numSaved} {numSaved >= 2 ? "avtivities" : "activity"} saved
+            {numSaved} {numSaved >= 2 ? "activities" : "activity"} saved
           </div>
         </div>
       }
