@@ -5,8 +5,9 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { Form, Button } from "react-bootstrap";
+import "./CheckoutForm.style.css"
 
-const CheckoutForm = () => {
+const CheckoutForm = ({bookingSubmit}) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -25,25 +26,32 @@ const CheckoutForm = () => {
 
     setTimeout(() => {
       setPaymentSuccess(true);
+      bookingSubmit();
     }, 1000);
   };
 
   const handleChange = () => {
     if (errorMessage) {
       setErrorMessage(null);
-    }
+    }    
   };
 
+
   return (
+    <div className="checkout-container" >
+      <div className="fs-3 fw-bold">Payment</div>
     <Form onSubmit={handleSubmit}>
-      <PaymentElement onChange={handleChange} />
-      <Button type="submit" disabled={!stripe || !elements}>
-        Pay
-      </Button>
-      {paymentSuccess && <div>Payment was successful (simulation).</div>}
+        <PaymentElement onChange={handleChange} />
+          {paymentSuccess && <div>Payment was successful (simulation).</div>}
       {errorMessage && <div>{errorMessage}</div>}
-    </Form>
+        <div className="d-flex justify-content-end">
+     <Button className="mt-3 checkout-btn" type="submit" disabled={!stripe || !elements}>
+        Booking
+      </Button>     
+        </div>
+      
+
+    </Form></div>
   );
 };
-
 export default CheckoutForm;
