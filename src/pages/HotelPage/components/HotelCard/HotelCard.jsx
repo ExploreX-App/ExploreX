@@ -9,15 +9,9 @@ const HotelCard = ({ hotel, adultNum }) => {
   const hotelImg = hotel.photoUrls[0].replace("square60", "square300"); // photo size adjusted
   const { currency, value } = hotel?.priceBreakdown?.grossPrice;
   const goToDetail = () => {
-    navigate(`./${hotel.id}`, {
-      state: {
-        dateFrom: hotel.checkinDate,
-        dateTo: hotel.checkoutDate,
-        adultNum: adultNum,
-        photos: hotel.photoUrls,
-        reviewScore: hotel.reviewScore
-      },
-    });
+    localStorage.setItem("hotel", JSON.stringify(hotel));
+    localStorage.setItem("adultNum", adultNum)
+    navigate(`./${hotel.id}`);
   };
 
   const handleSave = () => {
@@ -31,7 +25,7 @@ const HotelCard = ({ hotel, adultNum }) => {
   return (
     <div
       className="p-2 m-2 gap-3 hotelCard-container"
-      style={{ border: "1px solid black" }}
+      style={{ border: "1px solid black", width: "100%"}}
     >
       <Row className="flex-grow-1">
         <Col lg={5}>

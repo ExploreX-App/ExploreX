@@ -11,26 +11,28 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const HotelRoomCard = ({ room, hotel }) => {
+const HotelRoomCard = ({ hotel, room, reviewScore }) => {
   const navigate = useNavigate();
   const price = room?.product_price_breakdown;
   const goToReserve = () => {
+    console.log("sending info", room)
     navigate("./reserve", {
-      state: { hotel: hotel, room: room },
+      state: { hotel, room, reviewScore },
     });
   };
+  console.log("hotelRoom Card", reviewScore)
   return (
     <Row className="p-3 d-flex hotel-room-card-container">
       <Col className="hotel-room-card-box" md={8} xs={12}>
         {/* Room Name */}
-        <div className="fs-5 hotel-room-name">
+        <div className="hotel-room-name">
           {room?.room_name || "Standard Room"}
         </div>
 
         {/* Room Highlights */}
         <div className="hotel-room-bh_room_highlights-name-container">
           {room?.bh_room_highlights?.length > 0 ? (
-            room.bh_room_highlights.map((hl, index) => (
+            room?.bh_room_highlights?.map((hl, index) => (
               <div key={index} className="hotel-room-bh_room_highlights-name">
                 {hl.name}
               </div>

@@ -277,7 +277,7 @@ const AboutPage = () => {
           style={{
             backgroundColor: '#464646',
             padding: '40px 0',
-            width: '100%'
+            width: '100vw'
           }}
           initial={{ opacity: 0, y: 100 }}
           animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
@@ -302,36 +302,100 @@ const AboutPage = () => {
               customTransition='all 1s ease'
               transitionDuration={1000}
             >
-              {[member1, member2, member3, member4, member5].map(
-                (member, idx) => (
-                  <Card
-                    className='team-card shadow'
-                    style={{ width: '280px' }}
-                    key={idx}
-                  >
-                    <div className='team-img-wrapper'>
-                      <Card.Img
-                        variant='top'
-                        src={member}
-                        className='team-img'
-                      />
-                    </div>
-                    <Card.Body>
-                      <Card.Title>Team Member {idx + 1}</Card.Title>
-                      <Card.Text style={{ color: '#318AFF' }}>
-                        Role Description {idx + 1}
-                      </Card.Text>
-                      <hr />
-                      <ul className='team-role-list'>
-                        <li>Responsibility 1</li>
-                        <li>Responsibility 2</li>
-                        <li>Responsibility 3</li>
-                        <li>Responsibility 4</li>
-                      </ul>
-                    </Card.Body>
-                  </Card>
-                )
-              )}
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member1} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>Suhyun Park</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Project Owner
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member2} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>James Jo</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Scrum Master
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member3} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>Hailey Kim</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    UX Designer / Developer
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member4} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>Amy Ahn</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Designer / Developer
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+
+              <Card className='team-card shadow' style={{ width: '280px' }}>
+                <div className='team-img-wrapper'>
+                  <Card.Img variant='top' src={member5} className='team-img' />
+                </div>
+                <Card.Body>
+                  <Card.Title>May Kim</Card.Title>
+                  <Card.Text style={{ color: '#318AFF' }}>
+                    Main Developer
+                  </Card.Text>
+                  <hr />
+                  <ul className='team-role-list'>
+                    <li>Role responsibility 1</li>
+                    <li>Role responsibility 2</li>
+                    <li>Role responsibility 3</li>
+                    <li>Role responsibility 4</li>
+                  </ul>
+                </Card.Body>
+              </Card>
             </Carousel>
           </Container>
         </motion.section>

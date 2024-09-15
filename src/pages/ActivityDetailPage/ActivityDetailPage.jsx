@@ -15,7 +15,6 @@ const ActivityDetailPage = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useActivityQuery({ids: [id]});
   const activity = data ? data[0]?.data : {}
-  console.log(activity)
 
   if (isLoading) {
     return <Spinner />;
