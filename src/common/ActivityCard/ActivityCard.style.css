@@ -78,6 +78,8 @@
 .activitycard-hours {
   font-size: 14px;
   font-weight: 600;
+
+  align-items: center;
 }
 
 .activitycard-price {
@@ -85,4 +87,7 @@
   font-weight: 700;
   display: flex;
   justify-content: end;
+}
+.text-nowrap{
+  line-height: 0;
 }

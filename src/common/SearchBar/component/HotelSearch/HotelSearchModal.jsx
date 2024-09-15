@@ -14,6 +14,7 @@ const HotelSearchModal = ({ setIsExpanded, setTotalPpl, setTotalRooms }) => {
         <InputGroup className="counter-input-group">
           <Button
             className="modal-button"
+            
             onClick={() => {
               if (adultNum > 1) {
                 setTotalPpl(adultNum + childrenNum - 1);
