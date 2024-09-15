@@ -9,7 +9,9 @@
   background-color: rgba(255, 255, 255, 0.679);
   margin: 2em 0em;
   border-radius: 25px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.09) 0px 7px 29px 0px;
+  border: 1px solid rgba(215, 215, 215, 0.559);
+  height: 75px;
 }
 
 .content {
