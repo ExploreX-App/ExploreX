@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Suse&display=swap");
 
 .filter-container {
-  padding: 20px;
+  /* padding: 20px; */
   background-color: white;
 }
 
@@ -302,7 +302,7 @@ input:checked + .slider:before {
 
 @media (max-width: 768px) {
   .filter-group + .filter-group {
-    margin-top: 0;
-    margin-bottom: 0;
+    /* margin-top: 0;
+    margin-bottom: 0; */
   }
 }

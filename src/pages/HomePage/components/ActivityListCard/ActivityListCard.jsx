@@ -70,7 +70,13 @@ const ActivityCard = ({ activity }) => {
               </div>
             </div>
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
             <div className="custom-free-cancel">
               <div>Free cancellation available</div>
               <div></div>

@@ -27,7 +27,7 @@ const ActivityPage = () => {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(0);
   const [sortCriteria, setSortCriteria] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 300]);
+  const [priceRange, setPriceRange] = useState([0, 100]);
   const location = useLocation();
   console.log("location state", location.state);
   const keyword = location.state ? location?.state?.keyword.split(",")[0] : "";
@@ -46,7 +46,6 @@ const ActivityPage = () => {
     };
   });
 
-  // ActivityPage.jsx
   const handlePriceSort = (criteria) => {
     let sortedData = [...activityPriceMockData]; // Mock data 복사
 
@@ -57,7 +56,7 @@ const ActivityPage = () => {
     }
 
     // 정렬된 데이터를 상태에 업데이트 (실제 사용하고 있는 상태 변수로 변경)
-    setFilteredActivities(sortedData);
+    // setFilteredActivities(sortedData);
   };
 
   // here
@@ -178,16 +177,15 @@ const ActivityPage = () => {
 
       {/* filter */}
       <Row className="">
-        <Col xs={12} md={3}>
-          {/* <ActivityFilter
+        <Col xs={12} md={4}>
+          <ActivityFilter
             setSortCriteria={handleFilterChange}
             setPriceRange={setPriceRange}
             handlePriceSort={handlePriceSort}
-          /> */}
-          <Button></Button>
+          />
         </Col>
 
-        <Col xs={12} md={9}>
+        <Col xs={12} md={8}>
           {/* sort by */}
           <Row className="w-100">
             <Col style={{ display: "flex" }}>
@@ -220,7 +218,3 @@ const ActivityPage = () => {
 };
 
 export default ActivityPage;
-
-
-ActivityPage.jsx
-

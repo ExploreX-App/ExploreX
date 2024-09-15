@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from "react";
-import { Range } from "react-range";
+// import { Range } from "react-range";
 import { Button, Form } from "react-bootstrap";
 import "./ActivityFilter.style.css";
 import { activityPriceMockData } from "../../utils/ActivityMockData";
@@ -15,7 +14,8 @@ const ActivityFilter = ({ setSortCriteria, setPriceRange, handlePriceSort }) => 
   const [selectedReviewsFilter, setSelectedReviewsFilter] = useState(null);
   const [selected, setSelected] = useState(null);
   const [compareActivities, setCompareActivities] = useState(false);
-  const [filteredActivities, setFilteredActivities] = useState(activityPriceMockData);
+  const [filteredActivities, setFilteredActivities] =
+    useState(activityPriceMockData);
 
   const handleReviewsFilterClick = (filter) => {
     //   if (selectedReviewsFilter === filter) {
@@ -77,20 +77,20 @@ const ActivityFilter = ({ setSortCriteria, setPriceRange, handlePriceSort }) => 
         <Form.Check
           label="Highest Price"
           checked={selectedPriceFilter === "price_high"}
-          onChange={() => {
-            setSelectedPriceFilter("price_high");
-            setSortCriteria("price_high");
-            handlePriceSort("price_high"); // 높은 가격 순 정렬 실행
-          }}
+          // onChange={() => {
+          //   setSelectedPriceFilter("price_high");
+          //   setSortCriteria("price_high");
+          //   handlePriceSort("price_high"); // 높은 가격 순 정렬 실행
+          // }}
         />
         <Form.Check
           label="Lowest Price"
           checked={selectedPriceFilter === "price_low"}
-          onChange={() => {
-            setSelectedPriceFilter("price_low");
-            setSortCriteria("price_low");
-            handlePriceSort("price_low"); // 낮은 가격 순 정렬 실행
-          }}
+          // onChange={() => {
+          //   setSelectedPriceFilter("price_low");
+          //   setSortCriteria("price_low");
+          //   handlePriceSort("price_low"); // 낮은 가격 순 정렬 실행
+          // }}
         />
       </div>
 
@@ -102,57 +102,59 @@ const ActivityFilter = ({ setSortCriteria, setPriceRange, handlePriceSort }) => 
           <div className="min">
             {/* <label className="">Min</label> */}
             <Form.Control
-              type="text"
-              value={`$${values[0]}`}
-              onChange={(e) => setSortCriteria(e.target.value)}
-              onFocus={(e) => (e.target.value = "")}
-              onBlur={(e) => {
-                if (e.target.value === "") {
-                  e.target.value = `$${values[0]}`;
-                }
-              }}
+              type="number"
+              value={values[0]}
+              // onChange={(e) => {
+              //   const minValue = Number(e.target.value);
+              //   setValues([minValue, values[1]]);
+              //   setPriceRange([minValue, values[1]]);
+              // }}
               className=""
             />
           </div>
           <div className="max">
-            <Form.Label className="max-label">Max</Form.Label>
+            {/* <Form.Label className="max-label">Max</Form.Label> */}
             <Form.Control
-              type="text"
-              value={`$${values[1]}`}
-              onChange={(e) => setSortCriteria(e.target.value)}
-              onFocus={(e) => (e.target.value = "")}
-              onBlur={(e) => {
-                if (e.target.value === "") {
-                  e.target.value = `$${values[1]}`;
-                }
-              }}
+              type="number"
+              value={values[1]}
+              // onChange={(e) => {
+              //   const maxValue = Number(e.target.value);
+              //   setValues([values[0], maxValue]);
+              //   setPriceRange([values[0], maxValue]); // 상위 컴포넌트에 값 전달
+              // }}
               className=""
             />
           </div>
         </div>
-        <div className="slider-container">
+        <div>
+          <Form.Range className="mt-2" />
+        </div>
+        {/* <div className="slider-container">
           <Range
             step={10}
             min={MIN}
             max={MAX}
             values={values}
-            renderTrack={({ props, children }) => (
-              <div {...props} className="slider-track">
-                <div
-                  className="slider-track-filled"
-                  style={{
-                    left: `${((values[0] - MIN) / (MAX - MIN)) * 100}%`,
-                    right: `${100 - ((values[1] - MIN) / (MAX - MIN)) * 100}%`,
-                  }}
-                />
-                {children}
-              </div>
-            )}
-            renderThumb={({ props, index }) => (
-              <div {...props} className="slider-thumb" />
-            )}
+            renderTrack={()=>{}}
+            renderThumb={()=>{}}
+
+            // renderTrack={({ props, children }) => (
+            //   <div {...props} className="slider-track">
+            //     <div
+            //       className="slider-track-filled"
+            //       style={{
+            //         left: `${((values[0] - MIN) / (MAX - MIN)) * 100}%`,
+            //         right: `${100 - ((values[1] - MIN) / (MAX - MIN)) * 100}%`,
+            //       }}
+            //     />
+            //     {children}
+            //   </div>
+            // )}
+            // renderThumb={({ props, index }) => (
+            //   <div {...props} className="slider-thumb" />
+            // )}
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="filter-group">
@@ -162,12 +164,12 @@ const ActivityFilter = ({ setSortCriteria, setPriceRange, handlePriceSort }) => 
         <Form.Check
           label="Most Reviews"
           checked={selectedReviewsFilter === "reviews_high"}
-          onChange={() => handleReviewsFilterClick("reviews_high")}
+          // onChange={() => handleReviewsFilterClick("reviews_high")}
         />
         <Form.Check
           label="Least Reviews"
           checked={selectedReviewsFilter === "reviews_low"}
-          onChange={() => handleReviewsFilterClick("reviews_low")}
+          // onChange={() => handleReviewsFilterClick("reviews_low")}
         />
       </div>
 
