@@ -22,7 +22,7 @@ const SortBySelect = ({ setSortCriteria }) => {
             aria-label="Sort activities"
             onChange={(e) => setSortCriteria(e.target.value)}
           >
-            <option value="">
+            <option>
               <strong>Recommended</strong>
             </option>
             <option value="price_high">Price: high to low</option>

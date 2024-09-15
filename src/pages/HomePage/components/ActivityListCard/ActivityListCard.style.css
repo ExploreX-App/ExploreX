@@ -8,7 +8,7 @@
   align-items: stretch;
   /* height: 200px; */
   flex-direction: column;
-  height: 100%;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .custom-title {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .custom-free-cancel {
@@ -61,19 +61,23 @@
 }
 
 .custom-reviews {
-  padding-top: 10px;
-  padding-left: 10px;
   color: rgb(53, 53, 53);
   font-family: "Suse", sans-serif;
 }
 
-.custom-badge {
+.customBadge {
   background-color: #318aff;
   color: white;
 }
 
 .activity__img {
   width: 100%;
-  height: 220px !important;
+  height: 200px !important;
   object-fit: cover;
+}
+
+@media (max-width: 770px) {
+  .card-structure {
+    height: 100%;
+  }
 }

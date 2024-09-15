@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Alert, Col, Container, Row } from "react-bootstrap";
+import { Button, Alert, Col, Container, Row } from "react-bootstrap";
 import { useActivitiesQuery } from "../../hooks/useFetchActivities";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ActivityCard from "../HomePage/components/ActivityListCard/ActivityListCard";
@@ -12,6 +12,7 @@ import {
 import ActivityFilter from "./ActivityFilter";
 import SortBySelect from "../HomePage/components/SortBySelect/SortBySelect";
 import SearchBar from "../../common/SearchBar/SearchBar";
+import AdvertisingBanner from "../../common/AdvertisingBanner/AdvertisingBanner";
 import Spinner from "../../common/Spinner/Spinner";
 
 export const getRandomData = (array) => {
@@ -27,18 +28,16 @@ const ActivityPage = () => {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(0);
   const [sortCriteria, setSortCriteria] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 300]); // 가격 범위 상태 추가
+  const [priceRange, setPriceRange] = useState([0, 100]);
   const location = useLocation();
-  const keyword = location?.state?.keyword.split(",")[0] || "";
-  console.log(location?.state);
-
+  console.log("location state", location.state);
+  const keyword = location.state ? location?.state?.keyword.split(",")[0] : "";
   const itemsPerPage = 10;
   // const keyword = query.get("q");
 
   const { data, isLoading, isError, error } = useActivitiesQuery({
     keyword,
   });
-
   const mergedActivities = data?.map((activity, index) => {
     const randomValue = Math.floor(Math.random() * activityPriceMockData?.length);
     const randomMockData = activityPriceMockData[randomValue];
@@ -47,14 +46,31 @@ const ActivityPage = () => {
       ...randomMockData,
     };
   });
-  // const [sortedData, setSortedData] = useState(mergedActivities);
 
+  const handlePriceSort = (criteria) => {
+    let sortedData = [...activityPriceMockData]; // Mock data 복사
+
+    if (criteria === "price_high") {
+      sortedData.sort((a, b) => b.price.amount - a.price.amount); // 높은 가격 순으로 정렬
+    } else if (criteria === "price_low") {
+      sortedData.sort((a, b) => a.price.amount - b.price.amount); // 낮은 가격 순으로 정렬
+    }
+
+    // 정렬된 데이터를 상태에 업데이트 (실제 사용하고 있는 상태 변수로 변경)
+    // setFilteredActivities(sortedData);
+  };
+
+  // here
+  console.log("merged", mergedActivities);
+  const [sortedData, setSortedData] = useState(mergedActivities);
+
+  const [paginatedActivities, setPaginatedActivities] = useState(mergedActivities);
   // useEffect(() => {
-  // const filtered = mergedActivities.filter(
-  //   (activity) =>
-  //     activity.price.amount >= priceRange[0] &&
-  //     activity.price.amount <= priceRange[1] // 가격 필터 추가된 부분
-  // );
+  //   const filtered = mergedActivities?.filter(
+  //     (activity) =>
+  //       activity.price.amount >= priceRange[0] &&
+  //       activity.price.amount <= priceRange[1] // 가격 필터 추가된 부분
+  //   );
   //   const sorted = sortData(sortedData, sortCriteria);
   //   setSortedData(sorted);
   // }, [sortCriteria]); // 가격 범위와 정렬 기준에 따라 데이터 업데이트
@@ -62,11 +78,11 @@ const ActivityPage = () => {
   // const filterData = (data, criteria) => {
   //   switch (criteria) {
   //     case "rating_9plus":
-  //       return data.filter((activity) => activity.rating >= 9);
+  //       return data?.filter((activity) => activity.rating >= 9);
   //     case "rating_8plus":
-  //       return data.filter((activity) => activity.rating >= 8);
+  //       return data?.filter((activity) => activity.rating >= 8);
   //     case "rating_7plus":
-  //       return data.filter((activity) => activity.rating >= 7);
+  //       return data?.filter((activity) => activity.rating >= 7);
   //     default:
   //       return data;
   //   }
@@ -79,45 +95,43 @@ const ActivityPage = () => {
   };
 
   const sortData = (sortingData, criteria) => {
-    // const sortedData = sortingData;
-    // switch (criteria) {
-    //   case "price_high":
-    //     sortedData.sort((a, b) => b.price.amount - a.price.amount);
-    //     break;
-    //   case "price_low":
-    //     sortedData.sort((a, b) => a.price.amount - b.price.amount);
-    //     break;
-    //   case "reviews_high":
-    //     sortedData.sort((a, b) => b.reviews - a.reviews);
-    //     break;
-    //   case "reviews_low":
-    //     sortedData.sort((a, b) => a.reviews - b.reviews);
-    //     break;
-    //   case "rating_high":
-    //     sortedData.sort((a, b) => b.rating - a.rating);
-    //     break;
-    //   case "rating_low":
-    //     sortedData.sort((a, b) => a.rating - b.rating);
-    //     break;
-    //   case "duration_high":
-    //     sortedData.sort((a, b) => b.minimumDuration - a.minimumDuration);
-    //     break;
-    //   case "duration_low":
-    //     sortedData.sort((a, b) => a.minimumDuration - b.minimumDuration);
-    //     break;
-    //   default:
-    //     break;
-    // }
-    // return sortedData;
+    const sortedData = sortingData;
+    switch (criteria) {
+      case "price_high":
+        sortedData.sort((a, b) => b.price.amount - a.price.amount);
+        break;
+      case "price_low":
+        sortedData.sort((a, b) => a.price.amount - b.price.amount);
+        break;
+      case "reviews_high":
+        sortedData.sort((a, b) => b.reviews - a.reviews);
+        break;
+      case "reviews_low":
+        sortedData.sort((a, b) => a.reviews - b.reviews);
+        break;
+      case "rating_high":
+        sortedData.sort((a, b) => b.rating - a.rating);
+        break;
+      case "rating_low":
+        sortedData.sort((a, b) => a.rating - b.rating);
+        break;
+      case "duration_high":
+        sortedData.sort((a, b) => b.minimumDuration - a.minimumDuration);
+        break;
+      case "duration_low":
+        sortedData.sort((a, b) => a.minimumDuration - b.minimumDuration);
+        break;
+      default:
+        break;
+    }
+    return sortedData;
   };
 
-  /* api필요할때 살리기 */
-
-  // 페이지네이션 로직1 (맨아래2있음) >> 파일에 추가후 Pagination.jsx부르고 css도 불러와서 적용시키기
   const offset = page * itemsPerPage;
   const pageCount = Math.ceil(mergedActivities?.length / itemsPerPage); //
 
-  const paginatedActivities = mergedActivities?.slice(offset, offset + itemsPerPage); // 데이터 분할
+  // 데이터 분할
+  //     paginatedActivities?.slice(offset, offset + itemsPerPage)
 
   const handlePageClick = ({ selected }) => {
     setPage(selected);
@@ -134,36 +148,47 @@ const ActivityPage = () => {
   if (isError) {
     return <Alert variant="danger">{error?.message || "An error occurred"}</Alert>;
   }
-
   return (
     <Container>
-      <SearchBar tab="activity" />
-      {/* filter */}
-      <Row className="w-100">
-        <SortBySelect setSortCriteria={handleFilterChange} />
+      {/* search bar */}
+      <Row>
+        <Col>
+          <SearchBar tab="activity" />
+        </Col>
       </Row>
-      {/* sort by */}
+
+      {/* filter */}
       <Row className="">
-        <Col xs={12} md={3}>
+        <Col xs={12} md={4}>
           <ActivityFilter
             setSortCriteria={handleFilterChange}
             setPriceRange={setPriceRange}
+            handlePriceSort={handlePriceSort}
           />
         </Col>
-        {/* card */}
-        <Col xs={12} md={9}>
+
+        <Col xs={12} md={8}>
+          {/* sort by */}
+          <Row className="w-100">
+            <Col style={{ display: "flex" }}>
+              <SortBySelect setSortCriteria={handleFilterChange} />
+            </Col>
+          </Row>
+          {/* advertising banner */}
+          <Row>
+            <Col>
+              <AdvertisingBanner />
+            </Col>
+          </Row>
+          {/* card */}
           <Row>
             <Col>
               <Row>
-                {paginatedActivities?.length > 0 ? (
-                  paginatedActivities.map((activity, index) => (
-                    <Col lg={12} xs={12} className="mb-4" key={index}>
-                      <ActivityCard activity={activity} />
-                    </Col>
-                  ))
-                ) : (
-                  <div>No Activities found</div>
-                )}
+                {paginatedActivities?.map((activity, index) => (
+                  <Col lg={12} xs={12} className="mb-4" key={index}>
+                    <ActivityCard activity={activity} />
+                  </Col>
+                ))}
               </Row>
               <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
             </Col>
