@@ -18,7 +18,6 @@ const fetchActivities = async ({ keyword }) => {
     const response = await api.get(
       `/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=10&limit=10`
     );
-
     return response.data;
   } catch (error) {
     console.error("Error fetching activities:", error);
@@ -55,6 +54,7 @@ export const useActivitiesQuery = ({ keyword }) => {
     enabled: !!keyword, //api쓸때 활성화
     // select: (result) => result || [], //mock data쓸때 활성화
   });
+  console.log()
   if (!keyword) {
     navigate("/");
   }

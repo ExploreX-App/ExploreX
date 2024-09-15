@@ -8,7 +8,7 @@ const SortBySelect = ({ setSortCriteria }) => {
     <Container>
       <Row className="top-area">
         <Col lg={6} className="properties-300">
-          <div>300+ properties</div>
+          <div>100+ activities</div>
           <div>
             <strong>
               How our sort order works{" "}
