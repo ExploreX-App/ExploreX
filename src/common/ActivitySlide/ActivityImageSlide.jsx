@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaMedal, FaImage } from 'react-icons/fa';
 import './ActivityImageSlide.style.css';
+import HeartIcon from '../HeartIcon/HeartIcon';
 
 const ActivityImageSlide = ({ data }) => {
   if (!data?.pictures || data?.pictures?.length === 0) {
@@ -28,9 +29,7 @@ const ActivityImageSlide = ({ data }) => {
       </div>
 
       {/* 버튼 추가 */}
-      <button className='more-images-btn'>
-        <FaImage className='ico-img' /> More images
-      </button>
+      <HeartIcon />
 
       <div className='overlay'>
         <h2 className='overlay-title'>{data?.name || 'Activity Title'}</h2>
