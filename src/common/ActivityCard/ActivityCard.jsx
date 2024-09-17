@@ -60,9 +60,9 @@ const ActivityCard = ({ item }) => {
         </div>
 
         <div className="review-hours d-flex align-items-center">
-          <div className="activitycard-review-wrap">
+          <div className="activitycard-review-wrap align-items-center">
             <div className="activitycard-score">{item?.rating}</div>
-            <div className="activitycard-review text-nowrap">
+            <div className="activitycard-review">
               {item?.reviews} reviews
             </div>
           </div>

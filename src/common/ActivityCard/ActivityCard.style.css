@@ -54,27 +54,29 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  align-items: center !important;
 }
 .activitycard-review-wrap {
   display: flex;
+  align-items: center !important;
+  gap: 5px;
+  /* text-align: center; */
 }
 .activitycard-score {
   background-color: #318aff;
   color: white;
-  width: 35px;
-  height: 20px;
+  /* width: 35px; */
+  /* height: 20px; */
+  padding: 3px 6px;
   border-radius: 5px;
   font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  align-self: center !important;
 }
 
-.activitycard-review {
-  font-size: 12px;
-  margin-left: 5px;
-  color: rgb(52, 52, 52);
-}
+
 .activitycard-hours {
   font-size: 14px;
   font-weight: 600;
@@ -82,14 +84,20 @@
   align-items: center;
 }
 
+.text-nowrap{
+  line-height: 0;
+  margin: 0;
+  
+}
 .activitycard-price {
   font-size: 25px;
   font-weight: 700;
   display: flex;
   justify-content: end;
 }
-.text-nowrap{
-  line-height: 0;
-  margin: 0;
-  
+.activitycard-review {
+  font-size: 12px;
+  /* margin-left: 5px; */
+  color: rgb(52, 52, 52);
+  text-wrap: nowrap;
 }
