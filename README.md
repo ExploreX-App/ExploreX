@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# ExploreX
+
+ExploreX is a travel booking and activity management platform built using React. This project was developed by a team of five as a group project. The application integrates multiple APIs to provide users with seamless hotel searches, activity browsing, and personalized trip management, all in one place.
+![ExploreX Demo](./src/assets/demo.gif)
+
+## Demo
+
+> https://explorex-9.netlify.app/
+
+## Features
+
+- **User Authentication**: User login is handled by saving session data in local storage.
+- **Hotel Search**: 
+  - Search for hotels based on location with sorting and pagination.
+  - Hotel sorting options include:
+    - Top picks for long stays
+    - Price (Lowest First)
+    - Distance from City Centre
+    - Best Reviewed First
+    - Property rating (5 to 0)
+    - Entire homes & apartments first
+  - View detailed hotel information, including user reviews, photos, nearby hotel information, and hotel amenities.
+  - Select a room from available options.
+- **Room Selection & Booking**: 
+  - After selecting a room, users are redirected to the booking page.
+  - Input user details and payment information on the booking page.
+  - Stripe is used to build the payment section, although actual payments are not processed (the payment system is not fully implemented).
+  - Reservations are saved in the "upcoming reservations" section of the user's profile.
+- **Activity Search**: 
+  - Explore activities at your destination, sortable by type and popularity, with pagination.
+  - Favorite activities to save them to your profile for later reference.
+- **Hotel Booking Management**: Users can book hotels, and their reservations are saved in their profile under "upcoming reservations."
+- **Activity Favoriting**: Users can mark activities as favorites, which are stored in their profile.
+
+## APIs Used
+
+- **Google Maps API**: 
+  - Integrated for location search and auto-completing region names.
+  - Map display for visualizing the search area.
+- **Amadeus API**: 
+  - Provides activity data, such as popular things to do in various regions.
+- **Booking.com API**: 
+  - Fetches hotel data, including availability, pricing, amenities, and additional details for each hotel.
+- **Stripe API**: 
+  - Used to create the payment section in the booking flow (no actual payment processing).
+
+## Technologies
+
+- **Frontend**: 
+  - React.
+  - Bootstrap for responsive design.
+- **APIs**: Google Maps, Amadeus, Booking.com, Stripe.
+- **Data Fetching and Caching**: React Query for efficient data fetching and caching.
+- **UI Components**: React Bootstrap.
+
+## Getting Started with ExploreX
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.  
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Environment Variables
 
-### `npm test`
+To run the project locally, you'll need to set up the following environment variables by creating a `.env` file in the root directory and adding your own API keys:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```env
+REACT_APP_AMADEUS_API_ID=your_amadeus_api_id
+REACT_APP_AMADEUS_API_SECRET=your_amadeus_api_secret
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+REACT_APP_HOTEL_API_KEY=your_hotel_api_key
+```
 
-### `npm run build`
+### `npm install`
 
-Builds the app for production to the `build` folder.\
+Installs all necessary dependencies.
+
+### `npm build`
+
+Builds the app for production to the `build` folder.  
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How It Works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Login**: User session data is stored in local storage for managing authentication.
+- **Hotel Search**: Users search for hotels by location. Results can be sorted by price, rating, distance, etc. Pagination allows users to easily browse through large sets of data.
+- **Room Selection & Booking**: After selecting a hotel room, users are redirected to the booking page to input user and payment details (Stripe integration used for payment, but no actual transaction processing). Reservations are stored in the profile under "upcoming reservations."
+- **Activity Search**: Users can explore activities by location, with similar sorting and pagination functionalities.
+- **Profile**: Logged-in users can save hotel bookings and favorited activities to their profiles, which can be accessed at any time.
 
-### `npm run eject`
+## Future Improvements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **User Reviews**: Allow users to leave reviews for hotels and activities.
+- **Complete Payment Integration**: Implement full payment processing through Stripe.
+- **Wishlist Sharing**: Enable users to share their favorite activities and booked hotels with friends.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
